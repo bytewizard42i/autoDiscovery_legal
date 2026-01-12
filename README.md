@@ -50,7 +50,7 @@ AutoDiscovery is an automated legal discovery workflow platform built on [Midnig
 
 ## Team
 
-- **Ghost (SpyCrypto)** — Retired Naval Paralegal, Domain Expert
+- **Spy (SpyCrypto)** — Retired Naval Paralegal, Domain Expert
 - **John (bytewizard42i)** — Developer, Midnight Builder
 
 ---
