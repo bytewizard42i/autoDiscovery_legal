@@ -79,7 +79,7 @@ npm run dev:frontend
 
 ## Team
 
-- **Spy ([@SpyCrypto](https://github.com/SpyCrypto))** — Retired Naval Paralegal, Domain Expert
+- **Spy ([@SpyCrypto](https://github.com/SpyCrypto))** — Retired Paralegal, Domain Expert
 - **John ([@bytewizard42i](https://github.com/bytewizard42i))** — Developer, Midnight Builder
 
 ---
