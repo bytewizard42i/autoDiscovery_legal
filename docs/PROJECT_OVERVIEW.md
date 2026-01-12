@@ -211,7 +211,7 @@ AutoDiscovery handles jurisdiction-specific:
 
 | Member | Role | GitHub |
 |--------|------|--------|
-| **Spy** | Domain Expert (Retired Naval Paralegal) | [@SpyCrypto](https://github.com/SpyCrypto) |
+| **Spy** | Domain Expert (Retired Paralegal) | [@SpyCrypto](https://github.com/SpyCrypto) |
 | **John** | Developer, Midnight Builder | [@bytewizard42i](https://github.com/bytewizard42i) |
 
 ---
