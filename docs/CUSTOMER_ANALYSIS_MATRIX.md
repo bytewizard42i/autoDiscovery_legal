@@ -21,7 +21,7 @@ AutoDiscovery targets **legal professionals** who manage discovery workflows and
 | **Profession** | Paralegals, Litigation Support Specialists | Solo/Small Firm Attorneys |
 | **Age Range** | 30-55 | 35-60 |
 | **Gender** | ~75% Female (paralegals), ~60% Male (attorneys) | Mixed |
-| **Geography** | Idaho, Utah, Washington (Phase 1); expanding to Federal courts | US nationwide |
+| **Geography** | Idaho, Utah, Washington, NYC, California (Phase 1); expanding to Federal courts | US nationwide |
 | **Income Range** | $45K-$75K (paralegals); $80K-$250K+ (attorneys) | Varies by firm size |
 | **Digital Literacy** | Moderate-High; familiar with legal software (Clio, PracticePanther, Westlaw) | Moderate; may resist new tools |
 | **Firm Size** | Small-to-mid firms (2-50 attorneys) | Solo practitioners |
@@ -71,6 +71,8 @@ Current workflows are **fragmented and manual**. AutoDiscovery consolidates thes
 | **Idaho** | IRCP (Idaho Rules of Civil Procedure) | Unique local rules; shorter timelines for some disclosures | Medium |
 | **Utah** | URCP (Utah Rules of Civil Procedure) | Tiered discovery based on case value; mandatory initial disclosures | High |
 | **Washington** | CR (Civil Rules) | E-discovery protocols; specific meet-and-confer requirements | High |
+| **New York** | CPLR (Civil Practice Law and Rules) | Commercial Division rules; aggressive timelines | Very High |
+| **California** | CCP (Code of Civil Procedure) | Complex proportionality rules; extensive e-discovery requirements | Very High |
 | **Federal** | FRCP (Federal Rules of Civil Procedure) | Uniform but complex; Rule 26 mandatory disclosures | Very High |
 
 ### Privacy Regulations Affecting Discovery
@@ -132,6 +134,12 @@ The top pain points carry **career-ending consequences**. AutoDiscovery directly
 ---
 
 ## 7. Strategic Vision — Blockchain Legitimization
+
+### The Core Questions
+
+> *"What if blockchain could earn the trust of the legal system?"*
+>
+> *"And if it did—how might that affect the overall perception of blockchain?"*
 
 ### The Bigger Picture
 

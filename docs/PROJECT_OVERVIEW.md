@@ -129,6 +129,8 @@ AutoDiscovery/
 | **Idaho** | IRCP (Idaho Rules of Civil Procedure) | High | Spy's primary jurisdiction |
 | **Utah** | URCP (Utah Rules of Civil Procedure) | High | Adjacent state comparison |
 | **Washington** | CR (Civil Rules) | High | Pacific Northwest coverage |
+| **New York** | CPLR (Civil Practice Law and Rules) | High | Major market, complex rules |
+| **California** | CCP (Code of Civil Procedure) | High | Largest state market |
 
 ### Workflow Mapping Strategy
 
@@ -194,7 +196,7 @@ AutoDiscovery handles jurisdiction-specific:
 - [ ] Proof-of-concept compliance attestation
 
 ### Phase 2: Multi-Jurisdiction
-- [ ] Utah + Washington rule packs
+- [ ] Utah, Washington, NYC, California rule packs
 - [ ] GeoOracle prototype integration
 - [ ] Jurisdiction comparison view
 - [ ] Workflow forking based on location
@@ -272,12 +274,23 @@ npm run dev:frontend
 
 ---
 
+## Potential Collaborators
+
+| Partner | Role | Notes |
+|---------|------|-------|
+| **Charli3 Oracles** | GeoOracle Infrastructure | May build the privacy-preserving geographical oracle layer |
+| **OpenZeppelin** | Smart Contract Security | Compact contract templates and security patterns |
+| **NMKR** | NFT/Token Infrastructure | Potential integration for compliance credential tokens |
+
+---
+
 ## Resources
 
 - [Midnight Docs](https://docs.midnight.network/)
 - [MeshJS Midnight Starter](https://github.com/MeshJS/midnight-starter-template)
 - [Midnight Awesome dApps](https://github.com/midnightntwrk/awesome-midnight-dapps)
 - [OpenZeppelin Compact Contracts](https://github.com/OpenZeppelin/compact-contracts)
+- [Charli3 Oracles](https://charli3.io/)
 
 ---
 
