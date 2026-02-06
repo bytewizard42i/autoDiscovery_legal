@@ -1,298 +1,691 @@
-# AutoDiscovery — Customer Analysis Matrix
+<div align="center">
 
-> **Midnight Build Club Week 1 Homework**  
-> **Project:** AutoDiscovery.legal  
-> **Team:** Spy ([@SpyCrypto](https://github.com/SpyCrypto)) & John ([@bytewizard42i](https://github.com/bytewizard42i))
+# AUTODISCOVERY
 
----
+### Customer Analysis Matrix
 
-## Executive Summary
-
-AutoDiscovery targets **legal professionals** who manage discovery workflows and face jurisdiction-specific compliance requirements. The primary pain point is the risk of sanctions, dismissed cases, or suppressed evidence due to discovery non-compliance across varying state and federal rules.
-
-**Strategic Vision:** If adopted, AutoDiscovery will **legitimize blockchain as part of the legal system**. Once courts accept ZK proofs as factual record, no other industry can question blockchain's validity — opening the door for healthcare, finance, and government adoption.
+**Midnight Build Club — Cohort 1**
 
 ---
 
-## 1. Target Demographics
-
-| Attribute | Primary Segment | Secondary Segment |
-|-----------|-----------------|-------------------|
-| **Profession** | Paralegals, Litigation Support Specialists | Solo/Small Firm Attorneys |
-| **Age Range** | 30-55 | 35-60 |
-| **Gender** | ~75% Female (paralegals), ~60% Male (attorneys) | Mixed |
-| **Geography** | Idaho, Utah, Washington, NYC, California (Phase 1); expanding to Federal courts | US nationwide |
-| **Income Range** | $45K-$75K (paralegals); $80K-$250K+ (attorneys) | Varies by firm size |
-| **Digital Literacy** | Moderate-High; familiar with legal software (Clio, PracticePanther, Westlaw) | Moderate; may resist new tools |
-| **Firm Size** | Small-to-mid firms (2-50 attorneys) | Solo practitioners |
-| **Practice Areas** | Medical malpractice, personal injury, general civil litigation | Contract disputes, employment law |
-
-### Key Insight
-Paralegals are often the **daily operators** of discovery workflows, while attorneys are the **decision-makers** for tool adoption. Marketing must address both.
+*GeoOracle Auto Compliance: build once, comply everywhere.*
 
 ---
 
-## 2. Psychographics
+**Team**
 
-| Dimension | Characteristics |
-|-----------|-----------------|
-| **Privacy Attitudes** | High concern for client confidentiality; bound by attorney-client privilege and ethical rules |
-| **Risk Perception** | Acutely aware of malpractice liability; fear of sanctions, bar complaints, and case dismissal |
-| **Motivations** | Reduce compliance burden, avoid errors, protect reputation, serve clients effectively |
-| **Values** | Accuracy, thoroughness, professionalism, ethical practice, efficiency |
-| **Tech Adoption** | Cautiously progressive; will adopt if ROI is clear and learning curve is manageable |
-| **Trust Factors** | Requires proof of security, compliance certifications, peer recommendations |
+**Spy** — Domain Expert · 20-Year Complex Litigation Paralegal · Published Government Researcher
+**John** — Developer · Midnight Builder · Blockchain Architect
 
-### Key Insight
-Legal professionals are **risk-averse by training**. AutoDiscovery must emphasize **immutable compliance proofs** and **audit trails** as liability protection.
+[@SpyCrypto](https://github.com/SpyCrypto) · [@bytewizard42i](https://github.com/bytewizard42i)
 
 ---
 
-## 3. Behavioral Traits
+</div>
 
-| Behavior | Current State | Pain Point |
-|----------|---------------|------------|
-| **Jurisdiction Lookup** | Manual research via Westlaw, state court websites, or internal checklists | Time-consuming; error-prone; rules change frequently |
-| **Discovery Calendaring** | Spreadsheets, Outlook, or case management software | Missed deadlines lead to sanctions |
-| **Compliance Documentation** | Paper files, PDFs, email chains | Hard to prove compliance was followed; no audit trail |
-| **Multi-Jurisdiction Cases** | Ad-hoc handling; senior attorneys or paralegals with experience | Complexity multiplies; knowledge silos |
-| **Expert Witness Management** | Manual W-9/I-9 collection, SOC documentation | Compliance gaps; last-minute scrambles |
-| **Privacy Tool Usage** | Encrypted email (sometimes); secure portals (rare) | HIPAA/privilege concerns often addressed reactively |
+## The One-Liner
 
-### Key Insight
-Current workflows are **fragmented and manual**. AutoDiscovery consolidates these into a single, jurisdiction-aware platform.
+> **AutoDiscovery turns the most adversarial, evidence-demanding environment on earth — the courtroom — into the proving ground for Midnight's privacy-preserving blockchain.**
 
 ---
 
-## 4. Geographical Insights — Regulatory Landscape
+## I. THE PROBLEM LANDSCAPE
 
-| Jurisdiction | Rules | Key Differences | Regulation Intensity |
-|--------------|-------|-----------------|---------------------|
-| **Idaho** | IRCP (Idaho Rules of Civil Procedure) | Unique local rules; shorter timelines for some disclosures | Medium |
-| **Utah** | URCP (Utah Rules of Civil Procedure) | Tiered discovery based on case value; mandatory initial disclosures | High |
-| **Washington** | CR (Civil Rules) | E-discovery protocols; specific meet-and-confer requirements | High |
-| **New York** | CPLR (Civil Practice Law and Rules) | Commercial Division rules; aggressive timelines | Very High |
-| **California** | CCP (Code of Civil Procedure) | Complex proportionality rules; extensive e-discovery requirements | Very High |
-| **Federal** | FRCP (Federal Rules of Civil Procedure) | Uniform but complex; Rule 26 mandatory disclosures | Very High |
+### A World of Fragmented Rules
 
-### Privacy Regulations Affecting Discovery
-
-| Regulation | Impact on Discovery |
-|------------|---------------------|
-| **HIPAA** | Medical records in malpractice cases require strict handling |
-| **State Privacy Laws** | Varying PII protection requirements |
-| **Attorney-Client Privilege** | Must be logged and protected during disclosure |
-| **Work Product Doctrine** | Must identify and exclude from production |
-
-### Key Insight
-**No single tool today handles jurisdiction-aware compliance automatically.** This is AutoDiscovery's core value proposition.
-
----
-
-## 5. Problem Intensity Ranking
-
-| Pain Point | Intensity (1-10) | Frequency | Consequence of Failure |
-|------------|------------------|-----------|------------------------|
-| **Missing discovery deadlines** | 10 | Weekly | Sanctions, case dismissal, malpractice |
-| **Applying wrong jurisdiction's rules** | 9 | Monthly | Evidence suppression, retrials |
-| **Incomplete mandatory disclosures** | 9 | Per-case | Adverse inference, sanctions |
-| **Privilege log errors** | 8 | Per-case | Waiver of privilege |
-| **Expert witness compliance gaps** | 7 | Per-case | Expert testimony excluded |
-| **No audit trail for compliance** | 7 | Ongoing | Cannot prove good faith compliance |
-| **E-discovery spoliation** | 8 | Occasional | Severe sanctions, adverse judgment |
-| **Multi-jurisdiction complexity** | 8 | Case-dependent | Compounded errors |
-
-### Key Insight
-The top pain points carry **career-ending consequences**. AutoDiscovery directly addresses the highest-intensity problems.
-
----
-
-## 6. Privacy Opportunity Fit
-
-| Opportunity | How AutoDiscovery Delivers |
-|-------------|---------------------------|
-| **Increases Trust** | Immutable ZK proofs create verifiable compliance records that courts can trust |
-| **Reduces Risk** | Automated jurisdiction detection eliminates human error in rule application |
-| **Opens New Value** | Compliance proofs can be entered as factual court record — unprecedented in legal tech |
-| **Selective Disclosure** | Reveal only what opposing counsel needs; prove the rest without exposing sensitive data |
-| **Audit Trail** | Every action logged immutably; demonstrates good faith compliance |
-| **Client Confidence** | Clients know their sensitive information is handled with blockchain-grade security |
-
-### Why Midnight?
-
-| Midnight Feature | Legal Benefit |
-|------------------|---------------|
-| **Privacy-preserving blockchain** | Sensitive case data stays confidential |
-| **Zero-knowledge proofs** | Prove compliance without revealing underlying documents |
-| **Selective disclosure** | Share only what's required by discovery rules |
-| **Immutable records** | Compliance attestations cannot be altered or disputed |
-| **GeoOracle (future)** | Automatic jurisdiction detection — "build once, comply everywhere" |
-
-### Key Insight
-**No privacy-preserving geographical oracle exists today.** AutoDiscovery + GeoOracle creates a prerequisite infrastructure layer for any location-aware compliance system.
-
----
-
-## 7. Strategic Vision — Blockchain Legitimization
-
-### The Core Questions
-
-> *"What if blockchain could earn the trust of the legal system?"*
->
-> *"And if it did—how might that affect the overall perception of blockchain?"*
-
-### Why Precedent Is Everything
-
-Courts guard precedent fiercely because they understand its power. A real example:
-
-> *In a collections case, the plaintiff needed to prove the defendant wasn't on active military duty during non-payment (required by the Servicemembers Civil Relief Act). In court, he asked the judge: "Could you simply ask the defendant under oath if they were on active duty during that period?"*
->
-> *The judge refused, calling the suggestion "slippery." Why? Because allowing testimony under oath to substitute for proper due diligence would set a precedent—one with far-reaching implications for every future case.*
-
-**The inverse is equally true:** When courts *do* accept something, that acceptance becomes precedent that binds all future proceedings.
-
-### The Bigger Picture
-
-AutoDiscovery isn't just a legal tool — it's a **catalyst for blockchain adoption** across all regulated industries.
-
-**Why courts matter:**
-- Courts are the **ultimate arbiters of truth and evidence**
-- If a blockchain-based system is accepted as **factual court record**, it cannot be questioned
-- Legal adoption creates precedent that cascades to other industries
-- **A judge who rejects shortcuts for fear of bad precedent will equally enforce good precedent once established**
-
-### The Legitimization Chain
+Legal discovery — the pre-trial exchange of evidence — is one of the most error-prone, high-stakes processes in the US legal system. Every jurisdiction writes its own rulebook.
 
 ```
-Courts Accept ZK Proofs as Factual Record
-            ↓
-Legal Industry Adopts Blockchain Compliance
-            ↓
-Healthcare, Finance, Government Follow
-            ↓
-Blockchain Becomes Standard for Compliance Everywhere
+                    ┌─────────────────────────────────┐
+                    │     DISCOVERY RULE UNIVERSE      │
+                    └─────────────────────────────────┘
+                                   │
+            ┌──────────────────────┼──────────────────────┐
+            ▼                      ▼                      ▼
+     ┌─────────────┐       ┌─────────────┐       ┌─────────────┐
+     │   FEDERAL    │       │    STATE     │       │ SPECIALIZED │
+     │    FRCP      │       │  50 unique   │       │ Bankruptcy, │
+     │  (uniform)   │       │  rule sets   │       │ Family, etc │
+     └─────────────┘       └─────────────┘       └─────────────┘
+                                   │
+                    ┌──────────────┼──────────────┐
+                    ▼              ▼              ▼
+              ┌──────────┐  ┌──────────┐  ┌──────────┐
+              │  Idaho   │  │   Utah   │  │   Wash   │
+              │  IRCP    │  │   URCP   │  │    CR    │
+              │ unique   │  │  tiered  │  │ e-disc   │
+              │ timelines│  │ by value │  │ protocols│
+              └──────────┘  └──────────┘  └──────────┘
 ```
 
-### Multi-Jurisdictional Automated Compliance = Proof of Concept
+An attorney handling a medical malpractice case in Boise follows completely different discovery rules than one in Salt Lake City — different deadlines, different disclosure requirements, different expert witness designation procedures. Get any of them wrong, and the consequences are severe.
 
-If AutoDiscovery achieves:
-- **Automated compliance** across Idaho, Utah, Washington, and Federal rules
-- **Immutable discovery management** accepted by courts
-- **ZK proofs** entered as evidence
+### What Failure Looks Like — Real Cases
 
-...then **no other industry can question blockchain's legitimacy**. The legal system's stamp of approval is the highest bar.
+| Case | What Went Wrong | Consequence |
+|------|----------------|-------------|
+| *Zubulake v. UBS Warburg* (S.D.N.Y. 2004) | Failure to preserve electronic evidence during discovery | Adverse inference instruction; $29M verdict |
+| *Qualcomm v. Broadcom* (S.D. Cal. 2008) | Withheld 46,000+ discoverable documents | $8.5M in sanctions; 6 attorneys referred to State Bar |
+| *Pennypack Woods v. Narberth* (3d Cir.) | Destroyed evidence after duty to preserve arose | Case-dispositive sanctions |
+| *City of LA v. PricewaterhouseCoopers* (Cal. 2022) | Egregious discovery abuse | Post-dismissal sanctions upheld on appeal |
 
-### Why This Matters
+These are not edge cases. **67% of federal judges** report having sanctioned attorneys for discovery violations (Federal Judicial Center survey). The problem is systemic.
 
-| Impact | Description |
-|--------|-------------|
-| **First-mover advantage** | First privacy-preserving blockchain accepted in US courts |
-| **Regulatory precedent** | Court acceptance creates legal framework for other jurisdictions |
-| **Enterprise adoption catalyst** | Healthcare, finance, insurance will adopt what courts trust |
-| **Midnight ecosystem growth** | AutoDiscovery becomes a reference implementation |
+### The Cost of Getting It Wrong
 
-### The Opportunity
-
-> *"If blockchain can survive the scrutiny of the legal system — the most adversarial, evidence-demanding environment — it can survive anywhere."*
-
-AutoDiscovery positions Midnight as the **trust infrastructure** for regulated industries worldwide.
-
----
-
-## 8. Customer Personas
-
-### Persona 1: Sarah — Senior Paralegal
-
-| Attribute | Detail |
-|-----------|--------|
-| **Age** | 42 |
-| **Role** | Senior Litigation Paralegal at a 15-attorney firm |
-| **Location** | Boise, Idaho |
-| **Experience** | 18 years in medical malpractice litigation |
-| **Daily Tasks** | Managing discovery calendars, drafting discovery requests/responses, privilege log maintenance |
-| **Tech Stack** | Clio, Westlaw, Microsoft Office, Adobe Acrobat |
-| **Pain Points** | Keeping up with rule changes; managing multi-state cases; proving compliance to supervising attorneys |
-| **Goals** | Reduce errors, protect her reputation, help attorneys avoid malpractice |
-| **Quote** | *"I spend hours researching which rules apply. One missed deadline could end a case—and my career."* |
-
-### Persona 2: Mark — Solo Practitioner Attorney
-
-| Attribute | Detail |
-|-----------|--------|
-| **Age** | 52 |
-| **Role** | Solo practice attorney handling personal injury and contract disputes |
-| **Location** | Salt Lake City, Utah |
-| **Experience** | 25 years; formerly at a large firm |
-| **Daily Tasks** | Court appearances, client meetings, all discovery work (no paralegal) |
-| **Tech Stack** | MyCase, minimal legal research tools |
-| **Pain Points** | No staff to manage discovery; overwhelmed by tiered discovery rules in Utah |
-| **Goals** | Streamline compliance to focus on client work; avoid bar complaints |
-| **Quote** | *"I know the law, but keeping track of every procedural deadline across cases is a nightmare."* |
-
-### Persona 3: David — Litigation Partner
-
-| Attribute | Detail |
-|-----------|--------|
-| **Age** | 48 |
-| **Role** | Partner at a regional firm with offices in ID, UT, and WA |
-| **Location** | Spokane, Washington |
-| **Experience** | 22 years; supervises 8 associates and 4 paralegals |
-| **Daily Tasks** | Case strategy, client development, reviewing discovery produced by team |
-| **Tech Stack** | NetDocuments, Relativity (e-discovery), Westlaw |
-| **Pain Points** | Ensuring consistency across three jurisdictions; liability for team's compliance errors |
-| **Goals** | Firm-wide compliance standardization; reduce malpractice insurance costs |
-| **Quote** | *"We need one system that handles ID, UT, and WA rules. I can't have three different workflows."* |
+```
+╔══════════════════════════════════════════════════════════════════╗
+║                    DISCOVERY FAILURE CASCADE                     ║
+╠══════════════════════════════════════════════════════════════════╣
+║                                                                  ║
+║   Wrong Jurisdiction Rules Applied                               ║
+║        │                                                         ║
+║        ├──▶ Missed Disclosure Deadline                           ║
+║        │        │                                                ║
+║        │        ├──▶ Evidence Suppressed                         ║
+║        │        │        │                                       ║
+║        │        │        └──▶ Case Dismissed or Lost             ║
+║        │        │                   │                            ║
+║        │        │                   └──▶ Malpractice Suit        ║
+║        │        │                           │                    ║
+║        │        │                           └──▶ Bar Complaint   ║
+║        │        │                                   │            ║
+║        │        │                                   └──▶ Career  ║
+║        │        │                                        Over    ║
+║        │        └──▶ Sanctions ($10K - $8.5M+)                   ║
+║        │                                                         ║
+║        └──▶ Privilege Waived (irrevocable)                       ║
+║                                                                  ║
+╚══════════════════════════════════════════════════════════════════╝
+```
 
 ---
 
-## 9. Market Opportunity
+## II. WHO FEELS THIS PAIN
 
-### TAM / SAM / SOM
+### The Discovery Workflow Chain
 
-| Metric | Estimate | Notes |
-|--------|----------|-------|
-| **TAM** (Total Addressable Market) | ~$5B | US legal technology market |
-| **SAM** (Serviceable Addressable Market) | ~$500M | Litigation support & discovery tools segment |
-| **SOM** (Serviceable Obtainable Market) | ~$10M | Small/mid firms in ID, UT, WA handling civil litigation (Phase 1) |
+Three roles touch discovery daily. Each experiences the problem differently — and each must be convinced differently.
 
-### Competitive Landscape
+```
+┌──────────────────────────────────────────────────────────────────┐
+│                    DECISION-MAKING CHAIN                         │
+│                                                                  │
+│   PARALEGAL              ASSOCIATE              PARTNER          │
+│   ─────────              ─────────              ───────          │
+│   Does the work          Reviews the work       Bears the risk   │
+│   Wants: speed,          Wants: accuracy,       Wants: firm-wide │
+│   fewer errors           less rework            standardization  │
+│                                                                  │
+│   ● Daily user           ● Approver             ● Budget holder  │
+│   ● Evangelist           ● Quality gate         ● Decision maker │
+│   ● Bottom-up            ● Middle-out           ● Top-down       │
+│     adoption               validation             purchase       │
+└──────────────────────────────────────────────────────────────────┘
+```
 
-| Competitor | What They Do | Gap AutoDiscovery Fills |
-|------------|--------------|------------------------|
-| **Relativity** | E-discovery document review | No jurisdiction-aware compliance; enterprise pricing |
-| **Logikcull** | E-discovery automation | No multi-jurisdiction rule sets |
-| **CaseText / Westlaw** | Legal research | Passive research, not active compliance enforcement |
-| **Clio / MyCase** | Practice management | Basic calendaring; no automated rule application |
+### Target Segments
 
-**None offer:** Privacy-preserving compliance proofs, automatic jurisdiction detection, or immutable audit trails.
+| Attribute | Segment A: Paralegals | Segment B: Solo/Small Firm Attorneys | Segment C: Regional Firm Partners |
+|-----------|----------------------|-------------------------------------|-----------------------------------|
+| **Size** | ~350,000 in US | ~350,000 solo; ~160,000 small firm | ~50,000 at multi-office firms |
+| **Age** | 30–55 | 35–60 | 40–65 |
+| **Income** | $45K–$75K | $80K–$250K+ | $200K–$1M+ |
+| **Jurisdiction exposure** | 1–2 states | 1–3 states | 2–5+ states |
+| **Tech comfort** | High (daily Clio, Westlaw, Relativity) | Moderate (MyCase, basic tools) | Low–Moderate (delegates tech) |
+| **Purchase authority** | Recommender | Self (solo) or Recommender | Final decision maker |
+| **Key motivation** | Reduce errors, protect reputation | Save time, avoid bar complaints | Reduce liability, cut insurance |
+| **Adoption path** | Tries it → shows attorney | Finds it → adopts immediately | Paralegal recommends → approves |
+
+### Psychographic Profile: The Legal Mind
+
+| Dimension | Implication for AutoDiscovery |
+|-----------|-------------------------------|
+| **Risk-averse by training** | Position as liability *reduction*, not innovation |
+| **Precedent-driven** | Show existing legal tech adoption curves; cite court acceptance |
+| **Skeptical of hype** | Never say "blockchain" first — lead with compliance, reveal infrastructure later |
+| **Peer-influenced** | One bar association endorsement > 100 ads |
+| **Ethically bound** | Confidentiality isn't optional — it's a professional obligation (ABA Model Rules 1.6) |
 
 ---
 
-## 10. Validation Next Steps
+## III. CUSTOMER PERSONAS
 
-- [ ] **Interview 3-5 paralegals** in Idaho to validate pain points
-- [ ] **Interview 2-3 solo attorneys** in Utah re: tiered discovery burden
-- [ ] **Research 5 case studies** of discovery sanctions/dismissals
-- [ ] **Map Idaho IRCP** discovery workflow in Miro
-- [ ] **Identify early adopter firms** for beta testing
+### Sarah — Senior Paralegal
+
+```
+┌────────────────────────────────────────────────────────────────┐
+│  SARAH CHEN  ·  Senior Litigation Paralegal  ·  Boise, Idaho  │
+├────────────────────────────────────────────────────────────────┤
+│                                                                │
+│  Age: 42        Firm: 15-attorney med-mal practice             │
+│  Experience: 18 years complex litigation                       │
+│  Tools: Clio, Westlaw, Adobe Acrobat, Outlook                  │
+│                                                                │
+│  DAILY REALITY                                                 │
+│  ────────────                                                  │
+│  6:30 AM  Check IRCP deadlines against case calendar           │
+│  8:00 AM  Draft discovery responses for 3 active cases         │
+│  10:00 AM  Research Utah URCP — new multi-state case           │
+│  1:00 PM  Compile privilege log (manually, in Excel)           │
+│  3:00 PM  Chase down expert witness W-9 documentation          │
+│  5:00 PM  Double-check everything — one error is catastrophic  │
+│                                                                │
+│  "I spend hours researching which rules apply. One missed      │
+│   deadline could end a case — and my career."                  │
+│                                                                │
+│  WHAT SHE NEEDS                        WHAT SHE FEARS          │
+│  ─────────────────                     ────────────────         │
+│  ✓ Automated jurisdiction lookup       ✗ "New tech" that       │
+│  ✓ Deadline tracking she can trust       breaks mid-case       │
+│  ✓ Proof she followed the rules        ✗ Learning curve that   │
+│  ✓ One system for ID + UT + WA           slows her down        │
+│                                                                │
+└────────────────────────────────────────────────────────────────┘
+```
+
+### Mark — Solo Practitioner
+
+```
+┌────────────────────────────────────────────────────────────────┐
+│  MARK REEVES  ·  Solo Attorney  ·  Salt Lake City, Utah       │
+├────────────────────────────────────────────────────────────────┤
+│                                                                │
+│  Age: 52        Practice: PI + contract disputes               │
+│  Experience: 25 years (formerly BigLaw)                        │
+│  Tools: MyCase, minimal research tools                         │
+│                                                                │
+│  "I know the law. But keeping track of every procedural        │
+│   deadline across 15 active cases — with no paralegal —        │
+│   is a nightmare."                                             │
+│                                                                │
+│  UTAH-SPECIFIC PAIN                                            │
+│  ──────────────────                                            │
+│  Utah's tiered discovery (URCP Rule 26) assigns different      │
+│  disclosure levels based on case value:                        │
+│    Tier 1: <$50K   → Standard fact discovery only              │
+│    Tier 2: $50K-$300K → Expanded discovery                     │
+│    Tier 3: >$300K  → Extraordinary discovery                   │
+│  Mark handles cases across all three tiers simultaneously.     │
+│                                                                │
+│  CONVERSION TRIGGER: "It does the jurisdiction lookup for me?" │
+│                                                                │
+└────────────────────────────────────────────────────────────────┘
+```
+
+### David — Litigation Partner
+
+```
+┌────────────────────────────────────────────────────────────────┐
+│  DAVID OKAFOR  ·  Litigation Partner  ·  Spokane, Washington  │
+├────────────────────────────────────────────────────────────────┤
+│                                                                │
+│  Age: 48        Firm: Regional, offices in ID/UT/WA            │
+│  Supervises: 8 associates, 4 paralegals                        │
+│  Tools: NetDocuments, Relativity, Westlaw                      │
+│                                                                │
+│  "Three states. Three rule sets. Twelve people who could       │
+│   make a compliance error that I'm personally liable for."     │
+│                                                                │
+│  WHAT KEEPS HIM UP AT NIGHT          WHAT WOULD SELL HIM      │
+│  ────────────────────────────         ──────────────────        │
+│  • Associate applies WA rules         • "Reduces malpractice  │
+│    to an ID case                         insurance premiums"   │
+│  • Privilege accidentally waived       • "Immutable proof your │
+│  • No way to prove team followed         firm was compliant"   │
+│    correct procedures                  • "One workflow for all │
+│  • Malpractice insurance rising           three jurisdictions" │
+│                                                                │
+│  CONVERSION TRIGGER: "Our malpractice carrier gave us a        │
+│                       discount for using it."                  │
+│                                                                │
+└────────────────────────────────────────────────────────────────┘
+```
 
 ---
 
-## 11. Summary
+## IV. PAIN INTENSITY HEAT MAP
 
-AutoDiscovery addresses a **high-intensity, high-consequence problem** for legal professionals. The combination of:
+Each pain point scored on three axes: **severity** (career/case impact), **frequency** (how often it occurs), and **current solution gap** (how poorly existing tools address it).
 
-1. **Automated jurisdiction-aware compliance**
-2. **Immutable ZK proofs as court-admissible records**
-3. **Privacy-preserving selective disclosure**
+```
+                        SEVERITY ──────────────────────────▶
+                        Low                              Critical
+                    ┌─────────┬─────────┬─────────┬─────────┐
+         Rare       │         │         │         │ Privlg  │
+                    │         │         │         │ waiver  │
+                    ├─────────┼─────────┼─────────┼─────────┤
+  F      Occasional │         │         │ E-disc  │ Wrong   │
+  R                 │         │         │ spoltn  │ jurisd  │
+  E                 ├─────────┼─────────┼─────────┼─────────┤
+  Q      Monthly    │         │ Expert  │ Incmplt │ Multi-  │
+  U                 │         │ witness │ disclos │ jurisd  │
+  E                 ├─────────┼─────────┼─────────┼─────────┤
+  N      Weekly+    │         │         │ No audt │ Missed  │
+  C                 │         │         │ trail   │ deadlns │
+  Y                 └─────────┴─────────┴─────────┴─────────┘
 
-...creates a unique value proposition that no existing legal tech solution offers.
+  ■ Top-right quadrant = AutoDiscovery's primary targets
+  ■ Every item in the rightmost column can end a career
+```
 
-**Beyond legal tech:** Successful adoption legitimizes blockchain for all regulated industries. Courts accepting ZK proofs as factual record is the ultimate validation — no other industry will question what the legal system has approved.
+### Quantified Impact
 
-**Target customers are ready for this solution** — they just don't know it exists yet.
+| Pain Point | Annual Cost per Firm | Firms Affected | Market Pain |
+|------------|---------------------|----------------|-------------|
+| **Missed deadlines** | $50K–$500K (sanctions + lost cases) | ~40% of small/mid firms annually | $2B+ |
+| **Wrong jurisdiction rules** | $25K–$2M (retrials, malpractice) | ~15% of multi-state practices | $500M+ |
+| **No compliance audit trail** | $10K–$50K (insurance premium uplift) | Nearly all firms | $1B+ |
+| **Multi-jurisdiction complexity** | 200+ paralegal hours/year wasted | ~25% of firms handle multi-state | $750M+ |
 
 ---
 
-*Prepared for Midnight Build Club — Week 1 Homework*  
-*AutoDiscovery.legal — Privacy meets compliance.*
+## V. JURISDICTION DEEP DIVE
+
+### Phase 1 Target Matrix
+
+| | Idaho IRCP | Utah URCP | Washington CR | New York CPLR | California CCP |
+|---|:---:|:---:|:---:|:---:|:---:|
+| **Initial Disclosures** | Required | Required (tiered) | Required | Required | Required |
+| **Discovery Tiers** | No | Yes (3 tiers by $ value) | No | No | Proportionality rules |
+| **E-Discovery Protocol** | Basic | Moderate | Detailed | Aggressive | Extensive |
+| **Expert Designation** | 120 days pre-trial | Per tier schedule | 60 days pre-trial | CPLR §3101(d) | CCP §2034 |
+| **Privilege Log** | Required | Required | Required | Required (strict) | Required (strict) |
+| **Meet-and-Confer** | Informal | Required | Required (formal) | Required | Required (formal) |
+| **Sanctions Authority** | IRCP 37 | URCP 37 | CR 37 | CPLR §3126 | CCP §2023.030 |
+| **Regulation Intensity** | ●●○○○ | ●●●○○ | ●●●○○ | ●●●●○ | ●●●●● |
+
+### Why These Five First
+
+```
+  Idaho ──── Spy's home jurisdiction; deepest domain expertise
+    │
+    ├── Utah ──── Adjacent state; tiered rules create unique complexity
+    │
+    ├── Washington ──── Completes Pacific NW tri-state corridor
+    │
+    ├── New York ──── Largest litigation market; proves scalability
+    │
+    └── California ──── Most complex rules; ultimate stress test
+```
+
+### Privacy Regulations Intersecting Discovery
+
+| Regulation | Impact | AutoDiscovery Response |
+|------------|--------|------------------------|
+| **HIPAA** | Medical records in malpractice cases require strict handling | ZK proofs verify compliance without exposing PHI |
+| **Attorney-Client Privilege** | Must be identified, logged, and protected | Automated privilege detection + immutable log |
+| **Work Product Doctrine** | Must exclude from production | Selective disclosure — prove existence, withhold content |
+| **State Privacy Laws** | Varying PII protections by jurisdiction | GeoOracle loads jurisdiction-specific privacy rules |
+
+---
+
+## VI. COMPETITIVE LANDSCAPE
+
+### The Gap Nobody Has Filled
+
+```
+                   Jurisdiction-Aware ──────────────────────▶
+                   None                               Automated
+               ┌───────────┬───────────┬───────────┬───────────┐
+  Privacy      │           │           │           │           │
+  &  ZK        │           │           │           │   AUTO    │
+  Proofs       │           │           │           │ DISCOVERY │
+               ├───────────┼───────────┼───────────┼───────────┤
+               │           │           │ Westlaw   │           │
+  Research     │           │           │ CaseText  │           │
+  Only         │           │           │ (passive) │           │
+               ├───────────┼───────────┼───────────┼───────────┤
+               │           │ Clio      │           │           │
+  Basic        │           │ MyCase    │ Relativity│           │
+  Calendar     │           │           │ Logikcull │           │
+               ├───────────┼───────────┼───────────┼───────────┤
+               │ Manual    │           │           │           │
+  None         │ (Excel,   │           │           │           │
+               │ Outlook)  │           │           │           │
+               └───────────┴───────────┴───────────┴───────────┘
+```
+
+**AutoDiscovery occupies an empty quadrant.** No existing solution combines:
+- Automated jurisdiction detection
+- Privacy-preserving compliance proofs
+- Immutable audit trails admissible in court
+- Selective disclosure for opposing counsel
+
+| Competitor | Strengths | What They Lack |
+|------------|-----------|----------------|
+| **Relativity** | Market leader in e-discovery document review | Enterprise-only pricing ($150K+/yr); no jurisdiction automation |
+| **Logikcull** | Self-service e-discovery | No multi-jurisdiction rule engine; no privacy proofs |
+| **Westlaw / CaseText** | Best-in-class legal research | Passive — tells you the rules, doesn't enforce them |
+| **Clio / MyCase** | Practice management + basic calendaring | No compliance verification; no audit trail |
+| **Everchron** | Timeline & discovery management | No jurisdiction awareness; no blockchain layer |
+
+---
+
+## VII. THE MARKET
+
+### Legal Tech Is a $32B Industry — and Accelerating
+
+| Metric | Value | Source |
+|--------|-------|--------|
+| **Global Legal Tech Market (2025)** | $32.2B | Research Nester |
+| **Projected (2035)** | $77.7B | 9.2% CAGR |
+| **E-Discovery Segment** | Largest and fastest-growing | Fortune Business Insights |
+| **US Legal Tech Growth** | Leading globally due to AI/automation adoption | Grand View Research |
+
+### Our Addressable Market
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                                                                 │
+│  TAM  ─────────────────────────────────────────  $5.0B          │
+│  US legal technology market                                     │
+│                                                                 │
+│    SAM  ──────────────────────────────────  $500M                │
+│    Litigation support & discovery tools                         │
+│                                                                 │
+│      SOM  ────────────────────────  $10M                        │
+│      Small/mid firms in Phase 1                                 │
+│      jurisdictions (ID, UT, WA)                                 │
+│                                                                 │
+│        Beachhead  ────────  $1.5M                               │
+│        Med-mal firms in Idaho                                   │
+│        with multi-state cases                                   │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+### Revenue Model
+
+| Tier | Target | Pricing | Value Proposition |
+|------|--------|---------|-------------------|
+| **Solo** | Solo attorneys (Mark) | $99/mo | Jurisdiction automation for 1 state |
+| **Practice** | Small firms (Sarah's firm) | $399/mo | Multi-jurisdiction + team workflows |
+| **Enterprise** | Regional firms (David's firm) | $1,499/mo | Unlimited jurisdictions + compliance proofs + API |
+| **Compliance Proof** | Per-attestation (any tier) | $25/proof | ZK compliance proof for court submission |
+
+### Unit Economics (Year 2 Target)
+
+| Metric | Projection |
+|--------|------------|
+| **Beachhead customers** | 50 firms (Idaho med-mal) |
+| **Average Revenue per Firm** | $350/mo |
+| **Monthly Recurring Revenue** | $17,500 |
+| **Annual Recurring Revenue** | $210,000 |
+| **Compliance Proof Revenue** | $75,000/yr (est. 3,000 proofs) |
+| **Total Year 2 Revenue** | ~$285,000 |
+
+---
+
+## VIII. THE MIDNIGHT ADVANTAGE
+
+### Why This Can Only Be Built on Midnight
+
+| Requirement | Why Traditional Tech Fails | How Midnight Solves It |
+|-------------|---------------------------|------------------------|
+| **Prove compliance without revealing case details** | Public blockchains expose everything; databases can be altered | ZK proofs verify compliance while case data stays private |
+| **Create court-admissible records** | Databases can be edited; timestamps can be faked | Immutable ledger that courts can independently verify |
+| **Share only what opposing counsel needs** | Binary choice: share everything or nothing | Selective disclosure at the data field level |
+| **Detect jurisdiction automatically** | No privacy-preserving location oracle exists | GeoOracle — a new infrastructure primitive |
+| **Handle privileged information** | Any system that "sees" privileged data risks waiver | Zero-knowledge architecture never exposes raw content |
+
+### The GeoOracle: Infrastructure That Doesn't Exist Yet
+
+**No privacy-preserving geographical oracle exists today.** AutoDiscovery requires — and will catalyze the creation of — a new infrastructure layer.
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                     GEOORACLE ARCHITECTURE                      │
+├─────────────────────────────────────────────────────────────────┤
+│                                                                 │
+│  ┌──────────┐     ┌──────────────┐     ┌───────────────────┐   │
+│  │ Case     │────▶│  GeoOracle   │────▶│  Rule Pack        │   │
+│  │ Location │     │  (Privacy-   │     │  Loader           │   │
+│  │ Input    │     │  Preserving) │     │                   │   │
+│  └──────────┘     └──────────────┘     └───────────────────┘   │
+│                          │                       │              │
+│                          ▼                       ▼              │
+│              ┌─────────────────┐    ┌────────────────────────┐  │
+│              │ Proves location │    │ Loads correct rules:   │  │
+│              │ WITHOUT sharing │    │ • IRCP (Idaho)         │  │
+│              │ exact address   │    │ • URCP (Utah)          │  │
+│              │ or case details │    │ • CR (Washington)      │  │
+│              └─────────────────┘    │ • FRCP (Federal)       │  │
+│                                     └────────────────────────┘  │
+│                                                                 │
+│  Result: "This case follows Idaho IRCP rules"                   │
+│  Revealed: Nothing else about the case.                         │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+Potential infrastructure partner: **Charli3 Oracles** — already building oracle infrastructure in the Cardano/Midnight ecosystem.
+
+---
+
+## IX. THE BIGGER PICTURE — BLOCKCHAIN LEGITIMIZATION
+
+### The Precedent Thesis
+
+Courts guard precedent fiercely because they understand its power.
+
+> *In a collections case, the plaintiff asked the judge: "Could you simply ask the defendant under oath if they were on active military duty?" (required by the Servicemembers Civil Relief Act).*
+>
+> *The judge refused, calling the suggestion "slippery" — because allowing testimony to substitute for proper due diligence would set a precedent with far-reaching implications for every future case.*
+
+**The inverse is equally powerful.** Once a court accepts a ZK compliance proof as factual record, that acceptance becomes binding precedent.
+
+### The Legitimization Cascade
+
+```
+╔══════════════════════════════════════════════════════════════════╗
+║                                                                  ║
+║   STAGE 1 ──▶ Courts accept AutoDiscovery compliance proofs     ║
+║               as factual record in discovery disputes            ║
+║                           │                                      ║
+║   STAGE 2 ──▶ Legal precedent established:                      ║
+║               "ZK proofs are admissible evidence"                ║
+║                           │                                      ║
+║   STAGE 3 ──▶ Other legal applications adopt the pattern:       ║
+║               contract execution, title transfer, IP filing      ║
+║                           │                                      ║
+║   STAGE 4 ──▶ Regulated industries follow the courts:           ║
+║               healthcare (HIPAA), finance (SOX), insurance       ║
+║                           │                                      ║
+║   STAGE 5 ──▶ Midnight becomes the trust infrastructure         ║
+║               for compliance worldwide                           ║
+║                                                                  ║
+╚══════════════════════════════════════════════════════════════════╝
+```
+
+### Why Courts Are the Ultimate Proving Ground
+
+| Characteristic | Why It Matters |
+|----------------|----------------|
+| **Adversarial by design** | Both sides attack every piece of evidence — if ZK proofs survive cross-examination, they survive anything |
+| **Precedent-binding** | One ruling creates a template for thousands of future cases |
+| **Highest evidence bar** | Federal Rules of Evidence are the strictest standard for admissibility |
+| **Public trust anchor** | Society defers to courts on questions of truth and legitimacy |
+
+> *"If blockchain can survive the scrutiny of the legal system — the most adversarial, evidence-demanding environment on earth — it can survive anywhere."*
+
+---
+
+## X. GO-TO-MARKET STRATEGY
+
+### Phase 1: The Idaho Beachhead
+
+```
+Quarter    Action                                  Goal
+───────    ──────                                  ────
+Q2 2026    MVP launch — Idaho IRCP rules           5 beta firms
+           Medical malpractice focus
+           Spy's network as direct channel
+
+Q3 2026    Utah URCP + Washington CR added         15 firms
+           Bar association presentations
+           First compliance proof filed in court
+
+Q4 2026    Idaho State Bar CLE accreditation       40 firms
+           Partnership with 1 malpractice carrier
+           Case study: "Discovery sanctions avoided"
+
+Q1 2027    NY + CA rule packs                      100 firms
+           Federal FRCP integration
+           Enterprise tier launch
+```
+
+### Adoption Flywheel
+
+```
+                    ┌──────────────┐
+                    │   Paralegal  │
+                    │   discovers  │
+                    │  AutoDiscovery│
+                    └──────┬───────┘
+                           │
+                           ▼
+                    ┌──────────────┐
+                    │  Shows it to │───────────────┐
+                    │  supervising │               │
+                    │   attorney   │               │
+                    └──────┬───────┘               │
+                           │                       │
+                           ▼                       ▼
+                    ┌──────────────┐       ┌──────────────┐
+                    │   Attorney   │       │  Compliance  │
+                    │   adopts     │       │  proof filed  │
+                    │   firm-wide  │       │  in court     │
+                    └──────┬───────┘       └──────┬───────┘
+                           │                       │
+                           ▼                       ▼
+                    ┌──────────────┐       ┌──────────────┐
+                    │  Malpractice │       │   Precedent  │
+                    │  carrier     │       │   set for ZK │
+                    │  gives       │       │   admissibty │
+                    │  discount    │       │              │
+                    └──────┬───────┘       └──────────────┘
+                           │
+                           ▼
+                    ┌──────────────┐
+                    │  Other firms │
+                    │  adopt for   │
+                    │  insurance   │
+                    │  savings     │
+                    └──────────────┘
+```
+
+### Channel Strategy
+
+| Channel | Target Persona | Approach |
+|---------|---------------|----------|
+| **Spy's professional network** | Paralegals in Idaho | Direct outreach; demo at paralegal associations |
+| **CLE presentations** | Attorneys (all segments) | "Discovery Compliance in the Digital Age" — earn CLE credits |
+| **Bar association partnerships** | State bar members | Endorsed tool listing; co-branded compliance guides |
+| **Malpractice insurance carriers** | Partners/firm owners | Position as risk-reduction tool; negotiate premium discounts |
+| **Legal conferences** | Early adopters | ABA TECHSHOW, LegalTech NYC, state bar conventions |
+
+---
+
+## XI. VALIDATION ROADMAP
+
+| Step | Method | Target | Timeline |
+|------|--------|--------|----------|
+| **1** | Interviews with Idaho paralegals | 5 practitioners from Spy's network | Week 2–3 |
+| **2** | Interviews with Utah solo attorneys | 3 solo practitioners handling tiered discovery | Week 3–4 |
+| **3** | Discovery sanctions case study compilation | 10 documented cases with quantified costs | Week 2–4 |
+| **4** | Idaho IRCP workflow mapping | Full discovery process in Miro → smart contract spec | Week 3–5 |
+| **5** | Beta firm identification | 3 firms willing to pilot | Week 5–6 |
+| **6** | Malpractice carrier outreach | 2 carriers to discuss risk-reduction pricing | Week 6–8 |
+
+---
+
+## XII. TEAM STRENGTHS
+
+```
+┌─────────────────────────────────────────────────────────────────┐
+│                                                                 │
+│   SPY                                    JOHN                   │
+│   ───                                    ────                   │
+│   20 years complex litigation            Midnight Builder       │
+│   Published gov't researcher             Full-stack developer   │
+│   Idaho/Utah/Washington expertise        Blockchain architect   │
+│   Professional network = pipeline        MCP tooling expert     │
+│                                                                 │
+│              ┌─────────────────────────┐                        │
+│              │     INTERSECTION        │                        │
+│              │                         │                        │
+│              │  Domain + Code          │                        │
+│              │  = Products that work   │                        │
+│              │    in the real world    │                        │
+│              │                         │                        │
+│              │  Spy designs workflows  │                        │
+│              │  John implements them   │                        │
+│              │  Both validate with     │                        │
+│              │  real practitioners     │                        │
+│              └─────────────────────────┘                        │
+│                                                                 │
+│   "We don't theorize about legal pain.                          │
+│    We've lived it, documented it, and now we're solving it."    │
+│                                                                 │
+└─────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## XIII. SUCCESS METRICS
+
+| Milestone | KPI | Target | Timeframe |
+|-----------|-----|--------|-----------|
+| **MVP** | Working Idaho IRCP workflow with wallet | Functional demo | April 2026 (hackathon) |
+| **First Proof** | ZK compliance proof generated on Midnight testnet | 1 proof | Q2 2026 |
+| **Beta** | Firms actively using AutoDiscovery | 5 firms | Q3 2026 |
+| **Court Filing** | Compliance proof submitted as exhibit | 1 filing | Q4 2026 |
+| **Revenue** | Monthly recurring revenue | $5K MRR | Q1 2027 |
+| **Precedent** | Court accepts ZK proof as admissible | 1 ruling | 2027 |
+
+---
+
+## XIV. SUMMARY
+
+AutoDiscovery sits at the intersection of **urgent legal pain** and **unprecedented technology capability**.
+
+```
+╔══════════════════════════════════════════════════════════════════╗
+║                                                                  ║
+║   THE PROBLEM          THE SOLUTION          THE IMPACT          ║
+║   ───────────          ────────────          ──────────          ║
+║                                                                  ║
+║   Discovery            Automated             Courts accept       ║
+║   non-compliance       jurisdiction-          ZK proofs as        ║
+║   costs firms          aware workflows        factual record      ║
+║   millions and         on Midnight's                              ║
+║   ends careers         privacy-preserving     Every regulated     ║
+║                        blockchain             industry follows    ║
+║                                                                  ║
+║   $32B legal tech      GeoOracle Auto         Midnight becomes    ║
+║   market with          Compliance:            the global trust    ║
+║   zero privacy-        build once,            infrastructure      ║
+║   aware solutions      comply everywhere      for compliance      ║
+║                                                                  ║
+╚══════════════════════════════════════════════════════════════════╝
+```
+
+**We're not building a legal tool.** We're building the bridge between the legal system and blockchain — and once that bridge exists, every regulated industry in the world will cross it.
+
+---
+
+<div align="center">
+
+**AutoDiscovery.legal**
+
+*Privacy meets compliance.*
+
+Built on Midnight Network
+
+---
+
+Prepared for Midnight Build Club — Cohort 1
+February 2026
+
+</div>
