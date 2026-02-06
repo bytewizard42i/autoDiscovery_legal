@@ -4,7 +4,7 @@
 
 ### Customer Analysis Matrix
 
-**Midnight Build Club — Cohort 1**
+**Midnight Build Club — Cohort 0**
 
 ---
 
@@ -716,7 +716,7 @@ Built on Midnight Network
 
 ---
 
-Prepared for Midnight Build Club — Cohort 1
+Prepared for Midnight Build Club — Cohort 0
 February 2026
 
 </div>

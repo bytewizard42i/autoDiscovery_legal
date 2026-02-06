@@ -1,0 +1,24 @@
+{
+  "folders": [
+    {
+        "path": "."
+    },
+    {
+        "name": "Midnight-Idris-MCP (Reference)",
+        "path": "/home/js/utils_Midnight-Idris-MCP"
+    },
+    {
+        "path": "../PixyPi"
+    }
+],
+  "settings": {
+    "files.exclude": {
+      "**/node_modules": true,
+      "**/.git": true
+    },
+    "files.readonlyFromPermissions": true,
+    "files.readonlyInclude": {
+      "/home/js/utils_Midnight-Idris-MCP/**": true
+    }
+  }
+}
