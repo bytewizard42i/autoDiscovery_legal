@@ -13,7 +13,7 @@ Experienced as a complex litigation paralegal and researcher; accented with nume
 
 ## Background
 
-- **Retired Paralegal**
+- **Paralegal 20 years Experience**
 - **Complex Litigation Experience**
 - **Government Research & Statistics** — Published reports for Idaho agencies
 - **Jurisdictions:** Idaho, Utah, Washington
