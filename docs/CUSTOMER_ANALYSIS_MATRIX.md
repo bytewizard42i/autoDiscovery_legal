@@ -1,6 +1,8 @@
 <div align="center">
 
-# AUTODISCOVERY
+<span style="font-size: 80%">Introducing:</span>
+
+# AutoDiscovery.legal
 
 ### Customer Analysis Matrix
 
@@ -14,7 +16,7 @@
 
 **Team**
 
-**Spy** — Domain Expert · 20-Year Complex Litigation Paralegal · Published Government Researcher
+**Spy** — Domain Expert · 20-Year Complex Litigation Paralegal · Published Government Researcher<br>
 **John** — 4x Midnight Hackathon Winner · Founder, EnterpriseZK Labs LLC · Blockchain Architect
 
 [@SpyCrypto](https://github.com/SpyCrypto) · [@bytewizard42i](https://github.com/bytewizard42i)

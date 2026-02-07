@@ -1,0 +1,13 @@
+\usepackage{etoolbox}
+
+% Prevent page breaks inside code blocks (ASCII diagrams)
+\BeforeBeginEnvironment{verbatim}{\begin{samepage}\vspace{0.5em}}
+\AfterEndEnvironment{verbatim}{\end{samepage}}
+\BeforeBeginEnvironment{Highlighting}{\begin{samepage}\vspace{0.5em}}
+\AfterEndEnvironment{Highlighting}{\end{samepage}}
+
+% Reduce code block font size slightly to help larger diagrams fit
+\renewcommand{\tiny}{\fontsize{6}{7}\selectfont}
+\let\oldverbatim\verbatim
+\let\endoldverbatim\endverbatim
+\renewenvironment{verbatim}{\footnotesize\oldverbatim}{\endoldverbatim}
