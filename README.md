@@ -13,7 +13,7 @@ AutoDiscovery automates legal discovery workflows with **jurisdiction-aware comp
 **Key Features:**
 - **Automated Discovery Workflows** — Step-by-step process execution
 - **GeoOracle Auto Compliance** — Location-aware rule application
-- **Modular Jurisdiction Rules** — Plug-in legislation for Idaho, Utah, Washington, NYC, California
+- **Modular Jurisdiction Rules** — Plug-in legislation for Idaho, Utah, Washington, New York City, California
 - **Immutable Compliance Proofs** — ZK proofs as factual court record
 - **Selective Disclosure** — Reveal only what's required
 
