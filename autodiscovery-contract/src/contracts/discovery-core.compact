@@ -1,0 +1,103 @@
+pragma language_version >= 0.16 && <= 0.18;
+
+import CompactStandardLibrary;
+
+// ============================================================================
+// DISCOVERY-CORE CONTRACT
+// Purpose: Manage case creation, step tracking, and status transitions.
+//          Jurisdiction-agnostic — doesn't know about specific rules.
+// ============================================================================
+
+// --- PUBLIC STATE ---
+// Visible to all. Proves case exists and compliance status.
+export ledger caseCount: Counter;
+export ledger caseStatuses: Map<Field, Uint<8>>;
+export ledger caseJurisdictions: Map<Field, Bytes<8>>;
+export ledger stepCompletionFlags: Map<Field, Boolean>;
+export ledger attestationHashes: Set<Bytes<32>>;
+
+// --- PRIVATE STATE ---
+// Case details hidden from public view.
+ledger caseOwners: Map<Field, Opaque<"address">>;
+ledger stepDeadlines: Map<Field, Field>;
+ledger stepStatuses: Map<Field, Uint<8>>;
+
+// --- WITNESSES ---
+// Off-chain computation provided at transaction time.
+witness getCaller(): Opaque<"address">;
+witness computeCaseId(caseNumber: Bytes<32>, jurisdiction: Bytes<8>): Field;
+witness computeStepHash(caseId: Field, ruleRef: Bytes<32>): Field;
+witness getCurrentTimestamp(): Field;
+
+// --- STATUS ENUMS (as Uint<8>) ---
+// 0 = notStarted, 1 = inProgress, 2 = completed,
+// 3 = overdue, 4 = waived, 5 = objected, 6 = protected
+
+// --- CIRCUITS ---
+
+// Creates a new case and returns its unique ID (hash of caseNumber + jurisdiction).
+// The case is registered on the public ledger with its jurisdiction code.
+// The caller becomes the case owner (stored privately).
+export circuit createCase(caseNumber: Bytes<32>, jurisdiction: Bytes<8>): Field {
+  const caller = getCaller();
+  const caseId = computeCaseId(caseNumber, jurisdiction);
+
+  // Register case publicly
+  caseCount.increment(1);
+  caseStatuses.insert(caseId, 0x01); // 1 = inProgress
+  caseJurisdictions.insert(caseId, jurisdiction);
+
+  // Store owner privately
+  caseOwners.insert(caseId, caller);
+
+  caseId
+}
+
+// Adds a discovery step to a case. Returns the step hash.
+// Only the case owner can add steps.
+// The deadline is stored privately; completion flag is public.
+export circuit addStep(caseId: Field, ruleRef: Bytes<32>, deadline: Field): Field {
+  const caller = getCaller();
+  const owner = caseOwners.lookup(caseId);
+  assert caller == owner "Only case owner can add steps";
+
+  const stepHash = computeStepHash(caseId, ruleRef);
+
+  // Public: step exists but not yet completed
+  stepCompletionFlags.insert(stepHash, false);
+
+  // Private: deadline and detailed status
+  stepDeadlines.insert(stepHash, deadline);
+  stepStatuses.insert(stepHash, 0x00); // 0 = notStarted
+
+  stepHash
+}
+
+// Marks a step as completed. Generates an attestation hash for the proof record.
+// Only the case owner can complete steps.
+// Returns an attestation hash that can be used for compliance proofs.
+export circuit completeStep(caseId: Field, stepHash: Field): Bytes<32> {
+  const caller = getCaller();
+  const owner = caseOwners.lookup(caseId);
+  assert caller == owner "Only case owner can complete steps";
+
+  // Update public completion flag
+  stepCompletionFlags.insert(stepHash, true);
+
+  // Update private status to completed
+  stepStatuses.insert(stepHash, 0x02); // 2 = completed
+
+  // Generate attestation hash from step completion
+  const timestamp = getCurrentTimestamp();
+  const attestation = disclose(embed<Bytes<32>>());
+  attestationHashes.insert(attestation);
+
+  attestation
+}
+
+// Checks overall compliance for a case by verifying the case status.
+// Returns true if the case status indicates compliance (all steps complete).
+export circuit getComplianceStatus(caseId: Field): Boolean {
+  const status = caseStatuses.lookup(caseId);
+  status == 0x02 // 2 = completed means fully compliant
+}

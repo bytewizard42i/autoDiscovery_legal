@@ -1,0 +1,68 @@
+pragma language_version >= 0.16 && <= 0.18;
+
+import CompactStandardLibrary;
+
+// ============================================================================
+// JURISDICTION-REGISTRY CONTRACT
+// Purpose: On-chain registry of jurisdiction metadata.
+//          Rules stored as JSON off-chain; registry stores hashes and
+//          version info for auditability and integrity verification.
+// ============================================================================
+
+// --- PUBLIC STATE ---
+// Which jurisdictions are registered and their rule pack versions.
+export ledger jurisdictionCount: Counter;
+export ledger registeredJurisdictions: Set<Bytes<8>>;
+export ledger rulePackHashes: Map<Bytes<8>, Bytes<32>>;
+export ledger rulePackVersions: Map<Bytes<8>, Uint<32>>;
+
+// --- PRIVATE STATE ---
+// Full rule metadata references (pointers to off-chain data).
+ledger rulePackData: Map<Bytes<8>, Field>;
+
+// --- ACCESS CONTROL ---
+// Only the registry admin can register or update jurisdictions.
+export ledger registryAdmin: Opaque<"address">;
+
+// --- WITNESSES ---
+witness getCaller(): Opaque<"address">;
+witness computeRuleHash(jurisdictionCode: Bytes<8>, ruleData: Field): Bytes<32>;
+
+// --- CIRCUITS ---
+
+// Registers a new jurisdiction with its rule pack hash.
+// Only the registry admin can call this.
+// The jurisdiction code (e.g., "ID" for Idaho) is added to the public set.
+export circuit registerJurisdiction(code: Bytes<8>, ruleHash: Bytes<32>): [] {
+  const caller = getCaller();
+  assert caller == registryAdmin "Only registry admin can register jurisdictions";
+
+  // Add to public registry
+  jurisdictionCount.increment(1);
+  registeredJurisdictions.insert(code);
+  rulePackHashes.insert(code, ruleHash);
+  rulePackVersions.insert(code, 0x00000001); // Version 1
+}
+
+// Updates an existing jurisdiction's rule pack.
+// Increments the version number for audit trail.
+// Old hash is replaced but the version history proves what rules were active when.
+export circuit updateRulePack(code: Bytes<8>, newRuleHash: Bytes<32>, newVersion: Uint<32>): [] {
+  const caller = getCaller();
+  assert caller == registryAdmin "Only registry admin can update rule packs";
+
+  // Verify jurisdiction exists
+  assert registeredJurisdictions.member(code) "Jurisdiction not registered";
+
+  // Update hash and version
+  rulePackHashes.insert(code, newRuleHash);
+  rulePackVersions.insert(code, newVersion);
+}
+
+// Verifies that a jurisdiction's current rule pack matches an expected hash.
+// Anyone can call this — used by compliance-proof contract to confirm
+// which rules were in effect when an attestation was generated.
+export circuit verifyRuleVersion(code: Bytes<8>, expectedHash: Bytes<32>): Boolean {
+  const currentHash = rulePackHashes.lookup(code);
+  currentHash == expectedHash
+}

@@ -1,0 +1,50 @@
+pragma language_version >= 0.16 && <= 0.18;
+
+import CompactStandardLibrary;
+
+// ============================================================================
+// EXPERT-WITNESS CONTRACT — PHASE 2 (SKELETON ONLY)
+// Purpose: Med-mal specific expert witness tracking.
+//          Separate contract because of distinct privacy needs
+//          (HIPAA, credential verification, Idaho-specific requirements).
+//
+// DEFERRED: Full implementation after discovery-core, jurisdiction-registry,
+//           and compliance-proof are validated on testnet.
+// ============================================================================
+
+// --- PUBLIC STATE ---
+// Expert registry — proves experts are registered without revealing identity.
+export ledger expertCount: Counter;
+export ledger registeredExperts: Set<Bytes<32>>;
+export ledger qualificationHashes: Map<Bytes<32>, Bytes<32>>;
+
+// --- PRIVATE STATE ---
+// Expert details — HIPAA-sensitive, never publicly visible.
+ledger expertIdentities: Map<Bytes<32>, Field>;
+ledger expertCredentials: Map<Bytes<32>, Field>;
+
+// --- WITNESSES ---
+witness getCaller(): Opaque<"address">;
+witness computeExpertHash(expertData: Field): Bytes<32>;
+
+// --- CIRCUITS ---
+// TODO Phase 2: Expert qualification attestation
+// TODO Phase 2: W-9/I-9 submission tracking
+// TODO Phase 2: Standard of Care documentation status
+// TODO Phase 2: Idaho affidavit requirements (note: Idaho has NO affidavit of merit per Spy)
+
+// Placeholder circuit — registers an expert with hashed credentials.
+export circuit registerExpert(qualificationHash: Bytes<32>): Bytes<32> {
+  const expertHash = computeExpertHash(embed<Field>());
+
+  expertCount.increment(1);
+  registeredExperts.insert(expertHash);
+  qualificationHashes.insert(expertHash, qualificationHash);
+
+  expertHash
+}
+
+// Placeholder circuit — verifies an expert is registered.
+export circuit verifyExpert(expertHash: Bytes<32>): Boolean {
+  registeredExperts.member(expertHash)
+}
