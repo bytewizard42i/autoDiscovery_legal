@@ -43,6 +43,12 @@ Before we split by party, we need to define **what kinds of things** exist in th
 | 16 | **Privilege Logs** | Lists of documents withheld and the legal basis | Attorney-client privilege claims, work product |
 | 17 | **Protective Orders** | Court orders restricting access to sensitive materials | Trade secrets, minor identities, sealed records |
 | 18 | **Disclosure Statements** | Mandatory initial disclosures (FRCP 26(a) / state equiv.) | Witness lists, damage computations, insurance info |
+| 19 | **Court Transcripts** | Official record of proceedings — hearings, trial days, conferences | Reporter transcripts, real-time feeds, daily rough drafts |
+| 20 | **Court Orders & Rulings** | Written and oral directives from the judge | Scheduling orders, discovery rulings, case management orders, sanctions |
+| 21 | **Jury Selection Materials** | Everything related to voir dire and jury composition | Juror questionnaires, strike lists, cause challenges, Batson challenges |
+| 22 | **Jury Instructions** | Legal instructions proposed, argued, and delivered to the jury | Proposed instructions (DEF/PRO), objections, final charge to jury |
+| 23 | **Jury Notes & Communications** | Notes from jury to judge during deliberation | Questions, requests to replay testimony, requests for exhibits, Allen charges |
+| 24 | **Verdict Forms** | The jury's official output | General verdicts, special verdicts, special interrogatories |
 
 ### Why This Matters
 
@@ -343,6 +349,308 @@ This alert has been recorded on-chain at [timestamp].
 
 ---
 
+## Step 7: The Court Transcript — Daily Audit Ledger
+
+Court transcripts are the **single most underutilized asset in discovery management**. Every hearing, every bench conference, every sidebar — the court reporter captures it. But nobody treats it as a structured data source. We should.
+
+### Why Transcripts Matter for Discovery
+
+1. **Oral rulings on discovery disputes** — Judges frequently rule from the bench on motions to compel, privilege disputes, and scope disagreements. These rulings often **never get formalized in a written order**. The transcript is the only record.
+2. **Judicial warnings** — "Counsel, I'm telling you right now, if those documents aren't produced by Friday, I will sanction you." That's in the transcript. It proves the party was warned.
+3. **Discovery commentary** — Judges make observations about discovery conduct during hearings: "I'm troubled by the volume of this production" or "Counsel, your privilege log is inadequate." This is gold for sanctions arguments later.
+4. **Testimony that triggers new discovery** — A witness says something on the stand that opens a new line of inquiry. The transcript proves when the information became known.
+
+### Daily Transcript Entry Model
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│               DAILY TRANSCRIPT RECORD                        │
+├─────────────────────────────────────────────────────────────┤
+│                                                               │
+│  Case ID:          [case identifier]                         │
+│  Date:             [hearing/trial date]                      │
+│  Proceeding Type:  HEARING | TRIAL DAY | CONFERENCE |        │
+│                    BENCH TRIAL | SIDEBAR                     │
+│  Court Reporter:   [name, certification #]                   │
+│  Transcript Hash:  [SHA-256 of official transcript]          │
+│                                                               │
+│  TAGGED EXCERPTS:                                            │
+│  ┌──────┬───────────────┬──────────────────────────────┐     │
+│  │ Page │ Tag           │ Summary                      │     │
+│  ├──────┼───────────────┼──────────────────────────────┤     │
+│  │ 14   │ DISCOVERY_    │ Judge orders DEF to produce   │     │
+│  │      │ RULING        │ emails by Feb 20              │     │
+│  │ 32   │ SANCTIONS_    │ Judge warns PRO re: late      │     │
+│  │      │ WARNING       │ supplemental disclosure       │     │
+│  │ 47   │ JURY_         │ Court reads instruction #12   │     │
+│  │      │ INSTRUCTION   │ (adverse inference)           │     │
+│  │ 61   │ NEW_DISCOVERY │ Witness reveals document      │     │
+│  │      │ _TRIGGER      │ not previously disclosed      │     │
+│  └──────┴───────────────┴──────────────────────────────┘     │
+│                                                               │
+│  ZK PROOF: "Transcript [hash] entered for [date]             │
+│            with [n] tagged discovery-relevant excerpts."     │
+│                                                               │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Transcript Tags (Standard Set)
+
+| Tag | What It Captures |
+|-----|------------------|
+| `DISCOVERY_RULING` | Judge rules on a discovery motion (oral order) |
+| `DISCOVERY_COMMENTARY` | Judge comments on discovery conduct |
+| `SANCTIONS_WARNING` | Judge warns a party about potential sanctions |
+| `SANCTIONS_IMPOSED` | Judge imposes sanctions from the bench |
+| `NEW_DISCOVERY_TRIGGER` | Testimony/evidence that opens new discovery obligations |
+| `DEADLINE_SET` | Judge sets or modifies a discovery deadline orally |
+| `PRIVILEGE_RULING` | Judge rules on a privilege claim |
+| `JURY_INSTRUCTION` | Instruction read to jury (especially adverse inference) |
+| `JURY_QUESTION` | Jury sends a note or question |
+| `BENCH_CONFERENCE` | Sidebar discussion related to discovery/evidence |
+| `STIPULATION` | Parties agree on something on the record |
+
+### Daily Entry Workflow
+
+```
+End of each court day:
+│
+├─ Court reporter files transcript (rough or final)
+│
+├─ AutoDiscovery ingests transcript
+│   ├─ Hash generated and anchored to Midnight
+│   ├─ Paralegal/attorney tags discovery-relevant excerpts
+│   └─ System auto-extracts: deadlines, rulings, warnings
+│
+├─ New deadlines auto-populate the obligation tracker
+│
+├─ Memorandum updated with that day's judicial activity
+│
+└─ All parties get a "Court Day Summary":
+   "Today: 1 new deadline set (Feb 20), 1 sanctions warning,
+    1 new discovery trigger from witness testimony."
+```
+
+This creates a **running judicial audit trail**. Six months later at a sanctions hearing, you pull up the transcript record and say: "Your Honor, on February 14th you warned opposing counsel. Here is the ZK-anchored transcript hash. On February 21st — one day past the deadline you set — they still hadn't produced. Here is the memorandum proving non-compliance."
+
+---
+
+## Step 8: Judge Instructions & Court Orders — The Authority Layer
+
+Judges don't just rule on motions — they actively manage discovery through orders, scheduling conferences, and bench commentary. These are **authoritative commands** that create obligations. AutoDiscovery needs to treat them as first-class objects.
+
+### Types of Judicial Directives
+
+| Type | When It Happens | Discovery Impact |
+|------|----------------|------------------|
+| **Scheduling Order** | Early in the case | Sets all discovery deadlines — depositions, expert reports, cutoff dates |
+| **Case Management Order** | Ongoing | Modifies procedures, sets conferences, addresses disputes |
+| **Discovery Order** | After motion to compel | Compels production, limits scope, sets sanctions |
+| **Protective Order** | When sensitive info involved | Restricts who can see what and under what conditions |
+| **Sanctions Order** | After discovery abuse | Monetary fines, adverse inferences, issue preclusion, dismissal/default |
+| **Oral Ruling** | At hearings/conferences | Same force as written order but ONLY in the transcript |
+| **Standing Order** | Judge's general rules | Local judge-specific rules (e.g., "I require meet-and-confer before any discovery motion") |
+
+### The Oral Ruling Problem
+
+This is a **critical gap** in current practice. A judge says from the bench: "Defense will produce all responsive documents by the 20th or I will impose sanctions of $500 per day." That ruling has the force of law. But:
+
+- It's not in a written order (yet, maybe never)
+- It's only in the transcript
+- The transcript might not be available for days
+- By then, the deadline may have passed
+- Parties dispute what the judge actually said
+
+**AutoDiscovery's solution**: When a transcript excerpt is tagged `DISCOVERY_RULING` or `DEADLINE_SET`, the system:
+1. Immediately creates a new obligation record
+2. Starts the deadline countdown
+3. Sends alerts to all parties
+4. Hashes the transcript excerpt on-chain
+5. Includes the ruling in the next memorandum
+
+Now there's no "I didn't know" or "I thought the judge said the 28th, not the 20th."
+
+### Judge Commentary Tracker
+
+Judges often drop hints before they drop hammers. AutoDiscovery should track the **escalation pattern**:
+
+```
+╔══════════════════════════════════════════════════════════╗
+║         JUDICIAL SENTIMENT TRACKER — Case [ID]            ║
+╠══════════════════════════════════════════════════════════╣
+║                                                            ║
+║  Feb 5   [COMMENTARY]  "I expect full compliance          ║
+║                         with the scheduling order."        ║
+║          Severity: ● LOW                                   ║
+║                                                            ║
+║  Feb 10  [WARNING]     "Counsel, your production is        ║
+║                         inadequate. Fix it by the 15th."   ║
+║          Severity: ●● MEDIUM                               ║
+║                                                            ║
+║  Feb 18  [WARNING]     "If I don't see those documents     ║
+║                         by Friday, there will be            ║
+║                         consequences."                      ║
+║          Severity: ●●● HIGH                                ║
+║                                                            ║
+║  Feb 22  [SANCTIONS]   "$500/day until production.         ║
+║                         Adverse inference granted."         ║
+║          Severity: ●●●● CRITICAL                           ║
+║                                                            ║
+║  PATTERN: 4-event escalation over 17 days.                 ║
+║  AutoDiscovery alerts were sent at each stage.             ║
+║  Receiving party acknowledged 2 of 4 alerts.               ║
+║                                                            ║
+╚══════════════════════════════════════════════════════════╝
+```
+
+This tracker becomes **exhibit A** at the sanctions hearing. It shows the court gave ample warning, AutoDiscovery flagged each escalation, and the non-compliant party had every opportunity to fix the problem.
+
+---
+
+## Step 9: Jury Materials — The Trial Layer
+
+Discovery doesn't stop when trial starts. Jury-related materials are a critical extension of the discovery lifecycle — and they directly connect back to discovery failures.
+
+### Jury Selection (Voir Dire)
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                   VOIR DIRE RECORD                           │
+├─────────────────────────────────────────────────────────────┤
+│                                                               │
+│  Juror Pool:        [total venire members]                   │
+│  Questionnaires:    [hash of compiled questionnaire data]    │
+│                                                               │
+│  For each juror:                                             │
+│  ├── Juror ID (anonymized)                                   │
+│  ├── Questionnaire hash                                      │
+│  ├── Challenges for cause (by whom, basis, ruling)           │
+│  ├── Peremptory strikes (by whom)                            │
+│  ├── Batson/J.E.B. challenges (if any)                       │
+│  └── Seated? [yes/no/alternate]                              │
+│                                                               │
+│  Final Panel:       [juror IDs of seated jury + alternates]  │
+│  ZK PROOF:          "Jury selection completed [timestamp]     │
+│                      with [n] jurors seated."                │
+│                                                               │
+└─────────────────────────────────────────────────────────────┘
+```
+
+**Why this matters for discovery**: Jury questionnaire responses sometimes trigger additional discovery. A juror reveals a connection to a party or witness → potential cause challenge → need to investigate → may require supplemental disclosure.
+
+### Jury Instructions — The Discovery Failure Endgame
+
+This is where discovery failures become **case-deciding**. When a party destroys evidence or fails to produce:
+
+```
+DISCOVERY FAILURE ──► SANCTIONS MOTION ──► ADVERSE INFERENCE INSTRUCTION
+
+Judge tells the jury:
+"You may infer that the documents Defendant failed to produce
+ would have been unfavorable to Defendant's position."
+```
+
+That instruction can **win or lose the case**. AutoDiscovery tracks the full chain:
+
+| Step | What AutoDiscovery Captures |
+|------|---------------------------|
+| 1. Document was due | Obligation record with deadline |
+| 2. Not produced on time | Overdue flag in memorandum |
+| 3. Judge warned | Transcript tag: `SANCTIONS_WARNING` |
+| 4. Still not produced | Escalation in judicial sentiment tracker |
+| 5. Motion for sanctions filed | Pleading logged, category: Pleadings & Motions |
+| 6. Sanctions granted | Court order logged, transcript tagged |
+| 7. Adverse inference instruction | Jury instruction logged: "Proposed by [party], objected by [party], GIVEN by court" |
+| 8. Verdict affected | Verdict form recorded |
+
+The **entire chain** — from missed deadline to jury instruction — is on-chain with ZK proofs at every step. This is the most powerful proof of compliance (or non-compliance) that has ever existed in legal practice.
+
+### Jury Instructions Tracking
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│               JURY INSTRUCTION RECORD                        │
+├─────────────────────────────────────────────────────────────┤
+│                                                               │
+│  Instruction #:    [sequence number]                         │
+│  Topic:            [e.g., adverse inference, burden of       │
+│                     proof, spoliation, credibility]          │
+│  Proposed By:      DEF | PRO | COURT (sua sponte)            │
+│  Objected By:      DEF | PRO | NONE                          │
+│  Basis for Obj:    [legal basis cited]                       │
+│  Court Ruling:     GIVEN | REFUSED | MODIFIED                │
+│  Given As Modified: [if modified, hash of final version]     │
+│  Tied to Discovery │                                         │
+│    Failure?:       YES | NO                                  │
+│  If YES, linked to:                                          │
+│    ├── Obligation Record: [doc ID]                           │
+│    ├── Memorandum:        [memo # showing non-compliance]    │
+│    └── Sanctions Order:   [order ID]                         │
+│                                                               │
+│  ZK PROOF: "Instruction #[n] given to jury at [timestamp]"  │
+│                                                               │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Jury Notes & Communications During Deliberation
+
+During deliberation, the jury sends notes to the judge — questions, requests to re-read testimony, requests to see exhibits. These are critical:
+
+- **"Can we see Exhibit 14 again?"** — This tells you which evidence the jury is focused on
+- **"What does 'preponderance of evidence' mean?"** — Signals the jury may be struggling with burden of proof
+- **"Can we hear the testimony about the missing emails?"** — Directly tied to the discovery failure
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                  JURY NOTE RECORD                            │
+├─────────────────────────────────────────────────────────────┤
+│                                                               │
+│  Note #:          [sequence]                                 │
+│  Timestamp:       [when received by court]                   │
+│  Content:         [text of jury note]                        │
+│  Related Exhibit: [if requesting to see evidence]            │
+│  Related Witness: [if requesting testimony replay]           │
+│  Court Response:  [how judge responded — read back,          │
+│                    additional instruction, denied, etc.]     │
+│  Transcript Page: [where the response appears]               │
+│  Parties Present: [who was present for the discussion]       │
+│                                                               │
+│  Discovery Link:  [does this note relate to a discovery      │
+│                    issue? If so, which obligation record?]   │
+│                                                               │
+└─────────────────────────────────────────────────────────────┘
+```
+
+### Verdict Forms
+
+The final output:
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│                   VERDICT RECORD                             │
+├─────────────────────────────────────────────────────────────┤
+│                                                               │
+│  Verdict Type:     GENERAL | SPECIAL | SPECIAL INTERROGATORY │
+│  Verdict:          [for DEF | for PRO | split]               │
+│  Damages (if any): [$amount]                                 │
+│  Deliberation Time: [hours]                                  │
+│  Unanimous?:       YES | NO (if jurisdiction allows)         │
+│  Polling Recorded: YES | NO                                  │
+│  Hash:             [SHA-256 of signed verdict form]          │
+│                                                               │
+│  DISCOVERY IMPACT ASSESSMENT:                                │
+│  Were adverse inference instructions given?  YES | NO        │
+│  Were discovery sanctions a factor?          YES | NO        │
+│  Linked obligation records:                  [list]          │
+│                                                               │
+│  ZK PROOF: "Verdict rendered [timestamp]. Discovery          │
+│            compliance chain: [full audit hash]."             │
+│                                                               │
+└─────────────────────────────────────────────────────────────┘
+```
+
+---
+
 ## The Full Flow — How It All Connects
 
 ```
@@ -387,11 +695,35 @@ This alert has been recorded on-chain at [timestamp].
     │     → Compliance scores                           │
     │     → Anchored to Midnight                        │
     │                                                   │
-    │  6. DISPUTE RESOLUTION EVIDENCE                   │
+    │  6. DAILY TRANSCRIPT ENTRY                        │
+    │     Court proceedings captured daily               │
+    │     → Transcript hashed and anchored              │
+    │     → Discovery-relevant excerpts tagged           │
+    │     → Oral rulings → new obligations auto-created │
+    │     → Judge warnings tracked (escalation pattern) │
+    │     → Court Day Summary to all parties             │
+    │                                                   │
+    │  7. JUDGE INSTRUCTIONS & ORDERS                   │
+    │     Authority layer — commands that create duties  │
+    │     → Written orders logged and hashed             │
+    │     → Oral rulings captured from transcripts       │
+    │     → Judicial sentiment tracked over time         │
+    │     → Escalation pattern = sanctions evidence      │
+    │                                                   │
+    │  8. JURY MATERIALS                                │
+    │     Trial layer — where discovery meets verdict    │
+    │     → Voir dire records (anonymized)               │
+    │     → Proposed/given/refused instructions logged   │
+    │     → Adverse inference ↔ discovery failure linked │
+    │     → Jury notes during deliberation tracked       │
+    │     → Verdict recorded with discovery impact       │
+    │                                                   │
+    │  9. DISPUTE RESOLUTION EVIDENCE                   │
     │     When things go wrong, the proof is there       │
-    │     → Immutable timeline of events                │
+    │     → Immutable timeline: deadline → warning →     │
+    │       sanctions → jury instruction → verdict       │
     │     → "Your Honor, here is the ZK proof..."       │
-    │     → Sanctions supported by on-chain evidence    │
+    │     → Full chain on Midnight                      │
     │                                                   │
     └─────────────────────────────────────────────────┘
 ```
@@ -410,6 +742,12 @@ This alert has been recorded on-chain at [timestamp].
 4. **Integration with existing e-discovery tools** — Firms already use Relativity, Logikcull, etc. AutoDiscovery should layer on top, not replace their document management.
 
 5. **Privilege disputes** — When a party claims privilege, the other side can challenge. How does AutoDiscovery handle in camera review (judge sees it, nobody else does)?
+
+6. **Transcript turnaround time** — Official transcripts can take days/weeks. Do we ingest rough drafts same-day and update when finals arrive? How do we handle hash changes between rough and final?
+
+7. **Jury anonymity** — Some jurisdictions use anonymous juries. How do we track voir dire without exposing juror identities? ZK is perfect here — prove selection process was followed without revealing who the jurors are.
+
+8. **Post-trial discovery** — Discovery doesn't always end at verdict. Post-trial motions, appeals, and new trial motions can reopen discovery. The audit trail needs to survive beyond the verdict.
 
 ---
 
