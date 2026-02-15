@@ -265,9 +265,24 @@ This is the anchor point. Every document enters the discovery universe at a sing
 
 ### The Content Hash Is Everything
 
+> **📎 See full deep dive**: [`DEEP_DIVE_HASHING_STRATEGY.md`](./DEEP_DIVE_HASHING_STRATEGY.md)
+
 When a document is first entered, we hash it. That hash goes on-chain via Midnight. The actual content **never** touches the blockchain — only the proof that "this document, with this hash, existed at this time, originated from this party."
 
 If anyone later claims the document was altered, the hash proves otherwise. If someone claims they never received it, the delivery proof says otherwise.
+
+Hashing uses a **5-level Merkle tree hierarchy**:
+
+| Level | What | Example |
+|-------|------|---------|
+| **0: Raw Bytes** | SHA-256 of byte content | The atomic unit |
+| **1: Page/Segment** | Hash per page, per message, or per time-segment | Page 47, email #3 in chain, minute 14 of video |
+| **2: Document** | Merkle root of all pages | A 200-page deposition transcript |
+| **3: Package** | Merkle root of related documents | Expert report + 5 appendices |
+| **4: Production** | Merkle root of all packages in a submission | DEF's Response to RFP #3 |
+| **5: Case Root** | Merkle root of all productions | The entire discovery universe — anchored on-chain |
+
+Page-level hashing catches *which page* was tampered with, not just *that* something changed. Package-level hashing handles compound documents (expert reports + appendices, deposition transcripts + video + exhibits, email threads). Only Level 4-5 hashes go on-chain; everything below is verifiable via Merkle proof path in O(log n) steps.
 
 ---
 
@@ -883,10 +898,9 @@ The final output:
 
 ## Open Questions
 
-1. **Granularity of hashing** — Do we hash individual documents or batches? Individual = more precision but more on-chain transactions. Batches = cheaper but less granular.
-   - Possible solution: Merkle tree — hash individual docs, combine into a batch root hash, put root on-chain. Can prove any individual doc later.
+1. ~~**Granularity of hashing**~~ — **RESOLVED**: 5-level Merkle tree hierarchy. Page-level hashing (Level 1) up through Case Root (Level 5). Only Level 4-5 go on-chain. Full deep dive: [`DEEP_DIVE_HASHING_STRATEGY.md`](./DEEP_DIVE_HASHING_STRATEGY.md)
 
-2. **What happens when a party supplements discovery?** — They find new docs, or the court orders more. We need a versioning system — "Supplemental Production #2 in response to RFP #3."
+2. ~~**What happens when a party supplements discovery?**~~ — **RESOLVED**: Supplements create new Production entries (Level 4) that fold into the Case Root. Corrected documents preserve original hash in history. Never delete, only append. See deep dive: "Supplemental Productions" section.
 
 3. **Format standardization** — Should AutoDiscovery enforce format requirements (e.g., all text must be OCR'd PDF)? Or just flag non-compliance?
 
