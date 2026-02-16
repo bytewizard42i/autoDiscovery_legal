@@ -5,6 +5,7 @@ import { ADLayout } from "./layouts/ad-layout";
 import { LoginPage } from "./pages/login";
 import { Dashboard } from "./pages/dashboard";
 import { CaseView } from "./pages/case-view";
+import { CaseContacts } from "./pages/case-contacts";
 import { AuthGuard } from "./components/auth-guard";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
               <Route path="/" element={<Dashboard />} />
               <Route path="/cases" element={<Dashboard />} />
               <Route path="/cases/:caseId" element={<CaseView />} />
+              <Route path="/cases/:caseId/contacts" element={<CaseContacts />} />
               <Route path="/search" element={<PlaceholderPage title="Search" desc="Global document search across all cases — coming soon" />} />
               <Route path="/compliance" element={<PlaceholderPage title="Reports" desc="Compliance reports and export — coming soon" />} />
               <Route path="/settings" element={<PlaceholderPage title="Settings" desc="User preferences, auth method, notifications — coming soon" />} />

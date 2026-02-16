@@ -2,7 +2,7 @@ import { Outlet, NavLink, useNavigate, useLocation } from 'react-router-dom';
 import {
   LayoutDashboard, FolderOpen, Search, FileCheck, Settings, LogOut,
   Scale, ChevronLeft, ChevronRight, Shield, BookOpen, Sparkles,
-  Bell,
+  Bell, Users,
 } from 'lucide-react';
 import { useState } from 'react';
 import { useAuth, useMode } from '@/providers/context';
@@ -96,10 +96,35 @@ export function ADLayout() {
               </NavLink>
             ))}
 
+            {/* Case Contacts — visible when viewing a case */}
+            {isOnCase && (
+              <NavLink
+                to={`${location.pathname.replace(/\/contacts$/, '')}/contacts`}
+                end
+                className={({ isActive }) =>
+                  `group flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 mt-3 relative ${
+                    isActive
+                      ? 'bg-emerald-500/10 text-emerald-400 shadow-lg shadow-black/10'
+                      : 'text-sidebar-foreground/60 hover:bg-sidebar-accent/40 hover:text-sidebar-foreground'
+                  } ${collapsed ? 'justify-center' : ''}`
+                }
+              >
+                {({ isActive }) => (
+                  <>
+                    {isActive && (
+                      <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[3px] h-5 rounded-r-full bg-emerald-400" />
+                    )}
+                    <Users className={`w-5 h-5 shrink-0 transition-colors ${isActive ? 'text-emerald-400' : ''}`} />
+                    {!collapsed && <span>Contacts</span>}
+                  </>
+                )}
+              </NavLink>
+            )}
+
             {/* Jurisdiction Toggle in Sidebar */}
             <button
               onClick={() => setShowJurisdiction(!showJurisdiction)}
-              className={`w-full group flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 mt-4 ${
+              className={`w-full group flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 mt-3 ${
                 showJurisdiction
                   ? 'bg-ad-gold/10 text-ad-gold'
                   : 'text-sidebar-foreground/60 hover:bg-sidebar-accent/40 hover:text-sidebar-foreground'

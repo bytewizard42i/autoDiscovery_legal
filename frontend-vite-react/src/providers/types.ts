@@ -264,6 +264,42 @@ export interface IAIProvider {
   scoreFidelity(imageHash: string, digitalHash: string): Promise<number>;
 }
 
+// --- Contact Types ---
+
+export type ContactTeam = 'our_team' | 'opposing_team' | 'court' | 'neutral';
+
+export type ContactRole =
+  | 'lead_attorney' | 'associate' | 'paralegal' | 'legal_secretary'
+  | 'expert_witness' | 'fact_witness' | 'victim' | 'plaintiff'
+  | 'defendant' | 'judge' | 'magistrate' | 'mediator'
+  | 'opposing_counsel' | 'opposing_associate' | 'opposing_paralegal'
+  | 'custodian' | 'court_reporter' | 'process_server'
+  | 'insurance_adjuster' | 'law_enforcement' | 'other';
+
+export interface CaseContact {
+  id: string;
+  caseId: string;
+  name: string;
+  team: ContactTeam;
+  role: ContactRole;
+  description: string;
+  firm?: string;
+  email?: string;
+  phone?: string;
+  barNumber?: string;
+  stars: 0 | 1 | 2 | 3;
+  isFirstYearAssociate?: boolean;
+  connectedContactIds: string[];
+  notes?: string;
+  sortOrder: number;
+}
+
+export interface IContactProvider {
+  getContactsByCaseId(caseId: string): Promise<CaseContact[]>;
+  updateContactStars(contactId: string, stars: 0 | 1 | 2 | 3): Promise<CaseContact>;
+  reorderContacts(caseId: string, contactIds: string[]): Promise<void>;
+}
+
 // --- Master Provider Bundle ---
 
 export interface Providers {
@@ -272,6 +308,7 @@ export interface Providers {
   documents: IDocumentProvider;
   compliance: IComplianceProvider;
   ai: IAIProvider;
+  contacts: IContactProvider;
 }
 
 export type ADMode = 'demoland' | 'realdeal';

@@ -4,6 +4,7 @@ import { MockCaseProvider } from './mock-case';
 import { MockDocumentProvider } from './mock-document';
 import { MockComplianceProvider } from './mock-compliance';
 import { MockAIProvider } from './mock-ai';
+import { createMockContactProvider } from './mock-contacts';
 
 export function createDemoProviders(): Providers {
   return {
@@ -12,5 +13,6 @@ export function createDemoProviders(): Providers {
     documents: new MockDocumentProvider(),
     compliance: new MockComplianceProvider(),
     ai: new MockAIProvider(),
+    contacts: createMockContactProvider(),
   };
 }
