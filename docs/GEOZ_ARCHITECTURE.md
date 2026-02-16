@@ -1,8 +1,8 @@
-# 🌐 GeoZ Oracle — How AutoDiscovery Uses It
+# 🌐 GeoZ Oracle — Companion Project
 
-> **GeoZ** is a **separate project and repository** — a privacy-preserving geolocation oracle built on Midnight.
+> **GeoZ** is a **separate, independent project** by the same team — a privacy-preserving geolocation oracle built on Midnight.
 >
-> 🔗 **Full GeoZ documentation:** [github.com/bytewizard42i/GeoZ_us_app_Midnight-Oracle](https://github.com/bytewizard42i/GeoZ_us_app_Midnight-Oracle)
+> 🔗 **GeoZ Repository:** [github.com/bytewizard42i/GeoZ_us_app_Midnight-Oracle](https://github.com/bytewizard42i/GeoZ_us_app_Midnight-Oracle)
 >
 > **Domains:** [GeoZ.us](https://geoz.us) · [GeoZ.app](https://geoz.app)
 
@@ -16,67 +16,27 @@ For full architecture, ISP attestation research, circuit design, and CAMARA inte
 
 ---
 
-## How AutoDiscovery Consumes GeoZ
+## Relationship to AutoDiscovery
 
-AutoDiscovery is the **first consumer** of GeoZ proofs. The integration serves three purposes:
+**GeoZ is not a dependency of AutoDiscovery.** AutoDiscovery determines jurisdiction based on the court where the case is filed — which is known at case creation and doesn't require a geolocation oracle.
 
-```
-┌────────────────────────────────────┐
-│       AutoDiscovery.legal          │
-│  "Which jurisdiction rules apply   │
-│   to this case?"                   │
-│                                    │
-│  Calls GeoZ to prove:             │
-│  "This firm is operating from     │
-│   Idaho (IRCP applies)"           │
-├────────────────────────────────────┤
-│         GeoZ Oracle Layer          │
-│  (GeoZ.us / GeoZ.app)             │
-├────────────────────────────────────┤
-│       Midnight Network             │
-│  (ZK Proofs + Dual Ledger)         │
-└────────────────────────────────────┘
-```
+GeoZ and AutoDiscovery are **companion projects** by the same team, both built on Midnight:
 
-### 1. Auto-Detect Jurisdiction
+| Project | What It Does |
+|---------|-------------|
+| **AutoDiscovery** | Automates legal discovery with jurisdiction-aware compliance, ZK proofs, and privacy-first architecture |
+| **GeoZ** | Proves geographic region membership in ZK — general-purpose oracle for any application |
 
-When a case is created, GeoZ proves the firm's location → AutoDiscovery loads the correct rule pack (IRCP, URCP, CR, etc.). No manual jurisdiction selection required.
+### Potential Future Synergies
 
-### 2. Prove Compliance Jurisdiction
+While not required, GeoZ could optionally enhance AutoDiscovery in the future:
 
-The compliance proof includes a GeoZ attestation that the work was performed in the claimed jurisdiction. This is part of the immutable audit trail — cryptographic proof that the right rules were applied from the right place.
+- **Optional location verification** — If a firm wants to cryptographically prove they operated from a specific jurisdiction (beyond just selecting it), GeoZ could provide that attestation
+- **Multi-party cases** — In cases where party location matters (e.g., service of process across state lines), GeoZ could verify party locations without exposing addresses
 
-### 3. Multi-Jurisdiction Cases
-
-When parties are in different states, each party's GeoZ proof determines which rules apply to their obligations. AutoDiscovery's `jurisdiction-registry` contract references GeoZ proof results to fork the workflow correctly.
+These are **optional enhancements**, not core requirements. AutoDiscovery works fully without GeoZ.
 
 ---
 
-## What AutoDiscovery Receives from GeoZ
-
-AutoDiscovery does **not** interact with GeoZ internals (issuers, attestations, circuits). It consumes the **output** of a verified GeoZ proof:
-
-| Field | What AutoDiscovery Uses It For |
-|-------|-------------------------------|
-| **Region ID** | Maps to a jurisdiction rule pack (e.g., `US-ID` → IRCP) |
-| **Timestamp** | Ensures the location proof is fresh (within policy window) |
-| **Proof validity** | Boolean — did the ZK proof verify on-chain? |
-| **Nullifier** | Prevents the same proof from being reused across cases |
-
-AutoDiscovery never sees coordinates, IP addresses, ISP tokens, or any other private location data.
-
----
-
-## Integration Points in AutoDiscovery
-
-| AutoDiscovery Component | GeoZ Interaction |
-|------------------------|-----------------|
-| **`jurisdiction-registry` contract** | Reads GeoZ proof results to determine which rule pack to load |
-| **`compliance-proof` contract** | Includes GeoZ proof reference in the compliance attestation chain |
-| **Frontend — Case Creation** | Triggers GeoZ proof flow when a new case is created |
-| **Frontend — Jurisdiction Override** | Allows manual override with GeoZ proof as fallback verification |
-
----
-
-*For GeoZ architecture, ISP research, circuit design, threat model, and CAMARA integration:*
+*For full GeoZ documentation:*
 *See [github.com/bytewizard42i/GeoZ_us_app_Midnight-Oracle](https://github.com/bytewizard42i/GeoZ_us_app_Midnight-Oracle)*

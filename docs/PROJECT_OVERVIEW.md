@@ -1,12 +1,12 @@
 # AutoDiscovery - Project Overview
 
-> **GeoOracle Auto Compliance: build once, comply everywhere.**
+> **Automated discovery compliance: build once, comply everywhere.**
 
 ---
 
 ## Executive Summary
 
-AutoDiscovery is a **Midnight-based dApp** that automates legal discovery workflows with **jurisdiction-aware compliance**. Using a GeoOracle, the platform automatically applies the correct regional legislation and procedural rules based on case location—eliminating the risk of discovery non-compliance that leads to sanctions, dismissed cases, or suppressed evidence.
+AutoDiscovery is a **Midnight-based dApp** that automates legal discovery workflows with **jurisdiction-aware compliance**. The platform uses modular jurisdiction rule packs to apply the correct regional legislation and procedural rules based on the court where the case is filed—eliminating the risk of discovery non-compliance that leads to sanctions, dismissed cases, or suppressed evidence.
 
 With **autoDiscovery.legal**, we aim to organize and formalize a hard-coded, geographically compliant, law-based protocol that will help organize, distribute, and give proper, accurate, and secure access control to user-aggregated legal discovery. This protocol will **abstract away liability**, reduce man hours and overall costs, increase profits, and form an **immutable (existing forever) proof of compliance, custody, provenance, and access.**
 
@@ -62,16 +62,14 @@ This protocol will **abstract away liability**, reduce man hours and overall cos
 AutoDiscovery provides:
 
 1. **Automated Workflow Engine** — Step-by-step discovery process execution
-2. **GeoOracle Integration** — Detects jurisdiction and loads appropriate rule sets
-3. **Modular Rule Packs** — State/federal rules as pluggable modules
-4. **Immutable Compliance Proofs** — Midnight ZK proofs that can be entered as factual record
-5. **Selective Disclosure** — Reveal only what's required, prove the rest
+2. **Jurisdiction Rule Packs** — Modular, per-state rules loaded at case creation based on filing court
+3. **Immutable Compliance Proofs** — Midnight ZK proofs that can be entered as factual record
+4. **Selective Disclosure** — Reveal only what's required, prove the rest
 
 ### Key Taglines
 
-- *"Discovery that knows where it is."*
-- *"Automated legal discovery that adapts to location."*
-- *"Remove the risks of failing to disclose or handle discovery properly with Midnight's GeoOracle—where regional compliance is baked in."*
+- *"Automated legal discovery — jurisdiction-aware by design."*
+- *"Remove the risks of failing to disclose or handle discovery properly — regional compliance is baked in."*
 - *"Prove compliance in an immutable fashion that can be entered as factual record."*
 - *"AutoDiscovery doesn't just help you manage discovery — it mathematically proves you did it right."*
 
@@ -120,8 +118,8 @@ AutoDiscovery/
 ├─────────────────────────────────────────────────────────────┤
 │                                                              │
 │  ┌──────────────┐    ┌──────────────┐    ┌──────────────┐  │
-│  │  GeoOracle   │───▶│ Rule Loader  │───▶│  Workflow    │  │
-│  │  (Location)  │    │ (Jurisdiction)│    │  Engine      │  │
+│  │ Jurisdiction │───▶│ Rule Loader  │───▶│  Workflow    │  │
+│  │ (Case Filed) │    │ (Rule Pack)  │    │  Engine      │  │
 │  └──────────────┘    └──────────────┘    └──────────────┘  │
 │         │                   │                    │          │
 │         ▼                   ▼                    ▼          │
@@ -207,10 +205,6 @@ Courts guard precedent fiercely. In one case, a judge refused to let a plaintiff
 
 **The inverse is equally powerful:** Once courts accept ZK proofs as factual record, that precedent binds all future proceedings. No industry can question what the legal system has validated.
 
-### Why GeoOracle?
-
-**No privacy-preserving geographical oracle exists today.** AutoDiscovery + GeoOracle is a prerequisite infrastructure layer for any location-aware compliance system.
-
 ---
 
 ## Roadmap
@@ -223,9 +217,8 @@ Courts guard precedent fiercely. In one case, a judge refused to let a plaintiff
 
 ### Phase 2: Multi-Jurisdiction
 - [ ] Utah, Washington, NYC, California rule packs
-- [ ] GeoOracle prototype integration
 - [ ] Jurisdiction comparison view
-- [ ] Workflow forking based on location
+- [ ] Workflow forking based on filing court
 
 ### Phase 3: Production
 - [ ] Full federal rules integration
@@ -248,7 +241,7 @@ Courts guard precedent fiercely. In one case, a judge refused to let a plaintiff
 
 **Event:** Midnight Vegas Hackathon  
 **Date:** April 2026  
-**Goal:** Working MVP demonstrating GeoOracle Auto Compliance
+**Goal:** Working MVP demonstrating automated jurisdiction-aware discovery compliance
 
 ---
 
@@ -304,7 +297,7 @@ npm run dev:frontend
 
 | Partner | Role | Notes |
 |---------|------|-------|
-| **Charli3 Oracles** | Oracle Infrastructure | Potential data feed partner for [GeoZ Oracle](https://github.com/bytewizard42i/GeoZ_us_app_Midnight-Oracle) (GeoZ.us / GeoZ.app) |
+| **Charli3 Oracles** | Oracle Infrastructure | Potential data feed partner for [GeoZ](https://github.com/bytewizard42i/GeoZ_us_app_Midnight-Oracle) companion project |
 | **OpenZeppelin** | Smart Contract Security | Compact contract templates and security patterns |
 | **NMKR** | NFT/Token Infrastructure | Potential integration for compliance credential tokens |
 

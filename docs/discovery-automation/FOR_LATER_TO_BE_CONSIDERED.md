@@ -109,7 +109,7 @@ When parties are in different states, which rules govern?
 - State cases with out-of-state parties: forum state rules
 - Multi-district litigation (MDL): consolidated rules
 
-AutoDiscovery's GeoOracle was designed for this — but we need to handle the edge case where a single case has **multiple rule packs active simultaneously**.
+AutoDiscovery's jurisdiction rule pack system handles this — but we need to handle the edge case where a single case has **multiple rule packs active simultaneously**.
 
 ## 12. In Camera Review Workflow
 

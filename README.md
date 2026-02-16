@@ -6,7 +6,7 @@
 
 <img src="./media/autodiscovery-banner.png" alt="The Cost of Discovery Failure — autoDiscovery.legal" width="600" />
 
-### *GeoOracle Auto Compliance: build once, comply everywhere.*
+### *Automated discovery compliance: build once, comply everywhere.*
 
 **A Midnight-based dApp that automates legal discovery with jurisdiction-aware compliance,<br>zero-knowledge proofs, and privacy-first architecture.**
 
@@ -18,7 +18,7 @@
 
 ---
 
-**[Project Overview](./docs/PROJECT_OVERVIEW.md)** · **[Build Plan](./docs/BUILD_PLAN.md)** · **[Architecture](./docs/SMART_CONTRACT_PARTITIONING.md)** · **[Discovery Protocol](./docs/discovery-automation/README.md)** · **[Email Safety](./docs/EMAIL_SAFETY_PROTOCOL.md)** · **[GeoZ Oracle](https://github.com/bytewizard42i/GeoZ_us_app_Midnight-Oracle)**
+**[Project Overview](./docs/PROJECT_OVERVIEW.md)** · **[Build Plan](./docs/BUILD_PLAN.md)** · **[Architecture](./docs/SMART_CONTRACT_PARTITIONING.md)** · **[Discovery Protocol](./docs/discovery-automation/README.md)** · **[Email Safety](./docs/EMAIL_SAFETY_PROTOCOL.md)**
 
 </div>
 
@@ -59,7 +59,7 @@ It is our hope that autoDiscovery.legal will be the **default protocol for accur
 <td width="50%">
 
 ### 🔐 Privacy-First Discovery Automation
-- **GeoOracle Compliance** — Detects case jurisdiction and auto-applies the correct procedural rules (IRCP, URCP, CR, FRCP, and more)
+- **Jurisdiction Rule Packs** — Modular, per-state procedural rules auto-applied at case creation (IRCP, URCP, CR, FRCP, and more)
 - **9-Step Discovery Protocol** — 24 universal document categories, party attribution, origination tracking, chain-of-custody, and AI-assisted metadata extraction
 - **Zero-Knowledge Proofs** — Compliance attestations become immutable court records without exposing underlying data
 - **Selective Disclosure** — Reveal only what's required, nothing more
@@ -102,7 +102,7 @@ It is our hope that autoDiscovery.legal will be the **default protocol for accur
 | Contract | Purpose |
 |----------|---------|
 | **discovery-core** | Case lifecycle, discovery steps, obligation tracking |
-| **jurisdiction-registry** | GeoOracle rule packs per jurisdiction |
+| **jurisdiction-registry** | Modular rule packs per jurisdiction |
 | **compliance-proof** | ZK attestation generation and verification |
 | **document-registry** | Production tracking, Merkle trees, Twin Protocol bonds |
 | **access-control** | YubiKey-based authentication, role-gated permissions |
@@ -206,7 +206,7 @@ cp frontend-vite-react/.env_template frontend-vite-react/.env
 | **[Jurisdiction Deep Dive](./docs/JURISDICTION_DEEP_DIVE.md)** | ID, OH, WA, UT, CA, NY rule mapping |
 | **[Customer Analysis Matrix](./docs/CUSTOMER_ANALYSIS_MATRIX.md)** | Market research and adoption strategy |
 | **[UI Design Notes](./docs/UI_DESIGN_NOTES.md)** | Brand palette, glass morphism, component guidelines |
-| **[GeoZ Integration](./docs/GEOZ_ARCHITECTURE.md)** | How AutoDiscovery consumes GeoZ proofs — full GeoZ docs at [GeoZ repo](https://github.com/bytewizard42i/GeoZ_us_app_Midnight-Oracle) *(GeoZ.us / GeoZ.app)* |
+| **[GeoZ Oracle](https://github.com/bytewizard42i/GeoZ_us_app_Midnight-Oracle)** | 🌐 Companion project — privacy-preserving geolocation oracle on Midnight *(GeoZ.us / GeoZ.app)* |
 
 ---
 
