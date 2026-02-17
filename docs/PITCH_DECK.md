@@ -1,299 +1,224 @@
-# AutoDiscovery — Pitch Deck
+# AutoDiscovery.legal — Pitch Deck
 
-**GeoOracle Auto Compliance: build once, comply everywhere.**
-
----
-
-## Slide 1: Title
-
-# **AutoDiscovery**
-### Legal Discovery That Knows Where It Is
-
-**Automated, jurisdiction-aware discovery workflows with immutable compliance proofs**
-
-Built on Midnight Network | Privacy meets compliance
-
-**Team**: Spy ([@SpyCrypto](https://github.com/SpyCrypto)) • John ([@bytewizard42i](https://github.com/bytewizard42i))
+> **10-Slide Investor Pitch — Midnight Build Club, Week 3**
+> Presenters: John Santi & Spy
 
 ---
 
-## Slide 2: The Problem — Discovery Is Broken
+## Slide 1: The Elephant in the Room
 
-### Every Day, Attorneys Face a Crisis:
+<div align="center">
 
-📍 **50 different rule systems** — Federal courts + 50 states = constant jurisdictional confusion
+![What is the most terrifying word for a lawyer? SANCTIONS.](../media/elephant-sanctions.png)
 
-⚖️ **Career-ending mistakes** — Wrong jurisdiction rules → Evidence suppression, case dismissal, malpractice
+</div>
 
-💰 **$1.8M average cost** — In large complex cases, discovery devours litigation budgets
-
-⏰ **Manual deadline tracking** — Spreadsheets and guesswork = missed deadlines = sanctions
-
-🚫 **No audit trail** — Can't prove you followed proper procedure when challenged
-
-### Real Consequences:
-- **1 in 10** federal civil cases requires a judge to resolve discovery disputes *(FJC 2009)*
-- **$8.5M+** in sanctions awarded in a single case *(Qualcomm v. Broadcom, 2008)*
-- **63%** of spoliation motions resulted in sanctions *(Gibson Dunn, 2014)*
+> *"What is the most terrifying word for a lawyer?"*
 
 ---
 
-## Slide 3: User Story — The Manual Discovery Nightmare
+## Slide 2: The Problem
 
-### Meet Sarah, a Paralegal in Idaho
+### Discovery Is Litigation's Biggest Liability
 
-**Day 1**: New medical malpractice case assigned  
-→ *Manually looks up Idaho IRCP rules (different from federal)*
+- **1 in 10** federal cases need a judge to resolve discovery disputes
+- **$8.5M** in sanctions in a single case — **6 attorneys referred to the State Bar**
+- **38,000+** NYC cases dismissed in 2024 from discovery compliance failures
+- **28%** of all legal malpractice claims stem from missed deadlines
+- **60%** longer federal criminal cases — driven by eDiscovery overload
 
-**Week 2**: Trying to track 40+ interrogatories (Idaho's limit)  
-→ *Spreadsheet chaos, worried about missing Rule 36's deemed-admitted trap*
+> Discovery failures are **common, expensive, and career-ending.**
 
-**Week 4**: Computing deadlines with Rule 2.2 (business days + holidays)  
-→ *Three different calendars, still not confident*
-
-**Month 3**: Expert witness disclosure coming up  
-→ *W-9 forms? I-9 forms? Standard of Care docs? What's missing?*
-
-**Month 6**: Opposing counsel files motion for sanctions  
-→ *"You failed to disclose Document 247 on time"*  
-→ *No immutable proof of when it was produced*
-
-### **Sarah's firm faces a $75,000 sanction and potential malpractice claim**
+*Sources: FJC 2009, Qualcomm v. Broadcom 2008, City Journal/Manhattan Institute 2024, ABA, U.S. Courts 2024*
 
 ---
 
-## Slide 4: Solution — AutoDiscovery Changes Everything
+## Slide 3: The Human Cost — From the Trenches
 
-### Same Case, With AutoDiscovery:
+### What Spy Sees Every Day (20 Years, Complex Litigation)
 
-✅ **Case created** → GeoOracle detects Idaho jurisdiction → IRCP rule pack loaded automatically
+- Paralegals juggling **10+ cases across multiple attorneys** simultaneously
+- Staff turnover creates **coverage gaps** where deadlines slip
+- Incorrect set numbers, wrong patient records, wrong filing types
+- Discovery tracking managed with **spreadsheets and Outlook reminders**
+- When the responsible person is out — **the system breaks down**
 
-✅ **Automated workflow** → Step-by-step checklist with Idaho-specific requirements
-
-✅ **Smart deadlines** → Rule 2.2 computation (business days, holidays) built-in
-
-✅ **Compliance tracking** → Expert witness W-9/I-9 status monitored, alerts sent
-
-✅ **Immutable proof** → Zero-knowledge attestation generated: *"Document 247 produced on [date], before deadline"*
-
-✅ **Court verification** → Judge can verify compliance proof without seeing privileged content
-
-### **Result: No sanctions. No malpractice. Mathematical proof of compliance.**
+> *"If your discovery tracking system is a spreadsheet, AutoDiscovery is the upgrade you can't afford to skip."*
 
 ---
 
-## Slide 5: How It Works — Jurisdiction-Aware Automation
+## Slide 4: The Market Opportunity
+
+### $27.6B eDiscovery Market by 2030
+
+| Metric | Value |
+|--------|-------|
+| **Current market** | $16.89B (2024) |
+| **Projected** | $25–27.6B by 2029–2030 |
+| **Growth rate** | 8.25% CAGR |
+| **Discovery share of litigation costs** | 20–50% |
+| **Annual US eDiscovery spending** | $30–50B |
+| **Average discovery cost per federal case** | ~$35,000 |
+
+### Our Beachhead: Idaho → Utah → Washington → California → New York
+
+6 jurisdictions mapped. 50 states is the goal.
+
+---
+
+## Slide 5: The Solution
+
+### AutoDiscovery.legal — Automated Compliance, Abstracted Liability
+
+With **autoDiscovery.legal**, we organize and formalize a **hard-coded, jurisdiction-compliant, law-based protocol** that will:
+
+1. **Automate** — 9-step discovery workflow with 24 universal document categories
+2. **Comply** — Modular rule packs per state (IRCP, URCP, CR, FRCP, and more)
+3. **Prove** — Zero-knowledge compliance proofs on the Midnight blockchain
+4. **Protect** — Documents never touch the chain — only cryptographic proofs
+
+> *"AutoDiscovery doesn't just help you manage discovery — it mathematically proves you did it right."*
+
+---
+
+## Slide 6: Privacy & Data Protection — The Core Advantage 🔐
+
+### Why This Can Only Be Built on Midnight
+
+| Requirement | Traditional Tech | Midnight |
+|-------------|-----------------|----------|
+| **Prove compliance without revealing case details** | Public chains expose everything; databases can be altered | ZK proofs verify compliance — case data stays private |
+| **Create court-admissible records** | Timestamps can be faked; databases edited | Immutable ledger courts can independently verify |
+| **Share only what opposing counsel needs** | Binary: share everything or nothing | Selective disclosure at the data field level |
+| **Handle privileged information** | Any system that "sees" it risks waiver | Zero-knowledge architecture never exposes raw content |
+
+### The Privacy Architecture
 
 ```
-┌─────────────────────────────────────────────────────┐
-│              New Case Created                        │
-│         (Location: Boise, Idaho)                     │
-└────────────────┬────────────────────────────────────┘
-                 │
-                 ▼
-         ┌───────────────┐
-         │  GeoOracle    │ ← Detects jurisdiction
-         └───────┬───────┘
-                 │
-                 ▼
-         ┌───────────────────┐
-         │ Load Idaho IRCP   │ ← Modular rule packs
-         │   Rule Pack       │
-         └───────┬───────────┘
-                 │
-                 ▼
-    ┌────────────────────────────┐
-    │   Workflow Engine          │ ← Auto-generates:
-    │  • 40 interrogatory limit  │   • Checklists
-    │  • Rule 36 deadlines       │   • Deadlines
-    │  • Expert disclosure reqs  │   • Alerts
-    └────────────┬───────────────┘
-                 │
-                 ▼
-    ┌────────────────────────────┐
-    │  Compliance Proof (ZK)     │ ← Midnight blockchain
-    │  • Immutable                │
-    │  • Verifiable               │
-    │  • Privacy-preserving       │
-    └────────────────────────────┘
+┌──────────────────────────────────────────────────────────┐
+│                    AutoDiscovery.legal                     │
+├──────────────────────────────────────────────────────────┤
+│  PRIVATE STATE ──── Case data, documents, privilege logs  │
+│  PUBLIC STATE  ──── Compliance proofs, deadline attestations│
+│  SEALED LEDGER ──── Write-once commitment schemes          │
+└──────────────────────────────────────────────────────────┘
 ```
 
----
-
-## Slide 6: Privacy Is Our Core Advantage
-
-### Why Midnight Network?
-
-| Traditional Legal Tech | **AutoDiscovery on Midnight** |
-|----------------------|-------------------------------|
-| 📂 Case data on vendor servers | 🔒 **Private local state** — sensitive data never leaves your system |
-| 📄 Must reveal documents to prove compliance | 🎭 **Zero-knowledge proofs** — prove you complied without revealing content |
-| 📋 Spreadsheets = no verification | ⛓️ **Immutable blockchain record** — courts can independently verify |
-| 🤝 Trust opposing counsel's word | 🧾 **Cryptographic attestations** — mathematically unforgeable |
-| 🚫 All-or-nothing disclosure | 🎯 **Selective disclosure** — reveal only what's required by law |
-
-### The Privacy Advantage:
-
-**HIPAA Compliance**: Medical malpractice case documents stay encrypted; only proof hashes touch the blockchain
-
-**Attorney-Client Privilege**: Prove privilege log was maintained without revealing privileged content
-
-**Work Product Protection**: Demonstrate good-faith compliance without exposing strategy
-
-**Client Trust**: "Your sensitive information is protected by blockchain-grade cryptography"
-
-### **Midnight + Legal = The First Privacy-Preserving Compliance System Courts Can Trust**
+> **Documents never touch the blockchain.** Only proofs do. HIPAA-safe, privilege-safe, by design.
 
 ---
 
-## Slide 7: Market Opportunity — Multi-Billion Dollar Problem
+## Slide 7: How It Works — The Workflow
 
-### Target Market:
+```
+┌─────────┐    ┌──────────────┐    ┌──────────────┐    ┌──────────────┐
+│  Case    │───▶│ Jurisdiction │───▶│  Rule Pack   │───▶│  Workflow    │
+│ Created  │    │  Selected    │    │  Auto-Loaded │    │  Engine      │
+└─────────┘    └──────────────┘    └──────────────┘    └──────────────┘
+                                                              │
+                                                              ▼
+                                          ┌──────────────────────────────┐
+                                          │  ZK Compliance Proof Generated│
+                                          │  → Immutable, Court-Ready     │
+                                          │  → Verifiable by anyone       │
+                                          │  → Reveals nothing privileged │
+                                          └──────────────────────────────┘
+```
 
-🏛️ **1.2M active attorneys** in the U.S.  
-🏢 **190,000+ law firms** (majority small-to-mid size)  
-📊 **300,000+ civil cases** filed annually in federal courts alone  
-💼 **Medical malpractice alone**: 15,000-19,000 cases/year
+### Smart Contract Suite (6 Contracts)
 
-### Current Solutions (And Their Gaps):
-
-| Tool | What They Do | What They DON'T Do |
-|------|--------------|-------------------|
-| **Relativity, Logikcull, Everlaw** | Document review, search, e-discovery | ❌ No jurisdiction rules engine<br>❌ No deadline computation<br>❌ No compliance proofs<br>❌ No privacy protection |
-| **Case management (Clio, PracticePanther)** | Billing, calendaring, client intake | ❌ No discovery-specific features<br>❌ No rule packs<br>❌ No compliance verification |
-| **Spreadsheets + Manual Tracking** | Flexible | ❌ Error-prone<br>❌ No automation<br>❌ No proof of compliance |
-
-### **AutoDiscovery is the ONLY tool that combines:**
-✅ Jurisdiction-aware automation  
-✅ Cryptographic compliance proofs  
-✅ Privacy-preserving architecture  
-✅ Court-verifiable audit trail
-
----
-
-## Slide 8: Traction & Roadmap
-
-### Phase 1: MVP (Hackathon Target — April 2026)
-✅ Idaho IRCP rule pack (single jurisdiction)  
-✅ Discovery workflow smart contracts (Compact/Midnight)  
-✅ React frontend with wallet integration  
-✅ Proof-of-concept ZK compliance attestation  
-✅ Deadline computation engine (Rule 2.2)
-
-### Phase 2: Multi-Jurisdiction Expansion (Q3 2026)
-- Utah, Washington, NYC, California rule packs  
-- GeoOracle prototype integration  
-- Jurisdiction comparison dashboard  
-- Automated workflow forking based on location
-
-### Phase 3: Production & Scale (2027)
-- Full federal FRCP integration  
-- Expert witness management module  
-- E-discovery document handling (AI-assisted classification)  
-- Court integration APIs (filing, service of process)  
-- Enterprise partnerships (law firm integrations)
-
-### Current Status:
-🔨 **Building**: Smart contract architecture (Compact)  
-📚 **Research**: Idaho IRCP rule validation with domain expert (Spy)  
-🎯 **Target**: Midnight Vegas Hackathon demo (April 2026)
+| Contract | Purpose |
+|----------|---------|
+| **discovery-core** | Case lifecycle, discovery steps, obligation tracking |
+| **jurisdiction-registry** | Modular rule packs per jurisdiction |
+| **compliance-proof** | ZK attestation generation and verification |
+| **document-registry** | Production tracking, Merkle trees, chain of custody |
+| **access-control** | YubiKey-based authentication, role-gated permissions |
+| **expert-witness** | W-9/I-9 workflows, qualification attestation |
 
 ---
 
-## Slide 9: Team — Domain Expertise + Technical Execution
+## Slide 8: The Horror Stories — Why This Matters
 
-### **Spy** ([@SpyCrypto](https://github.com/SpyCrypto))
-**Domain Expert | Retired Paralegal**
+| Case | Sanction | What Happened |
+|------|----------|---------------|
+| **Qualcomm v. Broadcom** (2008) | $8.5M + 6 attorneys to State Bar | Failed to produce tens of thousands of emails |
+| **Coleman v. Morgan Stanley** (2005) | $1.58B jury verdict | Discovery default → partial default judgment |
+| **Wachtel v. Health Net** (2007) | $6.7M + discovery monitor | 165+ court orders trying to get compliance |
+| **SNET v. Global NAPs** (2010) | $5.9M + default judgment | Anti-forensic software used to erase 20,000 files |
+| **DR Distributors** (2022) | $2.5M — half charged to individual attorneys | 8 years, 400+ docket entries of discovery warfare |
 
-- **15+ years** complex litigation experience  
-- **Real-world expertise**: Medical malpractice, personal injury, discovery workflows  
-- **Published researcher**: Statistics reports for Idaho government agencies  
-- **Role**: Product vision, rule pack validation, user story design
-
-*"I've seen attorneys lose cases because they missed one disclosure deadline. That's what AutoDiscovery prevents."*
-
----
-
-### **John** ([@bytewizard42i](https://github.com/bytewizard42i))
-**Developer | Midnight Builder**
-
-- **Blockchain architect**: Smart contract development (Compact/Midnight)  
-- **Full-stack engineer**: React, TypeScript, Zero-Knowledge systems  
-- **Midnight ecosystem**: Active contributor, deep ZK expertise  
-- **Role**: Technical architecture, contract development, infrastructure
-
-*"Privacy isn't optional in legal tech—it's foundational. Midnight makes it possible."*
+> **AutoDiscovery makes these scenarios impossible.**
+> Every step is tracked. Every deadline is computed. Every obligation is proved.
 
 ---
 
-## Slide 10: Why This Matters — Court Precedent = Blockchain Legitimization
+## Slide 9: ROI — The Math Is Simple
 
-### The Bigger Vision:
+### What would a discovery failure cost your firm?
 
-**Courts guard precedent fiercely.** Once a judge accepts a new form of evidence, that precedent binds all future cases.
+| | |
+|---|---|
+| **Average sanction** | $704,094 |
+| **Risk of judicial intervention** | ~10% of cases |
+| **50 cases/year** × 10% × $704K | = **$3.5M annual exposure** |
 
-### What happens when courts accept ZK proofs as factual record?
+> **AutoDiscovery costs a fraction of a single sanction.**
 
-1. **Legal system validates blockchain** → No industry can question what courts trust  
-2. **First privacy-preserving oracle** → GeoOracle becomes infrastructure for location-aware compliance  
-3. **Precedent cascade** → Other legal tech forced to adopt blockchain standards  
-4. **Regulatory legitimacy** → If courts trust it, regulators follow
-
-### **AutoDiscovery isn't just legal tech — it's the bridge that brings blockchain into the most conservative, high-stakes industry in the world.**
-
-**If blockchain earns the trust of the legal system, everything changes.**
-
----
-
-## Slide 11: Call to Action
-
-### We're Building the Future of Legal Compliance
-
-**What we need:**
-- **Feedback** from attorneys, paralegals, legal tech experts  
-- **Partnership opportunities** with law firms for pilot testing  
-- **Midnight ecosystem collaboration** (GeoOracle, infrastructure)  
-- **Support for Midnight Vegas Hackathon** (April 2026)
-
-**What we're offering:**
-- **Early access** to MVP for pilot firms  
-- **Open-source rule packs** (Idaho, Utah, Washington, etc.)  
-- **Documentation** for extending to additional jurisdictions  
-- **Blueprint** for privacy-preserving compliance systems
+### Additional Value
+- **Malpractice insurance discounts** — cryptographic proof of compliance
+- **Reduced paralegal hours** — automated deadline tracking and workflow
+- **Error insurance** — protecting firms from errors and omissions
+- **Court-ready audit trail** — no more scrambling in sanctions hearings
 
 ---
 
-### **Contact:**
+## Slide 10: The Team
 
-**GitHub**: [github.com/SpyCrypto/AutoDiscovery](https://github.com/SpyCrypto/AutoDiscovery)  
-**Team**: [@SpyCrypto](https://github.com/SpyCrypto) • [@bytewizard42i](https://github.com/bytewizard42i)  
-**Hackathon**: Midnight Vegas (April 2026)
+| | Role | Background |
+|---|------|-----------|
+| **Spy** | Domain Expert | 20-year complex litigation paralegal · Published government researcher · Idaho courts veteran |
+| **John Santi** | Developer | 4× Midnight hackathon winner · Founder, EnterpriseZK Labs LLC · Blockchain architect |
 
----
+### Built With
+- **Midnight Network** — Privacy-preserving blockchain (ZK proofs + dual ledger)
+- **Compact** — Midnight's smart contract language
+- **React 19 + TypeScript 5** — Modern frontend
+- **AI-Assisted** — Document categorization, metadata extraction, privilege detection
 
-## Slide 12: Appendix — Key Metrics & Citations
-
-### Discovery Sanctions (Willoughby, Duke L.J. 2010):
-- **Average sanction**: $704,000  
-- **Median sanction**: $40,000  
-- **36 cases**: Dismissal or default judgment  
-- **Sanctions tripled** between 2003-2004
-
-### E-Discovery Costs (RAND Institute, 2012):
-- **$1.8M median** per-case cost (large corporate cases)  
-- **73%** of costs = document review  
-- **45 cases studied** across 8 corporations
-
-### Federal Court Discovery Disputes (FJC 2009):
-- **1 in 10 cases** require judicial intervention
-
-### Spoliation Sanctions (Gibson Dunn/Logikcull, 2014):
-- **63%** of spoliation motions resulted in sanctions
+### Target
+🎰 **Midnight Vegas Hackathon — April 2026**
+Working MVP: Idaho IRCP jurisdiction with full compliance proof pipeline
 
 ---
 
-**Built with Midnight Network — Privacy meets compliance.**
+## Slide 11: The Bigger Picture
+
+### Courts = Legitimization for All of Blockchain
+
+```
+╔══════════════════════════════════════════════════════════╗
+║                                                          ║
+║   THE PROBLEM          THE SOLUTION          THE IMPACT  ║
+║   ───────────          ────────────          ──────────  ║
+║                                                          ║
+║   Discovery            Automated             Courts      ║
+║   non-compliance       jurisdiction-aware     accept ZK   ║
+║   costs firms          workflows on           proofs as   ║
+║   millions and         Midnight's privacy-    factual     ║
+║   ends careers         preserving blockchain  record      ║
+║                                                          ║
+║   $27.6B market        Build once,            Every       ║
+║   with zero            comply everywhere      regulated   ║
+║   privacy-aware                               industry    ║
+║   solutions                                   follows     ║
+║                                                          ║
+╚══════════════════════════════════════════════════════════╝
+```
+
+> **We're not building a legal tool.** We're building the bridge between the legal system and blockchain — and once that bridge exists, every regulated industry in the world will cross it.
 
 ---
 
-*AutoDiscovery: Legal discovery that knows where it is.*
+*AutoDiscovery.legal | john@autodiscovery.legal | @realjohnny5i on X*
+*"Discovery is a battlefield. AutoDiscovery is your armor."*
