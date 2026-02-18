@@ -1,86 +1,98 @@
-# AutoDiscovery.legal — 3-Minute Pitch Video Script
+# AutoDiscovery.legal — 3-Minute Pitch Script
 
 > **Recording tips**: Use Loom (free). Screenshare the PDF deck, advance slides as you talk. Camera on (top corner). Speak with conviction — not speed. Pause on the big numbers. Let the slides breathe.
 
 ---
 
-## SLIDES 1–2: The Hook (0:00–0:20)
+## SLIDE 1: The Question (0:00–0:08)
 
-**[Start on Slide 1 — ADL elephant image. Pause 2 seconds. Advance to Slide 2 — Sanctions elephant.]**
+**[Start on Slide 1 — elephant sanctions image. Let it sit for 2 seconds.]**
 
-> "What is the most terrifying word a lawyer can hear?
+> "What is the most terrifying word a lawyer can hear?"
+
+**[Pause. Let the audience think. Advance to Slide 2.]**
+
+## SLIDE 2: The Answer (0:08–0:25)
+
+**[Slide 2 — Sanctions elephant reveal.]**
+
+> "*Sanctions.*
 >
-> *Sanctions.*
->
-> In law, a sanction is a court-imposed penalty for failing to follow the rules of discovery — the process of exchanging evidence before trial. Sanctions can mean fines, default judgments, even disbarment. And they're happening more than ever."
+> In law, a sanction is a court-imposed punishment for failing to follow the rules of discovery — that's the mandatory exchange of evidence before trial. Sanctions can mean hundred-thousand-dollar fines, default judgments, even disbarment. And they're happening more than ever."
 
 **[Advance to Slide 3]**
 
-## SLIDE 3: The Elephant in the Room (0:20–0:40)
+## SLIDE 3: The Elephant in the Room (0:25–0:45)
 
-> "Eight point five million dollars. That's the largest single discovery sanction in U.S. history. A law firm failed to produce emails. The court didn't just fine them — they referred six attorneys to the state bar for discipline.
+> "Eight point five *million* dollars. That's the largest single discovery sanction in U.S. history.
 >
 > Discovery compliance is broken. Everyone in legal knows it. We built the fix."
 
-**[Advance to Slide 4]**
+**[Let 'We built the fix' land. Advance to Slide 4.]**
 
-## SLIDE 4: The Problem (0:40–1:00)
+## SLIDE 4: The Problem (0:45–1:05)
 
-> "One in ten federal cases needs a judge to intervene on discovery disputes. The average sanction? Seven hundred thousand dollars. And these aren't cases of fraud — it's missed deadlines, lost text messages, human error.
+> "One in ten federal cases needs a judge to step in on discovery disputes. The average sanction? Seven hundred thousand dollars. A billion-dollar jury verdict after a discovery default. And a sixty percent spike in case duration from discovery overload.
 >
-> Every state has different rules, different timelines, different traps. And right now, firms track all of this in spreadsheets and Outlook reminders. There's no system. There's no proof. There's just risk."
+> Every state has different rules, different timelines, different traps. Firms track all of this in spreadsheets and calendar reminders. No system. No proof. Just risk."
 
 **[Advance to Slide 5]**
 
-## SLIDE 5: The User Story (1:00–1:20)
+## SLIDE 5: The Solution (1:05–1:25)
 
-> "Meet Sarah. She's a paralegal managing twelve cases across three attorneys. Each case follows different state rules. When she's out sick, nobody knows what's due. Last month, a set-number error almost triggered a spoliation motion.
+> "AutoDiscovery doesn't just help you manage discovery — it *mathematically proves* you did it right.
 >
-> With AutoDiscovery, her cases auto-load the correct rules. Deadlines compute themselves. And every completed step generates a proof that a court can verify independently. Sarah goes from guessing to *proving*."
+> Jurisdiction-aware rule packs that know every state's requirements. An automated deadline engine that computes every date. Zero-knowledge compliance proofs on blockchain. And a verifiable audit trail that courts and insurers can check independently."
 
 **[Advance to Slide 6]**
 
-## SLIDE 6: The Solution (1:20–1:40)
+## SLIDE 6: How It Works (1:25–1:40)
 
-> "AutoDiscovery doesn't just help you manage discovery. It mathematically proves you did it right.
+> "Here's the workflow: an attorney files a case. Our system detects the jurisdiction, loads the correct rule pack, generates every deadline and checklist, and when each step is completed — a ZK proof is written to the Midnight blockchain.
 >
-> We combine jurisdiction-aware rule packs — hard-coded state and federal rules — with an automated deadline engine and compliance proofs on blockchain. The system knows the rules. It computes the deadlines. And it creates an immutable, verifiable record that courts can trust."
+> Every step tracked. Every deadline computed. Every completion proven."
 
-**[Advance quickly through Slides 7–8]**
+**[Advance to Slide 7]**
 
-## SLIDES 7–8: How It Works + Privacy (1:40–2:05)
+## SLIDE 7: Why Midnight (1:40–2:00)
 
-> "Here's the workflow: case comes in, our system detects the jurisdiction, loads the right rule pack, generates every deadline, and when each step is completed — a cryptographic proof is written to the Midnight blockchain.
+> "Legal data is the most sensitive information in any industry. Privilege. Work product. Medical records. That's why we built on Midnight — the only blockchain designed for data protection by default.
 >
-> And here's what makes this different from every other legal tech tool: we never see your data. Legal information is the most sensitive data in any industry — privilege, work product, medical records. On Midnight, sensitive data stays on *your* system. We prove compliance without revealing content. That's not a feature — that's the entire architecture."
+> Your documents stay encrypted. Your privilege log stays private. Your strategy stays shielded. We prove compliance without ever seeing your data. Midnight plus legal equals the first privacy-preserving compliance system courts can trust."
+
+**[Advance to Slide 8]**
+
+## SLIDE 8: Market Opportunity (2:00–2:10)
+
+> "The U.S. legal tech market is five billion dollars. No existing tool — not Relativity, not Clio, not spreadsheets — combines jurisdiction-aware automation with cryptographic compliance proofs. We're not competing. We're creating a category."
 
 **[Advance to Slide 9]**
 
-## SLIDE 9: Market Opportunity (2:05–2:15)
+## SLIDE 9: Business Model (2:10–2:20)
 
-> "The U.S. legal tech market is five billion dollars. No existing tool — not Relativity, not Clio, not spreadsheets — combines jurisdiction-aware automation with verifiable compliance proofs. We're not competing. We're creating a category."
+> "SaaS subscriptions from ninety-nine to fifteen hundred a month, plus twenty-five dollars per compliance proof. The ROI is obvious: average sanction is seven hundred thousand. Our annual cost is a fraction of *one*."
 
 **[Advance to Slide 10]**
 
-## SLIDE 10: Business Model (2:15–2:25)
+## SLIDE 10: What We've Built (2:20–2:30)
 
-> "SaaS subscriptions from ninety-nine to fifteen hundred a month, plus per-proof revenue. Year two target: two hundred eighty-five thousand from fifty Idaho firms. And the ROI pitch writes itself — our annual cost is a fraction of *one* sanction."
+> "This isn't a slide deck and a dream. We've built the smart contracts, the data models, the React frontend, the ZK proof circuits, and validated our Idaho rule pack with a domain expert. The architecture is real."
 
-**[Advance to Slides 11–12]**
+**[Advance to Slide 11]**
 
-## SLIDES 11–12: Traction + Team (2:25–2:45)
+## SLIDE 11: The Team (2:30–2:45)
 
-> "We've built the smart contract architecture, the frontend, and the compliance proof system. Our rule packs are validated by someone who spent fifteen years in the courtroom.
+> "Spy brings fifteen-plus years of complex litigation — medical malpractice, personal injury, discovery workflows. He's lived this problem.
 >
-> Spy brings deep litigation experience — medical malpractice, personal injury, discovery workflows. I bring the blockchain engineering — Midnight smart contracts, zero-knowledge systems, full-stack development. We're not guessing at this problem. We've lived it."
+> I bring the blockchain engineering — Midnight smart contracts, zero-knowledge systems, full-stack development. We don't just understand the problem. We've built the solution."
 
-**[Advance to Slide 13]**
+**[Advance to Slide 12]**
 
-## SLIDE 13: The Close (2:45–3:00)
+## SLIDE 12: The Close (2:45–3:00)
 
-> "Courts guard precedent fiercely. Once a court accepts a cryptographic proof as factual record, that precedent binds every case after it.
+> "Courts guard precedent fiercely. Once a court accepts a ZK proof as factual record, that precedent binds every case after it.
 >
-> We're not just building legal software. We're building the bridge that brings blockchain into the most conservative, highest-stakes industry in the world.
+> AutoDiscovery isn't just legal tech. It's the bridge that brings blockchain into the most conservative, highest-stakes industry in the world.
 >
 > AutoDiscovery dot legal. We'd love to talk."
 
@@ -90,18 +102,20 @@
 
 ## Pacing Guide
 
-| Section | Slides | Time | Duration |
-|---------|--------|------|----------|
-| The Hook | 1–2 | 0:00–0:20 | 20s |
-| The Elephant | 3 | 0:20–0:40 | 20s |
-| The Problem | 4 | 0:40–1:00 | 20s |
-| User Story | 5 | 1:00–1:20 | 20s |
-| The Solution | 6 | 1:20–1:40 | 20s |
-| How It Works + Privacy | 7–8 | 1:40–2:05 | 25s |
-| Market | 9 | 2:05–2:15 | 10s |
-| Business Model | 10 | 2:15–2:25 | 10s |
-| Traction + Team | 11–12 | 2:25–2:45 | 20s |
-| The Close | 13 | 2:45–3:00 | 15s |
+| Section | Slide | Time | Duration |
+|---------|-------|------|----------|
+| The Question | 1 | 0:00–0:08 | 8s |
+| The Answer (define sanctions) | 2 | 0:08–0:25 | 17s |
+| The Elephant | 3 | 0:25–0:45 | 20s |
+| The Problem | 4 | 0:45–1:05 | 20s |
+| The Solution | 5 | 1:05–1:25 | 20s |
+| How It Works | 6 | 1:25–1:40 | 15s |
+| Why Midnight | 7 | 1:40–2:00 | 20s |
+| Market Opportunity | 8 | 2:00–2:10 | 10s |
+| Business Model | 9 | 2:10–2:20 | 10s |
+| What We've Built | 10 | 2:20–2:30 | 10s |
+| The Team | 11 | 2:30–2:45 | 15s |
+| The Close | 12 | 2:45–3:00 | 15s |
 
 ## Recording Checklist
 
