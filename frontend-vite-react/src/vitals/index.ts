@@ -14,6 +14,7 @@ export { VitalsToggleButton } from './components/VitalsToggleButton';
 export { VitalsMonitorBar } from './components/VitalsMonitorBar';
 export { VitalsTimeWheel } from './components/VitalsTimeWheel';
 export { VitalsConsole } from './components/VitalsConsole';
+export { VitalsNavigationLogger } from './components/VitalsNavigationLogger';
 
 // Types
 export type {

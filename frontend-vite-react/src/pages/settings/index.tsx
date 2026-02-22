@@ -5,11 +5,13 @@ import {
 } from 'lucide-react';
 import { useAuth, useMode } from '@/providers/context';
 import { useTheme } from '@/components/theme-provider';
+import { useVitalsLogger } from '@/vitals';
 
 export function SettingsPage() {
   const { session } = useAuth();
   const mode = useMode();
   const { theme, setTheme } = useTheme();
+  const vitals = useVitalsLogger();
 
   const [notifyDeadlines, setNotifyDeadlines] = useState(true);
   const [notifyObfuscation, setNotifyObfuscation] = useState(true);
@@ -133,7 +135,7 @@ export function SettingsPage() {
           ]).map((opt) => (
             <button
               key={opt.value}
-              onClick={() => setTheme(opt.value)}
+              onClick={() => { setTheme(opt.value); vitals.action(`Changed theme to "${opt.label}".`); }}
               className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-medium transition-all ${
                 theme === opt.value
                   ? 'bg-ad-gold/10 text-ad-gold border border-ad-gold/30'
@@ -166,7 +168,7 @@ export function SettingsPage() {
                 <p className="text-xs text-muted-foreground">{item.desc}</p>
               </div>
               <button
-                onClick={() => item.set(!item.value)}
+                onClick={() => { item.set(!item.value); vitals.action(`${item.value ? 'Disabled' : 'Enabled'} "${item.label}" notifications.`); }}
                 className={`relative w-10 h-6 rounded-full transition-colors ${
                   item.value ? 'bg-ad-gold' : 'bg-muted'
                 }`}

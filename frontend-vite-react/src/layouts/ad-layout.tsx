@@ -8,7 +8,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useAuth, useMode } from '@/providers/context';
 import { ModeToggle } from '@/components/mode-toggle';
 import { JurisdictionPanel } from '@/components/jurisdiction-panel';
-import { VitalsToggleButton, VitalsPanel } from '@/vitals';
+import { VitalsToggleButton, VitalsPanel, useVitalsLogger } from '@/vitals';
 
 const navItems = [
   { to: '/', icon: LayoutDashboard, label: 'Dashboard', end: true },
@@ -36,8 +36,10 @@ export function ADLayout() {
   const mode = useMode();
   const navigate = useNavigate();
   const location = useLocation();
+  const vitals = useVitalsLogger();
 
   const handleLogout = async () => {
+    vitals.action('You clicked "Sign Out." Ending your session.');
     await logout();
     navigate('/login');
   };
@@ -58,6 +60,7 @@ export function ADLayout() {
   const unreadCount = notifications.filter((n) => !n.read).length;
 
   const markAllRead = () => {
+    vitals.action('Marked all notifications as read.');
     setNotifications((prev) => prev.map((n) => ({ ...n, read: true })));
   };
 
@@ -152,7 +155,7 @@ export function ADLayout() {
 
             {/* Jurisdiction Toggle in Sidebar */}
             <button
-              onClick={() => setShowJurisdiction(!showJurisdiction)}
+              onClick={() => { setShowJurisdiction(!showJurisdiction); vitals.action(showJurisdiction ? 'Closed the Jurisdiction Rules panel.' : 'Opened the Jurisdiction Rules panel — showing Idaho Rules of Civil Procedure.'); }}
               className={`w-full group flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 mt-3 ${
                 showJurisdiction
                   ? 'bg-ad-gold/10 text-ad-gold'
@@ -199,7 +202,7 @@ export function ADLayout() {
 
           {/* Collapse Toggle */}
           <button
-            onClick={() => setCollapsed(!collapsed)}
+            onClick={() => { setCollapsed(!collapsed); vitals.action(collapsed ? 'Expanded the sidebar navigation.' : 'Collapsed the sidebar navigation.'); }}
             className="h-9 flex items-center justify-center border-t border-sidebar-border text-sidebar-foreground/30 hover:text-sidebar-foreground/70 transition-colors relative z-10"
           >
             {collapsed ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
@@ -225,7 +228,7 @@ export function ADLayout() {
               )}
               <div ref={notifRef} className="relative">
                 <button
-                  onClick={() => setShowNotifications(!showNotifications)}
+                  onClick={() => { setShowNotifications(!showNotifications); vitals.action(showNotifications ? 'Closed the notifications panel.' : 'Opened the notifications panel.'); }}
                   className="relative p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground hover:text-foreground"
                 >
                   <Bell className="w-4 h-4" />
@@ -254,11 +257,12 @@ export function ADLayout() {
                           className={`px-4 py-3 border-b border-border last:border-0 hover:bg-muted/50 transition-colors cursor-pointer ${
                             !n.read ? 'bg-ad-gold/5' : ''
                           }`}
-                          onClick={() =>
+                          onClick={() => {
+                            vitals.action(`Clicked notification: "${n.title}"`);
                             setNotifications((prev) =>
                               prev.map((x) => (x.id === n.id ? { ...x, read: true } : x))
-                            )
-                          }
+                            );
+                          }}
                         >
                           <div className="flex items-start gap-2">
                             {!n.read && <span className="mt-1.5 w-2 h-2 rounded-full bg-ad-gold shrink-0" />}

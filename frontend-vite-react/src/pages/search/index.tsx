@@ -5,6 +5,7 @@ import {
   AlertTriangle, Sparkles, ChevronDown,
 } from 'lucide-react';
 import { useProviders } from '@/providers/context';
+import { useVitalsLogger } from '@/vitals';
 import type { Document, DocumentCategory, ProtectiveOrderTier, SearchFilters } from '@/providers/types';
 
 const categoryOptions: { value: DocumentCategory; label: string }[] = [
@@ -44,6 +45,7 @@ function ProtectiveOrderBadge({ tier }: { tier: ProtectiveOrderTier }) {
 export function SearchPage() {
   const { documents } = useProviders();
   const navigate = useNavigate();
+  const vitals = useVitalsLogger();
 
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<Document[]>([]);
@@ -67,13 +69,18 @@ export function SearchPage() {
     if (filterProtective) filters.protectiveOrder = filterProtective;
     if (filterOriginator) filters.originator = filterOriginator;
 
-    const result = await documents.searchDocuments(query, Object.keys(filters).length > 0 ? filters : undefined);
+    const activeFilterCount = Object.keys(filters).length;
+    vitals.action(`Searching for "${query}"${activeFilterCount > 0 ? ` with ${activeFilterCount} filter${activeFilterCount > 1 ? 's' : ''} applied` : ''}.`);
+
+    const result = await documents.searchDocuments(query, activeFilterCount > 0 ? filters : undefined);
     setResults(result.documents);
     setTotalCount(result.totalCount);
+    vitals.success(`Search complete. Found ${result.totalCount} document${result.totalCount !== 1 ? 's' : ''} matching "${query}".`);
     setLoading(false);
   };
 
   const clearFilters = () => {
+    vitals.action('Cleared all search filters.');
     setFilterCategory('');
     setFilterProtective('');
     setFilterOriginator('');

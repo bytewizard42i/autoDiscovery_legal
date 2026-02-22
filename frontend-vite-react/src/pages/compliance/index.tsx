@@ -5,6 +5,7 @@ import {
   FileCheck, TrendingUp, ChevronRight, Lock, Eye,
 } from 'lucide-react';
 import { useProviders } from '@/providers/context';
+import { useVitalsLogger } from '@/vitals';
 import type { Case, ComplianceStatus, Attestation, AttestationScope } from '@/providers/types';
 
 function ScopeBadge({ scope }: { scope: AttestationScope }) {
@@ -26,6 +27,7 @@ function ScopeBadge({ scope }: { scope: AttestationScope }) {
 export function CompliancePage() {
   const { cases, compliance } = useProviders();
   const navigate = useNavigate();
+  const vitals = useVitalsLogger();
 
   const [caseList, setCaseList] = useState<Case[]>([]);
   const [statuses, setStatuses] = useState<Record<string, ComplianceStatus>>({});
@@ -47,6 +49,7 @@ export function CompliancePage() {
       }
       setStatuses(statusMap);
       setAllAttestations(attestations.sort((a, b) => b.timestamp.localeCompare(a.timestamp)));
+      vitals.success(`Compliance data loaded. ${allCases.length} cases, ${attestations.length} ZK attestations on record.`);
       setLoading(false);
     }
     load();

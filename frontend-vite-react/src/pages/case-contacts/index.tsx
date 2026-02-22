@@ -6,6 +6,7 @@ import {
   Gavel, Eye, UserCircle, AlertTriangle, Send,
 } from 'lucide-react';
 import { useProviders } from '@/providers/context';
+import { useVitalsLogger } from '@/vitals';
 import type { Case, CaseContact, ContactRole } from '@/providers/types';
 import { EmailSafetyDialog } from '@/components/email-safety-dialog';
 
@@ -343,6 +344,7 @@ export function CaseContacts() {
   const { caseId } = useParams<{ caseId: string }>();
   const navigate = useNavigate();
   const { cases, contacts: contactsProvider } = useProviders();
+  const vitals = useVitalsLogger();
 
   const [caseData, setCaseData] = useState<Case | null>(null);
   const [allContacts, setAllContacts] = useState<CaseContact[]>([]);
@@ -362,6 +364,7 @@ export function CaseContacts() {
         ]);
         setCaseData(c);
         setAllContacts(cts);
+        vitals.success(`Contacts loaded for "${c?.title || caseId}". Found ${cts.length} contacts across all parties.`);
       } catch {
         setCaseData(null);
       }
@@ -371,8 +374,10 @@ export function CaseContacts() {
   }, [caseId, cases, contactsProvider]);
 
   const handleStarChange = useCallback(async (contactId: string, stars: 0 | 1 | 2 | 3) => {
+    vitals.action(`Changed priority rating for contact to ${stars} star${stars !== 1 ? 's' : ''}.`);
     const updated = await contactsProvider.updateContactStars(contactId, stars);
     setAllContacts((prev) => prev.map((c) => (c.id === updated.id ? updated : c)));
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [contactsProvider]);
 
   const handleDragStart = useCallback((e: React.DragEvent, id: string) => {

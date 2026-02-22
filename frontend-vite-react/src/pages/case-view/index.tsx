@@ -322,7 +322,7 @@ export function CaseView() {
           {tabs.map((tab) => (
             <button
               key={tab.key}
-              onClick={() => setActiveTab(tab.key)}
+              onClick={() => { setActiveTab(tab.key); vitals.action(`Switched to the "${tab.label}" tab${tab.count !== undefined ? ` (${tab.count} items)` : ''}.`); }}
               className={`pb-3 text-sm font-medium border-b-2 transition-colors ${
                 activeTab === tab.key
                   ? 'border-primary text-foreground'

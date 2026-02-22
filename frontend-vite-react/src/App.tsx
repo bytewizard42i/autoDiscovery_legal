@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { ThemeProvider } from "./components/theme-provider";
 import { ProvidersProvider } from "./providers/context";
-import { VitalsProvider } from "./vitals";
+import { VitalsProvider, VitalsNavigationLogger } from "./vitals";
 import { ADLayout } from "./layouts/ad-layout";
 import { LoginPage } from "./pages/login";
 import { Dashboard } from "./pages/dashboard";
@@ -28,6 +28,7 @@ function App() {
       <ProvidersProvider>
         <VitalsProvider mode="mock" contracts={DEMO_CONTRACTS}>
           <BrowserRouter basename="/">
+            <VitalsNavigationLogger />
             <Routes>
               <Route path="/login" element={<LoginPage />} />
               <Route element={<AuthGuard><ADLayout /></AuthGuard>}>

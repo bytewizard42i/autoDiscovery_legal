@@ -273,7 +273,7 @@ export function Dashboard() {
             return (
               <button
                 key={c.id}
-                onClick={() => navigate(`/cases/${c.id}`)}
+                onClick={() => { vitals.action(`Clicked on case "${c.title}" (${c.caseNumber}). Opening case details.`); navigate(`/cases/${c.id}`); }}
                 className="w-full text-left bg-card border border-border rounded-2xl p-5 hover:border-ad-gold/30 hover:shadow-lg hover:shadow-ad-gold/5 transition-all duration-300 group ad-animate-fade-up"
                 style={{ animationDelay: `${index * 80}ms` }}
               >
