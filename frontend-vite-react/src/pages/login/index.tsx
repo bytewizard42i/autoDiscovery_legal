@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Scale, Mail, KeyRound, HardDrive, Loader2, Shield, Lock, Fingerprint } from 'lucide-react';
 import { useAuth, useMode } from '@/providers/context';
-import { useVitalsLogger } from '@/vitals';
+import { useVitalsLogger, useVitalsInteraction } from '@/vitals';
 import type { AuthMethod } from '@/providers/types';
 
 export function LoginPage() {
@@ -10,6 +10,7 @@ export function LoginPage() {
   const mode = useMode();
   const navigate = useNavigate();
   const vitals = useVitalsLogger();
+  const track = useVitalsInteraction();
 
   const [method, setMethod] = useState<AuthMethod>('email');
   const [email, setEmail] = useState('demo@autodiscovery.legal');
@@ -147,6 +148,7 @@ export function LoginPage() {
                 {authMethods.map((m) => (
                   <button
                     key={m.key}
+                    onMouseEnter={track.hover(`Auth Method: ${m.label}`)}
                     onClick={() => setMethod(m.key)}
                     disabled={loading}
                     className={`group relative flex flex-col items-center gap-2.5 p-4 rounded-xl text-xs font-medium transition-all duration-300 ${
@@ -183,6 +185,7 @@ export function LoginPage() {
                     id="email"
                     type="email"
                     value={email}
+                    onMouseEnter={track.hover('Input: Email field')}
                     onChange={(e) => setEmail(e.target.value)}
                     disabled={loading}
                     className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-sm text-white placeholder:text-white/20 focus:outline-none focus:ring-2 focus:ring-ad-gold/40 focus:border-ad-gold/30 transition-all"
@@ -197,6 +200,7 @@ export function LoginPage() {
                     id="password"
                     type="password"
                     value={password}
+                    onMouseEnter={track.hover('Input: Password field')}
                     onChange={(e) => setPassword(e.target.value)}
                     disabled={loading}
                     className="w-full px-4 py-2.5 rounded-xl bg-white/5 border border-white/10 text-sm text-white placeholder:text-white/20 focus:outline-none focus:ring-2 focus:ring-ad-gold/40 focus:border-ad-gold/30 transition-all"
@@ -252,6 +256,7 @@ export function LoginPage() {
 
             {/* Sign In Button — Gold Gradient */}
             <button
+              onMouseEnter={track.hover('Sign In button')}
               onClick={handleLogin}
               disabled={loading}
               className="w-full py-3 ad-gradient-gold text-amber-950 rounded-xl font-bold text-sm hover:opacity-90 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-lg shadow-ad-gold/20"

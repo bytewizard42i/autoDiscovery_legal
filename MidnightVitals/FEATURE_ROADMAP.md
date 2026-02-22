@@ -49,6 +49,24 @@ The foundation. Everything works with simulated data so we can nail the UI and U
 - [x] Cards adapt layout (inline pills for top, compact stacked cards for sidebar)
 - [x] Smooth transitions between layouts
 
+### v0.3.7 — Interaction Tracking ✅
+
+- [x] `useVitalsInteraction()` hook for hover and click logging
+- [x] Debounced hover events (3s cooldown per element label)
+- [x] Immediate click event logging
+- [x] Three API styles: spread both, hover-only, click-only
+- [x] Wired into all DemoLand pages: layout, dashboard, login, search, compliance, settings, case-contacts
+
+### v0.3.8 — Floating Panel Mode ✅
+
+- [x] Two panel modes: **Docked** (bottom-fixed, classic) and **Floating** (free-positioned window)
+- [x] Drag-to-move via title bar in floating mode
+- [x] Resize from bottom-right corner in floating mode (width + height)
+- [x] Float/Dock toggle button in panel header
+- [x] Panel mode selectable from stethoscope settings dropdown
+- [x] Position, size, and mode preference persist in localStorage across sessions
+- [x] Clamped to viewport edges so the panel can't go off-screen
+
 ### v0.4.0 — Self-Diagnostic Report
 
 - [ ] "Run Diagnostics" button that checks everything in sequence

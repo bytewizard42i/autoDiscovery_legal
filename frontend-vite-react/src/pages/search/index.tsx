@@ -5,7 +5,7 @@ import {
   AlertTriangle, Sparkles, ChevronDown,
 } from 'lucide-react';
 import { useProviders } from '@/providers/context';
-import { useVitalsLogger } from '@/vitals';
+import { useVitalsLogger, useVitalsInteraction } from '@/vitals';
 import type { Document, DocumentCategory, ProtectiveOrderTier, SearchFilters } from '@/providers/types';
 
 const categoryOptions: { value: DocumentCategory; label: string }[] = [
@@ -46,6 +46,7 @@ export function SearchPage() {
   const { documents } = useProviders();
   const navigate = useNavigate();
   const vitals = useVitalsLogger();
+  const track = useVitalsInteraction();
 
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<Document[]>([]);
@@ -108,6 +109,7 @@ export function SearchPage() {
             <input
               type="text"
               value={query}
+              onMouseEnter={track.hover('Search: Query input')}
               onChange={(e) => setQuery(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
               placeholder="Search documents, entities, synopses..."
@@ -115,6 +117,7 @@ export function SearchPage() {
             />
           </div>
           <button
+            onMouseEnter={track.hover('Search: Filters toggle')}
             onClick={() => setShowFilters(!showFilters)}
             className={`px-4 py-3 rounded-xl border text-sm font-medium transition-all flex items-center gap-2 ${
               showFilters || hasActiveFilters
@@ -129,6 +132,7 @@ export function SearchPage() {
             )}
           </button>
           <button
+            onMouseEnter={track.hover('Search: Execute button')}
             onClick={handleSearch}
             disabled={loading || !query.trim()}
             className="px-6 py-3 ad-gradient-gold text-amber-950 rounded-xl font-bold text-sm hover:opacity-90 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
@@ -215,6 +219,7 @@ export function SearchPage() {
             results.map((doc) => (
               <button
                 key={doc.id}
+                onMouseEnter={track.hover(`Search Result: ${doc.title}`)}
                 onClick={() => navigate(`/cases/${doc.caseId}`)}
                 className="w-full text-left bg-card border border-border rounded-xl p-4 hover:border-ad-gold/30 hover:shadow-lg hover:shadow-ad-gold/5 transition-all duration-300 group"
               >

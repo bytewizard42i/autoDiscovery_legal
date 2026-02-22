@@ -7,6 +7,7 @@
 
 // Context & hooks
 export { VitalsProvider, useVitals, useVitalsLogger } from './context';
+export { useVitalsInteraction } from './useVitalsInteraction';
 
 // Components
 export { VitalsPanel } from './components/VitalsPanel';
@@ -31,6 +32,7 @@ export type {
   VitalsState,
   VitalsAction,
   CardPosition,
+  PanelMode,
 } from './types';
 
 // Messages (for custom integrations)

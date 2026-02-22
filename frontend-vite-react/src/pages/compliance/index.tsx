@@ -5,7 +5,7 @@ import {
   FileCheck, TrendingUp, ChevronRight, Lock, Eye,
 } from 'lucide-react';
 import { useProviders } from '@/providers/context';
-import { useVitalsLogger } from '@/vitals';
+import { useVitalsLogger, useVitalsInteraction } from '@/vitals';
 import type { Case, ComplianceStatus, Attestation, AttestationScope } from '@/providers/types';
 
 function ScopeBadge({ scope }: { scope: AttestationScope }) {
@@ -28,6 +28,7 @@ export function CompliancePage() {
   const { cases, compliance } = useProviders();
   const navigate = useNavigate();
   const vitals = useVitalsLogger();
+  const track = useVitalsInteraction();
 
   const [caseList, setCaseList] = useState<Case[]>([]);
   const [statuses, setStatuses] = useState<Record<string, ComplianceStatus>>({});
@@ -93,7 +94,7 @@ export function CompliancePage() {
 
       {/* Summary Stats */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="bg-card border border-border rounded-2xl p-5">
+        <div onMouseEnter={track.hover('Compliance Stat: Avg. Score')} className="bg-card border border-border rounded-2xl p-5">
           <div className="flex items-center gap-3 mb-3">
             <div className="p-2 rounded-xl bg-gradient-to-br from-emerald-500/20 to-emerald-600/5">
               <TrendingUp className="w-5 h-5 text-emerald-400" />
@@ -103,7 +104,7 @@ export function CompliancePage() {
           <p className="text-3xl font-bold tracking-tight">{Math.round(avgScore * 100)}%</p>
           <p className="text-[11px] text-muted-foreground mt-1.5">Across {caseList.length} active cases</p>
         </div>
-        <div className="bg-card border border-border rounded-2xl p-5">
+        <div onMouseEnter={track.hover('Compliance Stat: Steps Complete')} className="bg-card border border-border rounded-2xl p-5">
           <div className="flex items-center gap-3 mb-3">
             <div className="p-2 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-600/5">
               <FileCheck className="w-5 h-5 text-blue-400" />
@@ -113,7 +114,7 @@ export function CompliancePage() {
           <p className="text-3xl font-bold tracking-tight">{completedSteps}/{totalSteps}</p>
           <p className="text-[11px] text-muted-foreground mt-1.5">{Math.round((completedSteps / totalSteps) * 100)}% across all cases</p>
         </div>
-        <div className="bg-card border border-border rounded-2xl p-5">
+        <div onMouseEnter={track.hover('Compliance Stat: Proofs Generated')} className="bg-card border border-border rounded-2xl p-5">
           <div className="flex items-center gap-3 mb-3">
             <div className="p-2 rounded-xl bg-gradient-to-br from-ad-gold/20 to-ad-gold/5">
               <Shield className="w-5 h-5 text-ad-gold" />
@@ -147,6 +148,7 @@ export function CompliancePage() {
             return (
               <button
                 key={c.id}
+                onMouseEnter={track.hover(`Compliance Case: ${c.title}`)}
                 onClick={() => navigate(`/cases/${c.id}`)}
                 className="w-full text-left bg-card border border-border rounded-xl p-5 hover:border-ad-gold/30 hover:shadow-lg hover:shadow-ad-gold/5 transition-all duration-300 group"
               >
@@ -217,7 +219,7 @@ export function CompliancePage() {
         </div>
         <div className="bg-card border border-border rounded-xl divide-y divide-border">
           {allAttestations.map((att) => (
-            <div key={att.id} className="flex items-start gap-4 p-4">
+            <div key={att.id} onMouseEnter={track.hover(`Attestation: ${att.type.replace(/_/g, ' ')}`)} className="flex items-start gap-4 p-4">
               <div className="p-2 rounded-lg bg-emerald-500/10 shrink-0">
                 <Shield className="w-4 h-4 text-emerald-600" />
               </div>

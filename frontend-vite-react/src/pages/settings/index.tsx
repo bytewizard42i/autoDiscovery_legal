@@ -5,13 +5,14 @@ import {
 } from 'lucide-react';
 import { useAuth, useMode } from '@/providers/context';
 import { useTheme } from '@/components/theme-provider';
-import { useVitalsLogger } from '@/vitals';
+import { useVitalsLogger, useVitalsInteraction } from '@/vitals';
 
 export function SettingsPage() {
   const { session } = useAuth();
   const mode = useMode();
   const { theme, setTheme } = useTheme();
   const vitals = useVitalsLogger();
+  const track = useVitalsInteraction();
 
   const [notifyDeadlines, setNotifyDeadlines] = useState(true);
   const [notifyObfuscation, setNotifyObfuscation] = useState(true);
@@ -34,7 +35,7 @@ export function SettingsPage() {
       </div>
 
       {/* Account Section */}
-      <div className="bg-card border border-border rounded-xl p-6 space-y-4">
+      <div onMouseEnter={track.hover('Settings: Account & Authentication section')} className="bg-card border border-border rounded-xl p-6 space-y-4">
         <h2 className="font-bold flex items-center gap-2">
           <Shield className="w-4 h-4 text-ad-gold" /> Account & Authentication
         </h2>
@@ -135,6 +136,7 @@ export function SettingsPage() {
           ]).map((opt) => (
             <button
               key={opt.value}
+              onMouseEnter={track.hover(`Theme option: ${opt.label}`)}
               onClick={() => { setTheme(opt.value); vitals.action(`Changed theme to "${opt.label}".`); }}
               className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-xs font-medium transition-all ${
                 theme === opt.value
@@ -162,7 +164,7 @@ export function SettingsPage() {
             { label: 'Proof Confirmations', desc: 'Notify when zero-knowledge attestations are verified on-chain', value: notifyAttestations, set: setNotifyAttestations },
             { label: 'Document Sharing', desc: 'Notify when documents are shared with or by other parties', value: notifySharing, set: setNotifySharing },
           ]).map((item) => (
-            <div key={item.label} className="flex items-center justify-between py-2">
+            <div key={item.label} onMouseEnter={track.hover(`Notification toggle: ${item.label}`)} className="flex items-center justify-between py-2">
               <div>
                 <p className="text-sm font-medium">{item.label}</p>
                 <p className="text-xs text-muted-foreground">{item.desc}</p>

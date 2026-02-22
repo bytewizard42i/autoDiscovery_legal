@@ -7,7 +7,7 @@
 // =============================================================================
 
 import { useState, useRef, useEffect } from 'react';
-import { Stethoscope, ChevronDown, ArrowUp, ArrowLeft, ArrowRight } from 'lucide-react';
+import { Stethoscope, ChevronDown, ArrowUp, ArrowLeft, ArrowRight, Move, PanelBottom } from 'lucide-react';
 import { useVitals } from '../context';
 import type { CardPosition } from '../types';
 
@@ -108,6 +108,52 @@ export function VitalsToggleButton() {
               )}
             </button>
           ))}
+
+          {/* Panel Mode section */}
+          <div className="px-3 py-1.5 border-t border-zinc-800 mt-1">
+            <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-wider">
+              Panel Mode
+            </span>
+          </div>
+          <button
+            onClick={() => {
+              dispatch({ type: 'SET_PANEL_MODE', mode: 'docked' });
+              setShowSettings(false);
+            }}
+            className={`w-full flex items-center gap-2.5 px-3 py-2 text-left text-[11px] transition-colors ${
+              state.panelMode === 'docked'
+                ? 'text-emerald-400 bg-emerald-500/10 font-medium'
+                : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800'
+            }`}
+          >
+            <PanelBottom className="w-3.5 h-3.5" />
+            <span>Docked (Bottom)</span>
+            {state.panelMode === 'docked' && (
+              <span className="ml-auto w-1.5 h-1.5 rounded-full bg-emerald-400" />
+            )}
+          </button>
+          <button
+            onClick={() => {
+              if (state.panelMode !== 'floating') {
+                const x = Math.max(16, Math.round((window.innerWidth - state.panelWidth) / 2));
+                const y = Math.max(16, Math.round((window.innerHeight - state.panelHeight) / 2));
+                dispatch({ type: 'SET_PANEL_POSITION', x, y });
+              }
+              dispatch({ type: 'SET_PANEL_MODE', mode: 'floating' });
+              setShowSettings(false);
+            }}
+            className={`w-full flex items-center gap-2.5 px-3 py-2 text-left text-[11px] transition-colors ${
+              state.panelMode === 'floating'
+                ? 'text-emerald-400 bg-emerald-500/10 font-medium'
+                : 'text-zinc-400 hover:text-zinc-200 hover:bg-zinc-800'
+            }`}
+          >
+            <Move className="w-3.5 h-3.5" />
+            <span>Floating (Drag)</span>
+            {state.panelMode === 'floating' && (
+              <span className="ml-auto w-1.5 h-1.5 rounded-full bg-emerald-400" />
+            )}
+          </button>
         </div>
       )}
     </div>

@@ -159,10 +159,20 @@ export interface VitalsProviderInterface {
  */
 export type CardPosition = 'top' | 'left' | 'right';
 
+/**
+ * Panel docking mode.
+ * - docked: fixed to the bottom of the viewport (default, classic behavior)
+ * - floating: free-positioned window the user can drag anywhere on screen
+ */
+export type PanelMode = 'docked' | 'floating';
+
 export interface VitalsState {
   isOpen: boolean;                    // Whether the panel is visible
   panelHeight: number;                // Panel height in pixels
+  panelWidth: number;                 // Panel width in pixels (used in floating mode)
   cardPosition: CardPosition;         // Where diagnostic cards sit relative to CLI
+  panelMode: PanelMode;               // Docked at bottom vs free-floating window
+  panelPosition: { x: number; y: number }; // Floating-mode position (top-left corner)
   monitors: VitalMonitor[];           // Current state of all 4 monitors
   logEntries: VitalsLogEntry[];       // Console log history
   logFilter: LogLevel | 'all';        // Active filter on console
@@ -180,4 +190,7 @@ export type VitalsAction =
   | { type: 'CLEAR_LOG' }
   | { type: 'SET_LOG_FILTER'; filter: LogLevel | 'all' }
   | { type: 'SET_RUNNING_DIAGNOSTIC'; running: boolean }
-  | { type: 'SET_CARD_POSITION'; position: CardPosition };
+  | { type: 'SET_CARD_POSITION'; position: CardPosition }
+  | { type: 'SET_PANEL_MODE'; mode: PanelMode }
+  | { type: 'SET_PANEL_POSITION'; x: number; y: number }
+  | { type: 'SET_PANEL_WIDTH'; width: number };

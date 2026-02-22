@@ -8,7 +8,7 @@ import { useState, useEffect, useRef } from 'react';
 import { useAuth, useMode } from '@/providers/context';
 import { ModeToggle } from '@/components/mode-toggle';
 import { JurisdictionPanel } from '@/components/jurisdiction-panel';
-import { VitalsToggleButton, VitalsPanel, useVitalsLogger } from '@/vitals';
+import { VitalsToggleButton, VitalsPanel, useVitalsLogger, useVitalsInteraction } from '@/vitals';
 
 const navItems = [
   { to: '/', icon: LayoutDashboard, label: 'Dashboard', end: true },
@@ -37,6 +37,7 @@ export function ADLayout() {
   const navigate = useNavigate();
   const location = useLocation();
   const vitals = useVitalsLogger();
+  const track = useVitalsInteraction();
 
   const handleLogout = async () => {
     vitals.action('You clicked "Sign Out." Ending your session.');
@@ -108,6 +109,7 @@ export function ADLayout() {
                 key={item.to}
                 to={item.to}
                 end={item.end}
+                onMouseEnter={track.hover(`Sidebar: ${item.label}`)}
                 className={({ isActive }) =>
                   `group flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 relative ${
                     isActive
@@ -133,6 +135,7 @@ export function ADLayout() {
               <NavLink
                 to={`${location.pathname.replace(/\/contacts$/, '')}/contacts`}
                 end
+                onMouseEnter={track.hover('Sidebar: Contacts')}
                 className={({ isActive }) =>
                   `group flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 mt-3 relative ${
                     isActive
@@ -155,6 +158,7 @@ export function ADLayout() {
 
             {/* Jurisdiction Toggle in Sidebar */}
             <button
+              onMouseEnter={track.hover('Sidebar: Rules Panel toggle')}
               onClick={() => { setShowJurisdiction(!showJurisdiction); vitals.action(showJurisdiction ? 'Closed the Jurisdiction Rules panel.' : 'Opened the Jurisdiction Rules panel — showing Idaho Rules of Civil Procedure.'); }}
               className={`w-full group flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium transition-all duration-200 mt-3 ${
                 showJurisdiction
@@ -190,6 +194,7 @@ export function ADLayout() {
               </div>
             )}
             <button
+              onMouseEnter={track.hover('Sidebar: Sign Out')}
               onClick={handleLogout}
               className={`flex items-center gap-3 px-3 py-2 rounded-xl text-sm text-sidebar-foreground/50 hover:bg-red-500/10 hover:text-red-400 transition-all w-full ${
                 collapsed ? 'justify-center' : ''
@@ -228,6 +233,7 @@ export function ADLayout() {
               )}
               <div ref={notifRef} className="relative">
                 <button
+                  onMouseEnter={track.hover('Header: Notification bell')}
                   onClick={() => { setShowNotifications(!showNotifications); vitals.action(showNotifications ? 'Closed the notifications panel.' : 'Opened the notifications panel.'); }}
                   className="relative p-2 rounded-lg hover:bg-muted transition-colors text-muted-foreground hover:text-foreground"
                 >

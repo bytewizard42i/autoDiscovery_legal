@@ -6,7 +6,7 @@ import {
   Lock, Globe, UserCheck, GraduationCap,
 } from 'lucide-react';
 import { useProviders } from '@/providers/context';
-import { useVitalsLogger } from '@/vitals';
+import { useVitalsLogger, useVitalsInteraction } from '@/vitals';
 import type { Case, ComplianceStatus, DiscoveryStep, Attestation, ExpertWitness, AccessPermission } from '@/providers/types';
 
 function ComplianceBadge({ score }: { score: number }) {
@@ -64,6 +64,7 @@ export function Dashboard() {
   const { cases, compliance, accessControl, expertWitness } = useProviders();
   const navigate = useNavigate();
   const vitals = useVitalsLogger();
+  const track = useVitalsInteraction();
   const [caseList, setCaseList] = useState<Case[]>([]);
   const [statuses, setStatuses] = useState<Record<string, ComplianceStatus>>({});
   const [dueThisWeek, setDueThisWeek] = useState<(DiscoveryStep & { caseTitle: string })[]>([]);
@@ -158,21 +159,29 @@ export function Dashboard() {
 
       {/* Stats Row */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        <StatCard icon={FolderOpen} label="Active Cases" value={caseList.length} sub="Idaho — IRCP" accent="blue" />
-        <StatCard icon={FileText} label="Documents" value={totalDocs} sub="Across all cases" accent="gold" />
-        <StatCard icon={TrendingUp} label="Steps Done" value={`${completedSteps}/${totalSteps}`} sub={`${Math.round((completedSteps / totalSteps) * 100)}% complete`} accent="emerald" />
-        <StatCard
-          icon={overdueCount > 0 ? AlertTriangle : Shield}
-          label="Overdue"
-          value={overdueCount}
-          sub={overdueCount > 0 ? 'Action required' : 'All on track'}
-          accent={overdueCount > 0 ? 'red' : 'emerald'}
-        />
+        <div onMouseEnter={track.hover('Stat Card: Active Cases')}>
+          <StatCard icon={FolderOpen} label="Active Cases" value={caseList.length} sub="Idaho — IRCP" accent="blue" />
+        </div>
+        <div onMouseEnter={track.hover('Stat Card: Documents')}>
+          <StatCard icon={FileText} label="Documents" value={totalDocs} sub="Across all cases" accent="gold" />
+        </div>
+        <div onMouseEnter={track.hover('Stat Card: Steps Done')}>
+          <StatCard icon={TrendingUp} label="Steps Done" value={`${completedSteps}/${totalSteps}`} sub={`${Math.round((completedSteps / totalSteps) * 100)}% complete`} accent="emerald" />
+        </div>
+        <div onMouseEnter={track.hover('Stat Card: Overdue')}>
+          <StatCard
+            icon={overdueCount > 0 ? AlertTriangle : Shield}
+            label="Overdue"
+            value={overdueCount}
+            sub={overdueCount > 0 ? 'Action required' : 'All on track'}
+            accent={overdueCount > 0 ? 'red' : 'emerald'}
+          />
+        </div>
       </div>
 
       {/* Secondary Stats Row */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-        <div className="flex items-center gap-3 bg-card border border-border rounded-xl px-4 py-3">
+        <div onMouseEnter={track.hover('Info Card: ZK Proofs')} className="flex items-center gap-3 bg-card border border-border rounded-xl px-4 py-3">
           <Lock className="w-4 h-4 text-emerald-500" />
           <div>
             <p className="text-sm font-bold">{allAttestations.length} Proofs</p>
@@ -183,21 +192,21 @@ export function Dashboard() {
             </p>
           </div>
         </div>
-        <div className="flex items-center gap-3 bg-card border border-border rounded-xl px-4 py-3">
+        <div onMouseEnter={track.hover('Info Card: Participants')} className="flex items-center gap-3 bg-card border border-border rounded-xl px-4 py-3">
           <UserCheck className="w-4 h-4 text-blue-500" />
           <div>
             <p className="text-sm font-bold">{allPermissions.filter(p => p.isActive).length} Participants</p>
             <p className="text-[10px] text-muted-foreground">Active access registrations</p>
           </div>
         </div>
-        <div className="flex items-center gap-3 bg-card border border-border rounded-xl px-4 py-3">
+        <div onMouseEnter={track.hover('Info Card: Expert Witnesses')} className="flex items-center gap-3 bg-card border border-border rounded-xl px-4 py-3">
           <GraduationCap className="w-4 h-4 text-purple-500" />
           <div>
             <p className="text-sm font-bold">{allExperts.length} Experts</p>
             <p className="text-[10px] text-muted-foreground">{allExperts.filter(e => e.qualificationProofVerified).length} credentials verified</p>
           </div>
         </div>
-        <div className="flex items-center gap-3 bg-card border border-border rounded-xl px-4 py-3">
+        <div onMouseEnter={track.hover('Info Card: Jurisdiction')} className="flex items-center gap-3 bg-card border border-border rounded-xl px-4 py-3">
           <Globe className="w-4 h-4 text-ad-gold" />
           <div>
             <p className="text-sm font-bold">Idaho — IRCP v3</p>
@@ -273,6 +282,7 @@ export function Dashboard() {
             return (
               <button
                 key={c.id}
+                onMouseEnter={track.hover(`Case Row: ${c.title}`)}
                 onClick={() => { vitals.action(`Clicked on case "${c.title}" (${c.caseNumber}). Opening case details.`); navigate(`/cases/${c.id}`); }}
                 className="w-full text-left bg-card border border-border rounded-2xl p-5 hover:border-ad-gold/30 hover:shadow-lg hover:shadow-ad-gold/5 transition-all duration-300 group ad-animate-fade-up"
                 style={{ animationDelay: `${index * 80}ms` }}

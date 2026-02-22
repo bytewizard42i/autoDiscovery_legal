@@ -6,7 +6,7 @@ import {
   Gavel, Eye, UserCircle, AlertTriangle, Send,
 } from 'lucide-react';
 import { useProviders } from '@/providers/context';
-import { useVitalsLogger } from '@/vitals';
+import { useVitalsLogger, useVitalsInteraction } from '@/vitals';
 import type { Case, CaseContact, ContactRole } from '@/providers/types';
 import { EmailSafetyDialog } from '@/components/email-safety-dialog';
 
@@ -345,6 +345,7 @@ export function CaseContacts() {
   const navigate = useNavigate();
   const { cases, contacts: contactsProvider } = useProviders();
   const vitals = useVitalsLogger();
+  const track = useVitalsInteraction();
 
   const [caseData, setCaseData] = useState<Case | null>(null);
   const [allContacts, setAllContacts] = useState<CaseContact[]>([]);
@@ -448,6 +449,7 @@ export function CaseContacts() {
       {/* Header */}
       <div>
         <button
+          onMouseEnter={track.hover('Back to Case button')}
           onClick={() => navigate(`/cases/${caseId}`)}
           className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-ad-gold transition-colors mb-3"
         >

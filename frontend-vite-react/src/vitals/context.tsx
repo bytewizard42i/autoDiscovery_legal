@@ -69,10 +69,23 @@ const DEFAULT_MONITORS: VitalMonitor[] = [
 // Initial State
 // ---------------------------------------------------------------------------
 
+/** Helper to restore a JSON value from localStorage or return a fallback */
+function restoreJson<T>(key: string, fallback: T): T {
+  try {
+    const raw = localStorage.getItem(key);
+    return raw ? (JSON.parse(raw) as T) : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
 const INITIAL_STATE: VitalsState = {
   isOpen: false,
   panelHeight: 320,
+  panelWidth: 700,
   cardPosition: (localStorage.getItem('midnight-vitals-card-position') as VitalsState['cardPosition']) || 'top',
+  panelMode: (localStorage.getItem('midnight-vitals-panel-mode') as VitalsState['panelMode']) || 'docked',
+  panelPosition: restoreJson('midnight-vitals-panel-pos', { x: 100, y: 100 }),
   monitors: DEFAULT_MONITORS,
   logEntries: [],
   logFilter: 'all',
@@ -120,6 +133,18 @@ function vitalsReducer(state: VitalsState, action: VitalsAction): VitalsState {
     case 'SET_CARD_POSITION':
       localStorage.setItem('midnight-vitals-card-position', action.position);
       return { ...state, cardPosition: action.position };
+
+    case 'SET_PANEL_MODE':
+      localStorage.setItem('midnight-vitals-panel-mode', action.mode);
+      return { ...state, panelMode: action.mode };
+
+    case 'SET_PANEL_POSITION':
+      localStorage.setItem('midnight-vitals-panel-pos', JSON.stringify({ x: action.x, y: action.y }));
+      return { ...state, panelPosition: { x: action.x, y: action.y } };
+
+    case 'SET_PANEL_WIDTH':
+      localStorage.setItem('midnight-vitals-panel-width', String(action.width));
+      return { ...state, panelWidth: action.width };
 
     default:
       return state;
@@ -176,6 +201,7 @@ export function VitalsProvider({
     // Restore panel state from localStorage if available
     isOpen: localStorage.getItem('midnight-vitals-open') === 'true',
     panelHeight: parseInt(localStorage.getItem('midnight-vitals-height') || '320', 10),
+    panelWidth: parseInt(localStorage.getItem('midnight-vitals-panel-width') || '700', 10),
   });
 
   // Create the appropriate provider based on mode
