@@ -1,128 +1,91 @@
-# 🩺 MidnightVitals
+# 🩺 MidnightVitals — AutoDiscovery.legal Integration
 
-**Real-time diagnostics and health monitoring for Midnight blockchain DApps.**
-
----
-
-## What Is This?
-
-MidnightVitals is a developer-friendly diagnostic console that attaches to any Midnight-powered decentralized application. It provides:
-
-- **Continuous health monitoring** of the proof server, network indexer, wallet connection, and smart contracts
-- **Natural-language activity logging** that explains every blockchain interaction in plain English
-- **Dependency verification** ensuring Docker, Node.js, Compact compiler, and all packages are correctly installed
-- **Visual time wheels** showing seconds since last health check, with manual refresh buttons
-
-Think of it as a **hospital vitals monitor for your Midnight DApp** — always showing you the heartbeat, blood pressure, and oxygen levels of your blockchain stack.
+**The working, integrated version of MidnightVitals inside the AutoDiscovery.legal DApp.**
 
 ---
 
-## Why Does This Exist?
+## What Is This Folder?
 
-Midnight is a cutting-edge zero-knowledge blockchain. That means:
+This is the **documentation and roadmap** for the MidnightVitals module as it lives inside AutoDiscovery.legal. The actual source code is at `frontend-vite-react/src/vitals/`.
 
-1. **Multiple moving parts** — proof server (Docker), network node, indexer, wallet, smart contracts all need to be running
-2. **ZK proofs take time** — 15-30 seconds per transaction, and users need to understand what's happening
-3. **Error messages are cryptic** — blockchain errors like "proof verification failed" tell developers nothing useful
-4. **Debugging is painful** — when something breaks, figuring out WHICH component failed is the hardest part
+There are **two MidnightVitals repos** — here's how they relate:
 
-MidnightVitals solves all of this by providing a single diagnostic panel that:
-- Continuously monitors every component
-- Explains errors in plain English with actionable next steps
-- Logs every user action and blockchain interaction with timestamps
-- Runs self-diagnostics on demand
+| Repo | Purpose | Contains |
+|------|---------|----------|
+| **This folder** (`AutoDiscovery/MidnightVitals/`) | Integrated version — embedded in ADL for demoLand and realDeal | Docs, roadmap, integration notes |
+| **[bytewizard42i/MidnightVitals](https://github.com/bytewizard42i/MidnightVitals)** | Future standalone package — for any Midnight DApp admin to install | Docs, architecture, will eventually hold extracted source |
+
+### Key Principle: Non-Interference
+
+MidnightVitals is integrated into AutoDiscovery.legal but **must never interfere** with demoLand or realDeal operation. It's designed to be completely shut off:
+
+- **Remove `<VitalsProvider>`** from the app wrapper → the entire module disappears (no hooks fire, no health checks run, no UI renders)
+- **Remove `<VitalsPanel />`** → no panel, but hooks still work silently (useful for headless logging)
+- **Remove `<VitalsToggleButton />`** → no toggle in header, but panel can still be opened programmatically
+- **Remove all `useVitalsInteraction()` calls** → no hover/click tracking, but everything else keeps working
+- **Comment out the `<VitalsNavigationLogger />`** → no route-change logging
+
+Each piece is independently removable. If MidnightVitals ever causes any issue — performance, layout, console noise — any layer can be disabled without touching the rest of the ADL codebase.
 
 ---
 
-## Architecture
+## What It Does
 
-MidnightVitals is designed as a **pluggable module** that can attach to any Midnight DApp:
+MidnightVitals is a real-time CLI diagnostic console that monitors your wallet, proof server, smart contracts, and network connection with timed health pings — while logging every physical interaction on your UI (hovers, clicks, and their outputs) in a human-readable console. Built to help debug and verify the DApp while being assured all dependencies are running and configured correctly.
+
+### Feature Summary
+
+- **Health monitoring** — Proof server, network indexer, wallet, smart contracts pinged on 20–30s intervals with animated SVG countdown timers
+- **Natural-language console** — every action, health check, and blockchain interaction logged in plain English
+- **Interaction tracking** — debounced hover + immediate click logging via `useVitalsInteraction()`
+- **Moveable panel** — dock at the bottom or float anywhere on screen, resizable in both modes
+- **Card layout options** — cards on top, left, or right of the console
+- **Mock & Live modes** — simulated data for demoLand, real HTTP pings for realDeal (same UI)
+- **Full localStorage persistence** — panel state, position, size, mode, card layout all survive reloads
+
+---
+
+## Source Location
 
 ```
-┌─────────────────────────────────────────────────────┐
-│  Your Midnight DApp (React Frontend)                │
-│                                                     │
-│  ┌───────────────────────────────────────────────┐  │
-│  │  🩺 MidnightVitals Panel                      │  │
-│  │  ┌─────────────────────────────────────────┐  │  │
-│  │  │  Monitor Bar (time wheels + status)      │  │  │
-│  │  │  [Proof Server: 🟢 12s] [Network: 🟢 8s]│  │  │
-│  │  │  [Wallet: 🟡 --]  [Contracts: 🟢 15s]   │  │  │
-│  │  ├─────────────────────────────────────────┤  │  │
-│  │  │  Console Log (scrollable, resizable)     │  │  │
-│  │  │  [11:03:22] You clicked "Create Case"... │  │  │
-│  │  │  [11:03:24] Building a zero-knowledge... │  │  │
-│  │  │  [11:03:47] Proof built successfully...  │  │  │
-│  │  └─────────────────────────────────────────┘  │  │
-│  └───────────────────────────────────────────────┘  │
-└─────────────────────────────────────────────────────┘
-```
-
-### Two Modes
-
-| Mode | Purpose | Data Source |
-|------|---------|-------------|
-| **Mock** (demoLand) | Demo and development | Simulated responses, fake timings |
-| **Live** (realDeal) | Real blockchain connection | Actual HTTP pings, real contract reads |
-
----
-
-## Quick Start
-
-### In a Midnight DApp (React)
-
-```tsx
-import { VitalsProvider, VitalsPanel, VitalsToggleButton } from './vitals';
-
-function App() {
-  return (
-    <VitalsProvider mode="mock">
-      {/* Your app content */}
-      <VitalsToggleButton />
-      <VitalsPanel />
-    </VitalsProvider>
-  );
-}
-```
-
-### Logging Events
-
-```tsx
-import { useVitalsLogger } from './vitals';
-
-function CreateCaseButton() {
-  const vitals = useVitalsLogger();
-
-  const handleClick = () => {
-    vitals.log('action', 'You clicked "Create New Case."');
-    vitals.log('info', 'We are now asking the Midnight blockchain to register a new case.');
-    // ... actual logic
-    vitals.log('success', 'Your new case has been created. Case ID: 0xa7f3...');
-  };
-}
+frontend-vite-react/src/vitals/
+├── components/
+│   ├── VitalsPanel.tsx              # Docked + floating panel with drag-to-move/resize
+│   ├── VitalsMonitorBar.tsx         # 4 vital monitors (horizontal or vertical layout)
+│   ├── VitalsTimeWheel.tsx          # SVG countdown ring (inline pill or stacked card)
+│   ├── VitalsConsole.tsx            # Scrollable CLI log (newest on top, filterable)
+│   ├── VitalsToggleButton.tsx       # 🩺 button + settings dropdown (card layout + panel mode)
+│   └── VitalsNavigationLogger.tsx   # Auto-logs route changes
+├── context.tsx                      # React context, reducer, provider wrapper
+├── mock-vitals-provider.ts          # Simulated health checks for demo mode
+├── useVitalsInteraction.ts          # Hover/click tracking hook
+├── types.ts                         # All TypeScript interfaces
+├── messages.ts                      # Natural-language message templates
+└── index.ts                         # Barrel exports
 ```
 
 ---
 
-## Health Checks
+## How to Disable
 
-| Component | Endpoint | Check Interval | Method |
-|-----------|----------|----------------|--------|
-| Proof Server | `http://localhost:6300/version` | 20 seconds | HTTP GET |
-| Network Indexer | Configured indexer URL `/api/` | 20 seconds | HTTP GET |
-| Wallet | In-memory state check | 20 seconds | Internal |
-| Smart Contracts | Indexer GraphQL query | 30 seconds | HTTP POST |
-| Docker | `docker --version` | On startup | Shell exec |
-| Node.js | `node --version` | On startup | Shell exec |
-| Compact Compiler | `compact --version` | On startup | Shell exec |
+### Full removal (no trace)
+Remove `<VitalsProvider>` from the app wrapper in `ad-layout.tsx`. Everything stops — no health checks, no logging, no UI.
+
+### Panel only (keep logging for debugging)
+Remove `<VitalsPanel />` and `<VitalsToggleButton />`. Hooks like `useVitalsLogger()` still work — entries go into context state but nothing renders. Useful for headless log capture.
+
+### Interaction tracking only
+Remove all `useVitalsInteraction()` imports and calls across pages. Health monitoring and console logging keep working normally.
 
 ---
 
-## Current Status
+## Current Version
 
-- **v0.1.0** — Mock mode for demoLand (simulated diagnostics)
-- Built as `/src/vitals/` module inside AutoDiscovery.legal frontend
-- Will be extracted to standalone npm package when stable
+**v0.3.8** — Fully integrated with:
+- All demoLand pages wired for interaction tracking (layout, dashboard, login, search, compliance, settings, case-contacts)
+- Floating panel mode with drag-to-move and corner resize
+- Card layout settings (top/left/right) via settings dropdown
+- Mock provider for simulated health checks
 
 ---
 
@@ -132,20 +95,10 @@ See [FEATURE_ROADMAP.md](./FEATURE_ROADMAP.md) for the full plan.
 
 ---
 
-## Integration
+## Standalone Package
 
-See [INTEGRATION_GUIDE.md](./INTEGRATION_GUIDE.md) for how to add MidnightVitals to your own Midnight DApp.
-
----
-
-## License
-
-MIT — Free to use, modify, and distribute.
+The standalone repo at [bytewizard42i/MidnightVitals](https://github.com/bytewizard42i/MidnightVitals) is where this module will eventually be extracted as an npm package for other Midnight DApp developers. That work is tracked in Phase 2 of the roadmap.
 
 ---
 
-## Created By
-
-**AutoDiscovery.legal** — Zero-knowledge legal discovery platform on Midnight blockchain.
-
-Built by John (SpyCrypto) with Penny 🎀.
+Built by John (SpyCrypto) with Penny 🎀 as part of the AutoDiscovery.legal ecosystem.
