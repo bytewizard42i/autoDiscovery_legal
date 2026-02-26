@@ -402,46 +402,38 @@ export class Contract {
         return { result: result_0, context: context, proofData: partialProofData, gasCost: context.gasCost };
       },
       verifyTwinBondIntegrity: (...args_1) => {
-        if (args_1.length !== 4) {
-          throw new __compactRuntime.CompactError(`verifyTwinBondIntegrity: expected 4 arguments (as invoked from Typescript), received ${args_1.length}`);
+        if (args_1.length !== 3) {
+          throw new __compactRuntime.CompactError(`verifyTwinBondIntegrity: expected 3 arguments (as invoked from Typescript), received ${args_1.length}`);
         }
         const contextOrig_0 = args_1[0];
-        const expectedTwinBondHash_0 = args_1[1];
-        const currentImageTwinHash_0 = args_1[2];
-        const currentDigitalTwinHash_0 = args_1[3];
+        const imageTwinContentHash_0 = args_1[1];
+        const currentDigitalTwinHash_0 = args_1[2];
         if (!(typeof(contextOrig_0) === 'object' && contextOrig_0.currentQueryContext != undefined)) {
           __compactRuntime.typeError('verifyTwinBondIntegrity',
                                      'argument 1 (as invoked from Typescript)',
-                                     'document-registry.compact line 515 char 1',
+                                     'document-registry.compact line 523 char 1',
                                      'CircuitContext',
                                      contextOrig_0)
         }
-        if (!(expectedTwinBondHash_0.buffer instanceof ArrayBuffer && expectedTwinBondHash_0.BYTES_PER_ELEMENT === 1 && expectedTwinBondHash_0.length === 32)) {
+        if (!(imageTwinContentHash_0.buffer instanceof ArrayBuffer && imageTwinContentHash_0.BYTES_PER_ELEMENT === 1 && imageTwinContentHash_0.length === 32)) {
           __compactRuntime.typeError('verifyTwinBondIntegrity',
                                      'argument 1 (argument 2 as invoked from Typescript)',
-                                     'document-registry.compact line 515 char 1',
+                                     'document-registry.compact line 523 char 1',
                                      'Bytes<32>',
-                                     expectedTwinBondHash_0)
-        }
-        if (!(currentImageTwinHash_0.buffer instanceof ArrayBuffer && currentImageTwinHash_0.BYTES_PER_ELEMENT === 1 && currentImageTwinHash_0.length === 32)) {
-          __compactRuntime.typeError('verifyTwinBondIntegrity',
-                                     'argument 2 (argument 3 as invoked from Typescript)',
-                                     'document-registry.compact line 515 char 1',
-                                     'Bytes<32>',
-                                     currentImageTwinHash_0)
+                                     imageTwinContentHash_0)
         }
         if (!(currentDigitalTwinHash_0.buffer instanceof ArrayBuffer && currentDigitalTwinHash_0.BYTES_PER_ELEMENT === 1 && currentDigitalTwinHash_0.length === 32)) {
           __compactRuntime.typeError('verifyTwinBondIntegrity',
-                                     'argument 3 (argument 4 as invoked from Typescript)',
-                                     'document-registry.compact line 515 char 1',
+                                     'argument 2 (argument 3 as invoked from Typescript)',
+                                     'document-registry.compact line 523 char 1',
                                      'Bytes<32>',
                                      currentDigitalTwinHash_0)
         }
         const context = { ...contextOrig_0, gasCost: __compactRuntime.emptyRunningCost() };
         const partialProofData = {
           input: {
-            value: _descriptor_0.toValue(expectedTwinBondHash_0).concat(_descriptor_0.toValue(currentImageTwinHash_0).concat(_descriptor_0.toValue(currentDigitalTwinHash_0))),
-            alignment: _descriptor_0.alignment().concat(_descriptor_0.alignment().concat(_descriptor_0.alignment()))
+            value: _descriptor_0.toValue(imageTwinContentHash_0).concat(_descriptor_0.toValue(currentDigitalTwinHash_0)),
+            alignment: _descriptor_0.alignment().concat(_descriptor_0.alignment())
           },
           output: undefined,
           publicTranscript: [],
@@ -449,8 +441,7 @@ export class Contract {
         };
         const result_0 = this._verifyTwinBondIntegrity_0(context,
                                                          partialProofData,
-                                                         expectedTwinBondHash_0,
-                                                         currentImageTwinHash_0,
+                                                         imageTwinContentHash_0,
                                                          currentDigitalTwinHash_0);
         partialProofData.output = { value: _descriptor_1.toValue(result_0), alignment: _descriptor_1.alignment() };
         return { result: result_0, context: context, proofData: partialProofData, gasCost: context.gasCost };
@@ -1053,15 +1044,28 @@ export class Contract {
   }
   _verifyTwinBondIntegrity_0(context,
                              partialProofData,
-                             expectedTwinBondHash_0,
-                             currentImageTwinHash_0,
+                             imageTwinContentHash_0,
                              currentDigitalTwinHash_0)
   {
-    const recomputedBondHash_0 = this._computeTwinBondHash_0(context,
-                                                             partialProofData,
-                                                             currentImageTwinHash_0,
-                                                             currentDigitalTwinHash_0);
-    return this._equal_1(expectedTwinBondHash_0, recomputedBondHash_0);
+    const storedDigitalTwinHash_0 = _descriptor_0.fromValue(__compactRuntime.queryLedgerState(context,
+                                                                                              partialProofData,
+                                                                                              [
+                                                                                               { dup: { n: 0 } },
+                                                                                               { idx: { cached: false,
+                                                                                                        pushPath: false,
+                                                                                                        path: [
+                                                                                                               { tag: 'value',
+                                                                                                                 value: { value: _descriptor_5.toValue(10n),
+                                                                                                                          alignment: _descriptor_5.alignment() } }] } },
+                                                                                               { idx: { cached: false,
+                                                                                                        pushPath: false,
+                                                                                                        path: [
+                                                                                                               { tag: 'value',
+                                                                                                                 value: { value: _descriptor_0.toValue(imageTwinContentHash_0),
+                                                                                                                          alignment: _descriptor_0.alignment() } }] } },
+                                                                                               { popeq: { cached: false,
+                                                                                                          result: undefined } }]).value);
+    return this._equal_1(storedDigitalTwinHash_0, currentDigitalTwinHash_0);
   }
   _equal_0(x0, y0) {
     if (!x0.every((x, i) => y0[i] === x)) { return false; }

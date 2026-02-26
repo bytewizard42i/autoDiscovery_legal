@@ -111,6 +111,18 @@ export ledger registryAdministratorPublicKey: ZswapCoinPublicKey;
 
 
 // =============================================================================
+// CONSTRUCTOR (runs once at deployment)
+// =============================================================================
+
+// Sets the deployer's public key as the registry administrator.
+// This is the ONLY time the admin key can be set. After deployment,
+// only this key can register new jurisdictions or update rule packs.
+constructor() {
+  registryAdministratorPublicKey = ownPublicKey();
+}
+
+
+// =============================================================================
 // WITNESSES (off-chain computation)
 // =============================================================================
 
@@ -258,5 +270,5 @@ export circuit verifyRulePackHashMatchesExpected(
   // If they match, the caller's expectation is confirmed — the rules are what
   // they think they are. If they don't match, either the rules were updated
   // or the caller has the wrong hash.
-  return currentOnChainRulePackHash == expectedRulePackHash;
+  return disclose(currentOnChainRulePackHash == expectedRulePackHash);
 }

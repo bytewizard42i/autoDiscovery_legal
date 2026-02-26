@@ -437,5 +437,5 @@ export circuit verifyParticipantAccess(
   // For a complete implementation, this would also check the Merkle tree
   // for the requester's key inclusion and validate against the full
   // permission model. Currently returns the tier-based check.
-  return (documentProtectiveTier != (3 as Uint<8>)) || (requesterRole == (3 as Uint<8>));
+  return disclose((documentProtectiveTier != (3 as Uint<8>)) || (requesterRole == (3 as Uint<8>)));
 }

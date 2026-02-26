@@ -495,34 +495,43 @@ export circuit verifyDocumentExistsInProduction(
 // verifyTwinBondIntegrity
 // ---------------------------------------------------------------------------
 // PURPOSE: Verify that a twin bond is intact — the image and digital twins
-//          still match the original bond hash.
+//          still match what was originally bonded on-chain.
 //
 // WHY THIS MATTERS:
 //   If someone re-OCR's a document (producing a different digital twin)
 //   or replaces the image (e.g., with a doctored scan), the bond breaks.
-//   This circuit catches that: recompute the bond hash from the current
-//   twins and compare to the stored bond hash.
+//   This circuit catches that by looking up the STORED digital twin from
+//   the ledger and comparing it to what the caller currently has.
+//
+// SECURITY NOTE (why we read from ledger):
+//   The previous version took the expected bond hash as a parameter,
+//   which means the caller could lie about it. This version reads the
+//   stored digital twin hash directly from the contract's private state,
+//   making the verification trustworthy. It also ensures the compiler
+//   generates ZK proof keys for this circuit (ledger read required).
 //
 // USE CASE:
 //   Receiving party runs fidelity check on a produced document.
-//   If their computed bond hash differs from the record → tamper detected.
+//   They provide the image hash (lookup key) and their current digital twin.
+//   If the digital twin they have differs from what was bonded → tamper detected.
 //
 // PARAMETERS:
-//   expectedTwinBondHash    — The bond hash from the original registration
-//   currentImageTwinHash    — Hash of the image twin as it exists now
+//   imageTwinContentHash    — Hash of the image twin (used as lookup key
+//                             AND as the current image hash to verify)
 //   currentDigitalTwinHash  — Hash of the digital twin as it exists now
 // ---------------------------------------------------------------------------
 export circuit verifyTwinBondIntegrity(
-    expectedTwinBondHash: Bytes<32>,
-    currentImageTwinHash: Bytes<32>,
+    imageTwinContentHash: Bytes<32>,
     currentDigitalTwinHash: Bytes<32>
 ): Boolean {
 
-  // Recompute the bond hash from the current twins.
-  // Bond hash = SHA-256(image_hash + digital_hash).
-  const recomputedBondHash = computeTwinBondHash(currentImageTwinHash, currentDigitalTwinHash);
+  // Look up the digital twin hash that was originally bonded to this image.
+  // This reads from private ledger state — the stored value from registerTwinBond.
+  // This ledger read is what triggers ZK key generation for this circuit.
+  const storedDigitalTwinHash = digitalTwinHashByImageTwinHash.lookup(disclose(imageTwinContentHash));
 
-  // If the recomputed hash matches the expected hash, both twins are intact.
-  // If they don't match, at least one twin has been modified since bonding.
-  return disclose(expectedTwinBondHash == recomputedBondHash);
+  // If the current digital twin matches what was originally bonded,
+  // the twin bond is intact. If they differ, at least one twin has been
+  // modified since bonding — tampering detected.
+  return disclose(storedDigitalTwinHash == currentDigitalTwinHash);
 }

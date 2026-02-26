@@ -192,17 +192,10 @@
     {
       "name": "verifyTwinBondIntegrity",
       "pure": false,
-      "proof": false,
+      "proof": true,
       "arguments": [
         {
-          "name": "expectedTwinBondHash",
-          "type": {
-            "type-name": "Bytes",
-            "length": 32
-          }
-        },
-        {
-          "name": "currentImageTwinHash",
+          "name": "imageTwinContentHash",
           "type": {
             "type-name": "Bytes",
             "length": 32
