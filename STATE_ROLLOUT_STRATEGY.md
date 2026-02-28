@@ -30,13 +30,12 @@ The modular `jurisdiction-registry` smart contract is built for exactly this mod
 2026 Q2 ──── Idaho (Anchor Launch)
 2026 Q3 ──── Utah
 2026 Q4 ──── Washington
-2027 Q1 ──── California
-2027 Q2 ──── New York
-2027 Q3 ──── Ohio + Texas
-2027 Q4 ──── Florida + Illinois
-2028 Q1-Q4 ─ Remaining US states (batch rollout)
-2028 Q4 ──── Federal (FRCP) — All Federal District Courts
-2029+ ─────── International (UK, Canada, Australia)
+2027 Q1 ──── Nevada
+2027 Q2 ──── Wyoming
+2027 Q3 ──── Montana
+2027 Q4 ──── California
+2028 Q1 ──── New York
+2028 Q2 to 2028 Q4 ──── Remaining US states (batch rollout)
 ```
 
 ---
@@ -619,7 +618,7 @@ Washington has some of the most aggressive state privacy laws in the US:
 
 ---
 
-### 📊 **Washington Success Metrics (Gates for California)**
+### 📊 **Washington Success Metrics (Gates for Nevada)**
 
 | Metric | Target | Minimum Gate |
 |--------|--------|--------------|
@@ -633,9 +632,317 @@ Washington has some of the most aggressive state privacy laws in the US:
 
 ---
 
-## 🌴 PHASE 4 — California (Q1 2027)
+## � PHASE 4 — Nevada (Q1 2027)
 
-### 🎯 **Why California Fourth**
+### 🎯 **Why Nevada Fourth**
+- Nevada overhauled its Rules of Civil Procedure in 2019 — most FRCP-aligned state in the West
+- Minimal engineering delta from Idaho/Utah/Washington rule packs
+- ~11,000 licensed Nevada attorneys; Clark County (Las Vegas) is the dominant market
+- Geographic bridge between the Pacific Northwest states and California
+- Fast-track launch candidate — estimated 30-day build vs standard 45-day template
+
+---
+
+### 🏛️ **Nevada Court System — Structure AutoDiscovery Must Support**
+
+Nevada has **District Courts in each of its 17 counties** plus Carson City:
+
+| Court | County/City | Seat | Notes |
+|-------|-------------|------|-------|
+| **Clark County District Court** | Clark | Las Vegas | **Highest volume — primary target** |
+| **Washoe County District Court** | Washoe | Reno | 2nd largest market |
+| **Carson City District Court** | Carson City | Carson City | State capital cases |
+| **Eighth Judicial District** | Clark | Las Vegas | Covers Clark County |
+| **Second Judicial District** | Washoe | Reno | Covers Washoe County |
+
+> **AutoDiscovery v1.0 (Nevada) targets:** Clark County (Las Vegas) primary, Washoe County (Reno) secondary.
+
+---
+
+### 📜 **NRCP Discovery Rules — Divergence Map**
+
+Nevada's 2019 NRCP overhaul mirrors the 2015 federal amendments almost exactly. This is AutoDiscovery's highest-similarity state after Idaho/Utah.
+
+#### Core Discovery Rules — NRCP vs IRCP Comparison
+
+| Rule | NRCP | IRCP | Key Difference |
+|------|------|------|----------------|
+| **Initial Disclosures** | NRCP 16.1 — 14 days after Rule 16 conference | IRCP 26(a)(1) — 14 days | ✅ Identical |
+| **Interrogatory Limit** | NRCP 33 — **25 limit** | IRCP 33 — 25 limit | ✅ Identical |
+| **Interrogatory Response** | NRCP 33 — **30 days** | IRCP 33 — 28 days | ⚠️ Nevada = 30 days |
+| **RFP Response** | NRCP 34 — **30 days** | IRCP 34 — 28 days | ⚠️ Nevada = 30 days |
+| **RFA Response** | NRCP 36 — **30 days** | IRCP 36 — 28 days | ⚠️ Nevada = 30 days; failure = admitted |
+| **Expert Disclosures** | NRCP 16.1(a)(2) — per scheduling order | IRCP 26(a)(2) | ✅ Substantially identical |
+| **Proportionality** | NRCP 26(b)(1) | IRCP 26(b)(1) | ✅ Identical |
+| **Protective Orders** | NRCP 26(c) | IRCP 26(c) | ✅ Identical |
+| **Sanctions** | NRCP 37 | IRCP 37 | ✅ Identical |
+
+> ⚠️ **Only critical divergence:** Nevada's written discovery response deadline is **30 days** (same as WA, TX, FL). Idaho/Utah = 28. Fork already exists from Washington build — reuse directly.
+
+#### ⏰ Nevada NRCP Deadline Table
+
+| Deadline | Trigger | Days | Notes |
+|----------|---------|------|-------|
+| **Initial disclosures** | Rule 16 conference | +14 days | NRCP 16.1 |
+| **Interrogatory responses** | Service | **+30 days** | NRCP 33 |
+| **RFP responses** | Service | **+30 days** | NRCP 34 |
+| **RFA responses** | Service | **+30 days** | NRCP 36; failure = admitted |
+| **Expert disclosures (plaintiff)** | Per scheduling order | Per judge | NRCP 16.1(a)(2) |
+| **Expert disclosures (defendant)** | After plaintiff's | +30 days | NRCP 16.1(a)(2) |
+| **Discovery cutoff** | Per scheduling order | Per judge | NRCP 16 |
+
+---
+
+### ⚖️ **Nevada UPL Analysis**
+
+| Authority | Provision | Relevance |
+|-----------|-----------|-----------|
+| **NRS 7.285** | UPL prohibition — criminal misdemeanor | AutoDiscovery must fall outside this definition |
+| **Nevada RPC 5.5** | Multi-jurisdictional practice | Out-of-state attorney access |
+| **Nevada RPC 1.1** | Competence includes technology | Supports use |
+| **State Bar of Nevada Ethics Hotline** | (702) 382-2200 | Submit informal inquiry pre-launch |
+
+---
+
+### 🔒 **Nevada Data Privacy Requirements**
+
+| Law | Requirement | AutoDiscovery Compliance |
+|-----|-------------|--------------------------|
+| **Nevada Privacy Law (SB 220/SB 260)** | Consumer data sale opt-out; eff. Oct 2019, expanded 2021 | Hash-only ledger; no consumer data sold or stored |
+| **NRS 603A.215** | Data breach notification — 30 days | Midnight architecture satisfies; breach protocol documented |
+| **Nevada RPC 1.6** | Confidentiality | ZK selective disclosure satisfies |
+| **HIPAA (Federal)** | Medical records | Client-side; AutoDiscovery holds hashes only |
+
+---
+
+### 📋 **Full Launch Checklist — Nevada**
+
+#### 🔒 Legal & Compliance
+- [ ] NRCP full audit — confirm 2019 revision is current; check for any post-2019 amendments
+- [ ] 30-day response deadline fork confirmed (reuse WA/TX pattern)
+- [ ] Clark County (Las Vegas) local rules mapped
+- [ ] Washoe County (Reno) local rules mapped
+- [ ] Nevada-licensed attorney review and sign-off
+- [ ] State Bar of Nevada Ethics Hotline inquiry: (702) 382-2200
+- [ ] Nevada SB 220/SB 260 privacy compliance confirmed
+
+#### 🛠️ Technical
+- [ ] `jurisdiction-registry` Nevada rule pack v1.0 deployed — estimated 30-day build
+- [ ] 30-day response deadline reused from Washington/Texas fork — unit-tested
+- [ ] Multi-state regression: all ID, UT, WA cases still pass
+- [ ] DemoLand seeded with 2 Nevada mock cases (Las Vegas, Reno)
+
+#### 🧪 Beta Testing
+- [ ] Recruit 8 Nevada beta users — Clark County firms prioritized
+- [ ] 30-day beta period (shorter — low complexity)
+- [ ] Zero deadline errors on NRCP 30-day response windows
+
+#### 📣 Go-to-Market
+- [ ] State Bar of Nevada *Nevada Lawyer* — submit product announcement
+- [ ] Nevada Justice Association (NJA) outreach
+- [ ] Clark County Bar Association outreach
+
+---
+
+### 📊 **Nevada Success Metrics (Gates for Wyoming)**
+
+| Metric | Target | Minimum Gate |
+|--------|--------|--------------|
+| **New NV customers** | 20 firms | 10 firms |
+| **Combined MRR (ID+UT+WA+NV)** | $50,000 | $30,000 |
+| **NRCP deadline accuracy** | 100% | 100% — non-negotiable |
+| **Multi-state regression** | All pass | All pass |
+| **UPL memo on file** | Required | Required |
+
+---
+
+## 🏔️ PHASE 5 — Wyoming (Q2 2027)
+
+### 🎯 **Why Wyoming Fifth**
+- Wyoming Rules of Civil Procedure closely track FRCP — second fast-track state after Nevada
+- ~2,300 licensed Wyoming attorneys — smallest market in the rollout but strategically bridges Idaho/Montana
+- Laramie County (Cheyenne) is the political and legal center; Natrona County (Casper) is secondary
+- Completing WY before California builds Pacific Northwest + Mountain West coverage cluster
+- Estimated 30-day build — lowest engineering cost of any state in Phase 1–9
+
+---
+
+### 🏛️ **Wyoming Court System**
+
+Wyoming has **District Courts in each of its 23 counties**, organized into 9 Judicial Districts:
+
+| District | Key Counties | Seat | Notes |
+|----------|-------------|------|-------|
+| **1st District** | Laramie | Cheyenne | **Primary target** — state capital, highest civil volume |
+| **2nd District** | Albany | Laramie | University town |
+| **7th District** | Natrona | Casper | 2nd largest market |
+
+> **AutoDiscovery v1.0 (Wyoming) targets:** 1st District (Laramie County / Cheyenne) primary.
+
+---
+
+### 📜 **Wyoming WRCP Discovery Rules — Divergence Map**
+
+Wyoming Rules of Civil Procedure (W.R.C.P.) track FRCP almost exactly:
+
+| Rule | W.R.C.P. | IRCP | Key Difference |
+|------|----------|------|----------------|
+| **Initial Disclosures** | W.R.C.P. 26(a)(1) — 14 days | IRCP 26(a)(1) | ✅ Identical |
+| **Interrogatory Limit** | W.R.C.P. 33 — **25 limit** | IRCP 33 — 25 | ✅ Identical |
+| **Interrogatory Response** | W.R.C.P. 33 — **30 days** | IRCP 33 — 28 days | ⚠️ Wyoming = 30 days |
+| **RFP Response** | W.R.C.P. 34 — **30 days** | IRCP 34 — 28 days | ⚠️ Wyoming = 30 days |
+| **RFA Response** | W.R.C.P. 36 — **30 days** | IRCP 36 — 28 days | ⚠️ Wyoming = 30 days; failure = admitted |
+| **Expert Disclosures** | W.R.C.P. 26(a)(2) — per scheduling order | IRCP 26(a)(2) | ✅ Identical |
+| **Sanctions** | W.R.C.P. 37 | IRCP 37 | ✅ Identical |
+
+> ✅ Wyoming's only divergence from Idaho is the **30-day response window** — same fork already built for WA/NV. Fastest state build in the platform.
+
+#### ⏰ Wyoming Deadline Table
+
+| Deadline | Trigger | Days | Notes |
+|----------|---------|------|-------|
+| **Initial disclosures** | Scheduling conference | +14 days | W.R.C.P. 26(a)(1) |
+| **Interrogatory responses** | Service | **+30 days** | W.R.C.P. 33 |
+| **RFP responses** | Service | **+30 days** | W.R.C.P. 34 |
+| **RFA responses** | Service | **+30 days** | W.R.C.P. 36; failure = admitted |
+| **Expert disclosures** | Per scheduling order | Per judge | W.R.C.P. 26(a)(2) |
+
+---
+
+### ⚖️ **Wyoming UPL & Privacy**
+
+| Authority | Provision |
+|-----------|-----------|
+| **W.S. 33-5-117** | UPL prohibition — criminal misdemeanor |
+| **Wyoming State Bar Ethics** | (307) 632-9061 |
+| **W.S. 40-12-502** | Data breach notification — 45 days |
+| **Wyoming RPC 1.6** | Confidentiality — ZK satisfies |
+
+---
+
+### 📋 **Full Launch Checklist — Wyoming**
+
+- [ ] W.R.C.P. full audit — confirm current version
+- [ ] 30-day response deadline (reuse NV/WA fork — no new engineering)
+- [ ] Laramie County local rules mapped
+- [ ] Wyoming-licensed attorney review and sign-off
+- [ ] Wyoming State Bar Ethics inquiry: (307) 632-9061
+- [ ] `jurisdiction-registry` Wyoming rule pack v1.0 deployed — estimated 30-day build
+- [ ] Multi-state regression: all prior states pass
+- [ ] DemoLand seeded with 1 Wyoming mock case (Cheyenne)
+- [ ] Wyoming State Bar *Wyoming Lawyer* — submit product announcement
+
+---
+
+### 📊 **Wyoming Success Metrics (Gates for Montana)**
+
+| Metric | Target | Minimum Gate |
+|--------|--------|--------------|
+| **New WY customers** | 10 firms | 5 firms |
+| **Combined MRR** | $55,000 | $32,000 |
+| **WRCP deadline accuracy** | 100% | 100% — non-negotiable |
+| **UPL memo on file** | Required | Required |
+
+---
+
+## 🦌 PHASE 6 — Montana (Q3 2027)
+
+### 🎯 **Why Montana Sixth**
+- Completes the Mountain West cluster: ID → UT → WA → NV → WY → MT
+- Montana Rules of Civil Procedure closely track FRCP — third consecutive fast-track state
+- ~4,000 licensed Montana attorneys; Yellowstone County (Billings) is the largest market
+- Montana's unique feature: strong emphasis on natural resource and energy litigation — distinct case types to seed in DemoLand
+- After Montana, the platform pivots to the two largest markets (CA and NY) from a position of proven multi-state stability
+
+---
+
+### 🏛️ **Montana Court System**
+
+Montana has **District Courts in each of its 56 counties**, organized into 22 Judicial Districts:
+
+| District | Key Counties | Seat | Notes |
+|----------|-------------|------|-------|
+| **13th District** | Yellowstone | Billings | **Primary target** — largest city |
+| **1st District** | Lewis and Clark | Helena | State capital — government cases |
+| **4th District** | Missoula | Missoula | University town — active civil docket |
+| **8th District** | Cascade | Great Falls | Northern Montana hub |
+
+> **AutoDiscovery v1.0 (Montana) targets:** 13th District (Yellowstone/Billings) primary, 1st District (Helena) secondary.
+
+---
+
+### 📜 **Montana M.R.Civ.P. Discovery Rules — Divergence Map**
+
+Montana Rules of Civil Procedure (M.R.Civ.P.) track FRCP closely:
+
+| Rule | M.R.Civ.P. | IRCP | Key Difference |
+|------|-----------|------|----------------|
+| **Initial Disclosures** | M.R.Civ.P. 26(a)(1) — 14 days | IRCP 26(a)(1) | ✅ Identical |
+| **Interrogatory Limit** | M.R.Civ.P. 33 — **25 limit** | IRCP 33 — 25 | ✅ Identical |
+| **Interrogatory Response** | M.R.Civ.P. 33 — **30 days** | IRCP 33 — 28 days | ⚠️ Montana = 30 days |
+| **RFP Response** | M.R.Civ.P. 34 — **30 days** | IRCP 34 — 28 days | ⚠️ Montana = 30 days |
+| **RFA Response** | M.R.Civ.P. 36 — **30 days** | IRCP 36 — 28 days | ⚠️ Montana = 30 days; failure = admitted |
+| **Expert Disclosures** | M.R.Civ.P. 26(a)(2) — per scheduling order | IRCP 26(a)(2) | ✅ Identical |
+| **Expert Witness List** | M.R.Civ.P. 26(a)(2)(C) — written report required | IRCP 26(a)(2)(B) | ✅ Same requirement |
+| **Sanctions** | M.R.Civ.P. 37 | IRCP 37 | ✅ Identical |
+
+> ✅ Same 30-day fork as WA/NV/WY — zero new deadline engineering required.
+
+#### ⏰ Montana Deadline Table
+
+| Deadline | Trigger | Days | Notes |
+|----------|---------|------|-------|
+| **Initial disclosures** | Scheduling conference | +14 days | M.R.Civ.P. 26(a)(1) |
+| **Interrogatory responses** | Service | **+30 days** | M.R.Civ.P. 33 |
+| **RFP responses** | Service | **+30 days** | M.R.Civ.P. 34 |
+| **RFA responses** | Service | **+30 days** | M.R.Civ.P. 36; failure = admitted |
+| **Expert disclosures** | Per scheduling order | Per judge | M.R.Civ.P. 26(a)(2) |
+
+---
+
+### ⚖️ **Montana UPL & Privacy**
+
+| Authority | Provision |
+|-----------|-----------|
+| **MCA § 37-61-201** | UPL prohibition — criminal misdemeanor |
+| **State Bar of Montana Ethics** | (406) 442-7660 |
+| **MCA § 30-14-1704** | Data breach notification — 30 days |
+| **Montana RPC 1.6** | Confidentiality — ZK satisfies |
+| **Montana Consumer Data Privacy Act (2023)** | Consumer data rights — hash-only ledger satisfies |
+
+---
+
+### 📋 **Full Launch Checklist — Montana**
+
+- [ ] M.R.Civ.P. full audit — confirm current version
+- [ ] 30-day response deadline (reuse WY/NV/WA fork — no new engineering)
+- [ ] 13th District (Yellowstone/Billings) local rules mapped
+- [ ] Natural resource / energy litigation case type seeded in DemoLand
+- [ ] Montana-licensed attorney review and sign-off
+- [ ] State Bar of Montana Ethics inquiry: (406) 442-7660
+- [ ] Montana Consumer Data Privacy Act compliance confirmed
+- [ ] `jurisdiction-registry` Montana rule pack v1.0 deployed — estimated 30-day build
+- [ ] Multi-state regression: all 5 prior states pass
+- [ ] DemoLand seeded with 2 Montana mock cases (Billings, Helena)
+- [ ] Montana Lawyer (State Bar publication) — submit product announcement
+
+---
+
+### 📊 **Montana Success Metrics (Gates for California)**
+
+| Metric | Target | Minimum Gate |
+|--------|--------|--------------|
+| **New MT customers** | 10 firms | 5 firms |
+| **Combined MRR (all 6 states)** | $60,000 | $35,000 |
+| **M.R.Civ.P. deadline accuracy** | 100% | 100% — non-negotiable |
+| **Full 6-state regression** | All pass | All pass |
+| **UPL memo on file** | Required | Required |
+
+---
+
+## 🌴 PHASE 7 — California (Q4 2027)
+
+### 🎯 **Why California Seventh**
 - Largest legal market in the US (~150,000 licensed attorneys; ~1 in 4 US lawyers)
 - CCP (California Code of Civil Procedure) is the most complex US civil discovery system
 - Successfully launching in CA validates AutoDiscovery for every remaining major market
@@ -808,7 +1115,7 @@ California mandates Judicial Council forms for many discovery functions. AutoDis
 
 ---
 
-### 📊 **California Success Metrics (Gates for New York)**
+### 📊 **California Success Metrics (Gates for New York — Phase 8)**
 
 | Metric | Target | Minimum Gate |
 |--------|--------|--------------|
@@ -823,9 +1130,9 @@ California mandates Judicial Council forms for many discovery functions. AutoDis
 
 ---
 
-## 🗽 PHASE 5 — New York (Q2 2027)
+## 🗽 PHASE 8 — New York (Q1 2028)
 
-### 🎯 **Why New York Fifth**
+### 🎯 **Why New York Eighth**
 - **38,000+ cases dismissed in NYC in 2024** — largest single-market discovery failure in the US
 - NYC conviction rate dropped from 50% to 25% linked to discovery failures — national press magnet
 - CPLR is the most cited jurisdiction in AutoDiscovery's pitch materials
@@ -1011,7 +1318,7 @@ For high-value commercial cases (Commercial Division of Supreme Court), addition
 
 ---
 
-### 📊 **New York Success Metrics (Gates for National Expansion)**
+### 📊 **New York Success Metrics (Gates for Batch Expansion)**
 
 | Metric | Target | Minimum Gate |
 |--------|--------|--------------|
@@ -1026,15 +1333,15 @@ For high-value commercial cases (Commercial Division of Supreme Court), addition
 
 ---
 
-## ⚙️ PHASE 6 — Ohio, Texas, Florida, Illinois (Q3–Q4 2027)
+## ⚙️ PHASE 9 — Ohio, Texas, Florida, Illinois (Q2–Q3 2028)
 
 ### Batch Expansion Model
-By Phase 6 the state launch template is proven. Shifts to a **parallel batch model**:
+By Phase 9 the state launch template is proven. Shifts to a **parallel batch model**:
 - 2 states launched simultaneously per quarter
 - Template reuse reduces launch time from 90 days → 45 days per state
 - Dedicated **Jurisdiction Research Team** (2 hires) handles rule audits
 - Law firm partner relationships in each state replace individual solo attorney reviews
-- All 5 prior states must pass full regression before any Phase 6 state goes live
+- All 8 prior states must pass full regression before any Phase 9 state goes live
 
 ---
 
@@ -1204,7 +1511,7 @@ Chicago is a major legal hub. Cook County local rules are notably complex.
 
 ---
 
-### 📊 **Phase 6 Combined Success Metrics (Gates for Phase 7)**
+### 📊 **Phase 9 Combined Success Metrics (Gates for Phase 10)**
 
 | Metric | Target | Minimum Gate |
 |--------|--------|--------------|
@@ -1218,11 +1525,11 @@ Chicago is a major legal hub. Cook County local rules are notably complex.
 
 ---
 
-## 🇺🇸 PHASE 7 — Remaining 40 States & FRCP (2028)
+## 🇺🇸 PHASE 10 — Remaining States & FRCP (Q3–Q4 2028)
 
 ### National Coverage Model
 
-By Phase 7 the 45-day state launch template is fully optimized. The Jurisdiction Research Team runs parallel batch pipelines. The goal is **full 50-state + FRCP coverage by end of 2028**.
+By Phase 10 the 45-day state launch template is fully optimized. The Jurisdiction Research Team runs parallel batch pipelines. The goal is **full 50-state + FRCP coverage by end of 2028**.
 
 **Prioritization criteria for remaining states:**
 1. **Litigation volume** — civil cases filed per year (public NCSC court statistics)
@@ -1387,7 +1694,7 @@ Adding FRCP support unlocks every federal case filed by AutoDiscovery users — 
 
 ---
 
-### 📊 **Phase 7 Success Metrics (National Coverage Complete)**
+### 📊 **Phase 10 Success Metrics (National Coverage Complete)**
 
 | Metric | Target | Minimum Gate |
 |--------|--------|--------------|
