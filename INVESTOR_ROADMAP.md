@@ -57,51 +57,68 @@
 
 ### 🌍 **Market Expansion Strategy**
 
-**Phase 1:** US Market (2026-2027)
-- Focus on high-sanction jurisdictions (NY, CA, TX, FL)
-- Target medical malpractice specialists
-- Partner with bar associations
+**Phase 1 — Mountain West Anchor (2026 Q2 – 2027 Q3):**
+- Idaho anchor launch (Q2 2026) → Utah → Washington → Nevada → Wyoming → Montana
+- Low-complexity, FRCP-adjacent states — proves modular rule pack architecture
+- Builds profitable MRR base before major market entry
+- Target: 100+ firms, $60K MRR before CA launch
 
-**Phase 2:** English Common Law (2027-2028)
-- UK, Canada, Australia, New Zealand
-- Leverage common legal frameworks
+**Phase 2 — Major Markets (2027 Q4 – 2028 Q1):**
+- California (Q4 2027) — largest US legal market, ~150K attorneys
+- New York (Q1 2028) — 2nd largest, 38,000+ dismissed cases = built-in press narrative
+- These two states alone represent ~33% of all US litigation revenue
 
-**Phase 3:** Global Expansion (2028+)
-- EU with GDPR compliance
+**Phase 3 — National Batch Expansion (2028 Q2–Q4):**
+- Ohio, Texas, Florida, Illinois (Q2–Q3 2028)
+- Remaining 40 states + FRCP — full 50-state coverage by end of 2028
+- Jurisdiction Research Team (2 FTE) runs parallel 45-day state launches
+
+**Phase 4 — International (2029+):**
+- UK, Canada, Australia — English common law framework reuse
+- EU with GDPR compliance layer
 - Asia-Pacific markets
-- Latin America
 
 ---
 
 ## 🗺️ **Product Roadmap**
 
-### 🎯 **Phase 1: MVP Launch (Q2 2026)**
-- ✅ **Core discovery workflow** with Idaho jurisdiction
+### 🎯 **Phase 1: Idaho MVP Launch (Q2 2026)**
+- ✅ **Core discovery workflow** with Idaho jurisdiction (IRCP rule pack)
 - ✅ **Basic compliance proofs** on Midnight Network
 - ✅ **Simple frontend** with wallet integration
 - ✅ **Email safety protocol** MVP
+- ✅ **Medical malpractice** workflow (4th District Ada County)
 - 🎯 **Target:** 50 beta users, $50K ARR
 
-### 🚀 **Phase 2: Multi-Jurisdiction (Q4 2026)**
-- 🔄 **5 state rule packs** (ID, UT, WA, NY, CA)
-- 🔄 **GeoOracle integration** prototype
-- 🔄 **Advanced compliance proofs** with selective disclosure
-- 🔄 **Enterprise features** for team management
-- 🎯 **Target:** 500 users, $500K ARR
+### 🏔️ **Phase 2: Mountain West Cluster (Q3 2026 – Q3 2027)**
+- 🔄 **Utah** (Q3 2026) — URCP tiered discovery system
+- 🔄 **Washington** (Q4 2026) — King County ESI, My Health MY Data Act
+- 🔄 **Nevada** (Q1 2027) — NRCP 2019 overhaul; estimated 30-day build
+- 🔄 **Wyoming** (Q2 2027) — fastest build in platform; zero new deadline engineering
+- 🔄 **Montana** (Q3 2027) — natural resource litigation DemoLand seeds
+- 🎯 **Target:** 150 firms, $60K MRR, proven 6-state regression suite
 
-### 🏢 **Phase 3: Platform Expansion (Q2 2027)**
-- 🔄 **All 50 states** coverage
-- 🔄 **Federal rules integration**
-- 🔄 **AI-powered document analysis**
-- 🔄 **API ecosystem** for third-party integrations
-- 🎯 **Target:** 5,000 users, $5M ARR
+### 🌴 **Phase 3: Major Markets (Q4 2027 – Q1 2028)**
+- 🔄 **California** (Q4 2027) — CCP, Judicial Council forms, CCPA/CPRA, ~150K attorneys
+- 🔄 **New York** (Q1 2028) — CPLR, NYSCEF, 4 Appellate Divisions, ~180K attorneys
+- 🔄 **GeoOracle integration** full production deployment
+- 🔄 **Enterprise features** — team management, multi-matter dashboards
+- 🎯 **Target:** 1,000 firms, $500K MRR, $5M ARR run rate
 
-### 🌐 **Phase 4: Global Platform (Q4 2027)**
-- 🔄 **International jurisdictions**
+### 🇺� **Phase 4: National Batch Expansion (Q2–Q4 2028)**
+- 🔄 **Ohio, Texas, Florida, Illinois** (Q2–Q3 2028) — 4 major states in parallel
+- 🔄 **Remaining 40 states + FRCP** — full 50-state coverage by end of 2028
+- 🔄 **AI-powered document analysis** — deadline prediction layer
+- 🔄 **API ecosystem** for legal tech integrations (Clio, MyCase, Relativity)
+- 🔄 **Jurisdiction Research Team** (2 FTE) running 45-day parallel launch cycles
+- 🎯 **Target:** 10,000 firms, $5M MRR, $60M ARR run rate
+
+### 🌐 **Phase 5: Global Platform (2029+)**
+- 🔄 **International jurisdictions** (UK, Canada, Australia)
 - 🔄 **Multi-language support**
 - 🔄 **Advanced analytics** and compliance insights
 - 🔄 **Insurance marketplace** integration
-- 🎯 **Target:** 25,000 users, $25M ARR
+- 🎯 **Target:** 25,000+ users, $25M ARR
 
 ---
 
@@ -208,16 +225,24 @@
 
 ### 🚀 **Milestones for Seed Round**
 
-**6 Months:**
-- ✅ MVP launch with 5 jurisdictions
+**6 Months (by Q4 2026):**
+- ✅ Idaho live + Utah in beta
 - ✅ 100 paying customers
 - ✅ $100K ARR
+- ✅ Washington rule pack in development
 
-**12 Months:**
-- ✅ 25 jurisdictions covered
-- ✅ 1,000 paying customers
-- ✅ $1M ARR
+**12 Months (by Q2 2027):**
+- ✅ 4 states live (ID, UT, WA, NV)
+- ✅ 500 paying customers
+- ✅ $600K ARR
+- ✅ Wyoming + Montana in pipeline
 - ✅ Series A ready
+
+**18 Months (by Q4 2027 — California launch gate):**
+- ✅ 6 states live (ID, UT, WA, NV, WY, MT)
+- ✅ 1,000 paying customers
+- ✅ $1.5M ARR
+- ✅ California rule pack complete and audited
 
 ---
 
