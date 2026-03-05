@@ -429,7 +429,7 @@ All three produce the same `AuthSession` object. The UI doesn't care how you aut
 > These rules prevent us from confusing the two worlds during development.
 
 1. **Smart contract `.compact` files live ONLY in `autodiscovery-contract/src/`** — never in the frontend folder
-2. **demoLand UI lives in `frontend-vite-react/src/`** with mock providers in `providers/demoland/`
+2. **demoLand UI lives in `frontend-demoland-vite-react/src/`** with mock providers in `providers/demoland/`
 3. **realDeal providers** will go in `providers/realdeal/` — same interfaces, real backends
 4. **Complete demoLand UI first** → then create realDeal providers → then wire them up
 5. **The "clone" is at build time**, not file duplication: `npm run dev:demo` vs `npm run dev:real`

@@ -97,7 +97,7 @@ AutoDiscovery/
 │       ├── jurisdiction.compact # Jurisdiction rule loader
 │       └── compliance.compact  # Compliance proof generation
 ├── autodiscovery-cli/          # CLI tools for deployment/testing
-├── frontend-vite-react/        # React frontend
+├── frontend-demoland-vite-react/        # React frontend
 │   └── src/
 │       ├── components/         # UI components
 │       ├── hooks/              # Midnight wallet hooks

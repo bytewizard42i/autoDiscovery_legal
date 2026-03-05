@@ -193,7 +193,7 @@ For each compiled contract, the managed output generates a TypeScript API. These
 
 ```bash
 # DemoLand (mock data, no blockchain)
-cd frontend-vite-react && npm run dev    # → localhost:5173
+cd frontend-demoland-vite-react && npm run dev    # → localhost:5173
 
 # RealDeal (real blockchain, requires proof server + deployed contracts)
 cd frontend-realdeal && npm run dev      # → localhost:5174

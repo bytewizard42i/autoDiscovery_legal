@@ -91,21 +91,21 @@ export class Contract {
         if (!(typeof(contextOrig_0) === 'object' && contextOrig_0.currentQueryContext != undefined)) {
           __compactRuntime.typeError('registerNewJurisdiction',
                                      'argument 1 (as invoked from Typescript)',
-                                     'jurisdiction-registry.compact line 150 char 1',
+                                     'jurisdiction-registry.compact line 162 char 1',
                                      'CircuitContext',
                                      contextOrig_0)
         }
         if (!(jurisdictionCode_0.buffer instanceof ArrayBuffer && jurisdictionCode_0.BYTES_PER_ELEMENT === 1 && jurisdictionCode_0.length === 8)) {
           __compactRuntime.typeError('registerNewJurisdiction',
                                      'argument 1 (argument 2 as invoked from Typescript)',
-                                     'jurisdiction-registry.compact line 150 char 1',
+                                     'jurisdiction-registry.compact line 162 char 1',
                                      'Bytes<8>',
                                      jurisdictionCode_0)
         }
         if (!(rulePackContentHash_0.buffer instanceof ArrayBuffer && rulePackContentHash_0.BYTES_PER_ELEMENT === 1 && rulePackContentHash_0.length === 32)) {
           __compactRuntime.typeError('registerNewJurisdiction',
                                      'argument 2 (argument 3 as invoked from Typescript)',
-                                     'jurisdiction-registry.compact line 150 char 1',
+                                     'jurisdiction-registry.compact line 162 char 1',
                                      'Bytes<32>',
                                      rulePackContentHash_0)
         }
@@ -137,28 +137,28 @@ export class Contract {
         if (!(typeof(contextOrig_0) === 'object' && contextOrig_0.currentQueryContext != undefined)) {
           __compactRuntime.typeError('updateJurisdictionRulePack',
                                      'argument 1 (as invoked from Typescript)',
-                                     'jurisdiction-registry.compact line 201 char 1',
+                                     'jurisdiction-registry.compact line 213 char 1',
                                      'CircuitContext',
                                      contextOrig_0)
         }
         if (!(jurisdictionCode_0.buffer instanceof ArrayBuffer && jurisdictionCode_0.BYTES_PER_ELEMENT === 1 && jurisdictionCode_0.length === 8)) {
           __compactRuntime.typeError('updateJurisdictionRulePack',
                                      'argument 1 (argument 2 as invoked from Typescript)',
-                                     'jurisdiction-registry.compact line 201 char 1',
+                                     'jurisdiction-registry.compact line 213 char 1',
                                      'Bytes<8>',
                                      jurisdictionCode_0)
         }
         if (!(updatedRulePackContentHash_0.buffer instanceof ArrayBuffer && updatedRulePackContentHash_0.BYTES_PER_ELEMENT === 1 && updatedRulePackContentHash_0.length === 32)) {
           __compactRuntime.typeError('updateJurisdictionRulePack',
                                      'argument 2 (argument 3 as invoked from Typescript)',
-                                     'jurisdiction-registry.compact line 201 char 1',
+                                     'jurisdiction-registry.compact line 213 char 1',
                                      'Bytes<32>',
                                      updatedRulePackContentHash_0)
         }
         if (!(typeof(updatedVersionNumber_0) === 'bigint' && updatedVersionNumber_0 >= 0n && updatedVersionNumber_0 <= 4294967295n)) {
           __compactRuntime.typeError('updateJurisdictionRulePack',
                                      'argument 3 (argument 4 as invoked from Typescript)',
-                                     'jurisdiction-registry.compact line 201 char 1',
+                                     'jurisdiction-registry.compact line 213 char 1',
                                      'Uint<0..4294967296>',
                                      updatedVersionNumber_0)
         }
@@ -190,21 +190,21 @@ export class Contract {
         if (!(typeof(contextOrig_0) === 'object' && contextOrig_0.currentQueryContext != undefined)) {
           __compactRuntime.typeError('verifyRulePackHashMatchesExpected',
                                      'argument 1 (as invoked from Typescript)',
-                                     'jurisdiction-registry.compact line 249 char 1',
+                                     'jurisdiction-registry.compact line 261 char 1',
                                      'CircuitContext',
                                      contextOrig_0)
         }
         if (!(jurisdictionCode_0.buffer instanceof ArrayBuffer && jurisdictionCode_0.BYTES_PER_ELEMENT === 1 && jurisdictionCode_0.length === 8)) {
           __compactRuntime.typeError('verifyRulePackHashMatchesExpected',
                                      'argument 1 (argument 2 as invoked from Typescript)',
-                                     'jurisdiction-registry.compact line 249 char 1',
+                                     'jurisdiction-registry.compact line 261 char 1',
                                      'Bytes<8>',
                                      jurisdictionCode_0)
         }
         if (!(expectedRulePackHash_0.buffer instanceof ArrayBuffer && expectedRulePackHash_0.BYTES_PER_ELEMENT === 1 && expectedRulePackHash_0.length === 32)) {
           __compactRuntime.typeError('verifyRulePackHashMatchesExpected',
                                      'argument 2 (argument 3 as invoked from Typescript)',
-                                     'jurisdiction-registry.compact line 249 char 1',
+                                     'jurisdiction-registry.compact line 261 char 1',
                                      'Bytes<32>',
                                      expectedRulePackHash_0)
         }
@@ -327,6 +327,17 @@ export class Contract {
                                                                                               alignment: _descriptor_11.alignment() }).encode() } },
                                        { push: { storage: true,
                                                  value: __compactRuntime.StateValue.newCell({ value: _descriptor_2.toValue({ bytes: new Uint8Array(32) }),
+                                                                                              alignment: _descriptor_2.alignment() }).encode() } },
+                                       { ins: { cached: false, n: 1 } }]);
+    const tmp_0 = this._ownPublicKey_0(context, partialProofData);
+    __compactRuntime.queryLedgerState(context,
+                                      partialProofData,
+                                      [
+                                       { push: { storage: false,
+                                                 value: __compactRuntime.StateValue.newCell({ value: _descriptor_11.toValue(5n),
+                                                                                              alignment: _descriptor_11.alignment() }).encode() } },
+                                       { push: { storage: true,
+                                                 value: __compactRuntime.StateValue.newCell({ value: _descriptor_2.toValue(tmp_0),
                                                                                               alignment: _descriptor_2.alignment() }).encode() } },
                                        { ins: { cached: false, n: 1 } }]);
     state_0.data = new __compactRuntime.ChargedState(context.currentQueryContext.state.state);

@@ -130,7 +130,7 @@ It is our hope that autoDiscovery.legal will be the **default protocol for accur
 
 ```
 AutoDiscovery/
-├── frontend-vite-react/           # React application
+├── frontend-demoland-vite-react/           # React application
 │   ├── src/
 │   │   ├── components/            # Reusable UI (email safety dialog, etc.)
 │   │   ├── layouts/               # App shell, sidebar, navigation
@@ -186,7 +186,7 @@ npm run dev:frontend
 ```bash
 # Copy environment templates
 cp autodiscovery-cli/.env_template autodiscovery-cli/.env
-cp frontend-vite-react/.env_template frontend-vite-react/.env
+cp frontend-demoland-vite-react/.env_template frontend-demoland-vite-react/.env
 ```
 
 ---

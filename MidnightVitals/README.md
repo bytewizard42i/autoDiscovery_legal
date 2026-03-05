@@ -6,7 +6,7 @@
 
 ## What Is This Folder?
 
-This is the **documentation and roadmap** for the MidnightVitals module as it lives inside AutoDiscovery.legal. The actual source code is at `frontend-vite-react/src/vitals/`.
+This is the **documentation and roadmap** for the MidnightVitals module as it lives inside AutoDiscovery.legal. The actual source code is at `frontend-demoland-vite-react/src/vitals/`.
 
 There are **two MidnightVitals repos** — here's how they relate:
 
@@ -48,7 +48,7 @@ MidnightVitals is a real-time CLI diagnostic console that monitors your wallet, 
 ## Source Location
 
 ```
-frontend-vite-react/src/vitals/
+frontend-demoland-vite-react/src/vitals/
 ├── components/
 │   ├── VitalsPanel.tsx              # Docked + floating panel with drag-to-move/resize
 │   ├── VitalsMonitorBar.tsx         # 4 vital monitors (horizontal or vertical layout)

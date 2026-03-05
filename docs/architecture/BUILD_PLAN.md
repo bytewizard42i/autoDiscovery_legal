@@ -102,7 +102,7 @@ autodiscovery-contract/src/
 
 **Frontend package — replace starter pages:**
 ```
-frontend-vite-react/src/
+frontend-demoland-vite-react/src/
 ├── components/
 │   ├── ui/                              # shadcn/ui (keep existing)
 │   └── ad/                              # AD-specific components

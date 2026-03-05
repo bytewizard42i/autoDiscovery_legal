@@ -49,4 +49,4 @@ FOR LATER (15 items for future phases)
 
 ---
 
-*This folder contains protocol design documents only — no code. Implementation lives in `autodiscovery-contract/` and `frontend-vite-react/`.*
+*This folder contains protocol design documents only — no code. Implementation lives in `autodiscovery-contract/` and `frontend-demoland-vite-react/`.*

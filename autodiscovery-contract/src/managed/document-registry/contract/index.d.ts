@@ -34,8 +34,7 @@ export type ImpureCircuits<PS> = {
                                    productionUniqueIdentifier_0: Uint8Array,
                                    merkleProofPath_0: Uint8Array): __compactRuntime.CircuitResults<PS, boolean>;
   verifyTwinBondIntegrity(context: __compactRuntime.CircuitContext<PS>,
-                          expectedTwinBondHash_0: Uint8Array,
-                          currentImageTwinHash_0: Uint8Array,
+                          imageTwinContentHash_0: Uint8Array,
                           currentDigitalTwinHash_0: Uint8Array): __compactRuntime.CircuitResults<PS, boolean>;
 }
 
@@ -67,8 +66,7 @@ export type Circuits<PS> = {
                                    productionUniqueIdentifier_0: Uint8Array,
                                    merkleProofPath_0: Uint8Array): __compactRuntime.CircuitResults<PS, boolean>;
   verifyTwinBondIntegrity(context: __compactRuntime.CircuitContext<PS>,
-                          expectedTwinBondHash_0: Uint8Array,
-                          currentImageTwinHash_0: Uint8Array,
+                          imageTwinContentHash_0: Uint8Array,
                           currentDigitalTwinHash_0: Uint8Array): __compactRuntime.CircuitResults<PS, boolean>;
 }
 

@@ -196,7 +196,7 @@ Pre-disclosure commitment schemes and document freezes are recorded here. This p
 
 ```
 AutoDiscovery/
-├── frontend-vite-react/           # React 19 + Vite 6 + TypeScript 5 application
+├── frontend-demoland-vite-react/           # React 19 + Vite 6 + TypeScript 5 application
 │   ├── src/
 │   │   ├── components/            # Reusable UI (email safety dialog, etc.)
 │   │   ├── layouts/               # App shell, sidebar, navigation

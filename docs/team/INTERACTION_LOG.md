@@ -381,9 +381,9 @@ Feature implementation session on branch `sunday-night-penny-upgrades`. Focus: e
 ### Files Modified
 | File | Changes |
 |------|---------|
-| `frontend-vite-react/src/pages/case-view/index.tsx` | +~300 lines: timeline, sanctions meter, obfuscation explainer, production tracker, deemed admitted countdown, export button |
-| `frontend-vite-react/src/pages/dashboard/index.tsx` | +~65 lines: "What's Due This Week" widget with step aggregation |
-| `frontend-vite-react/src/layouts/ad-layout.tsx` | +~70 lines: notification bell dropdown with mock data |
+| `frontend-demoland-vite-react/src/pages/case-view/index.tsx` | +~300 lines: timeline, sanctions meter, obfuscation explainer, production tracker, deemed admitted countdown, export button |
+| `frontend-demoland-vite-react/src/pages/dashboard/index.tsx` | +~65 lines: "What's Due This Week" widget with step aggregation |
+| `frontend-demoland-vite-react/src/layouts/ad-layout.tsx` | +~70 lines: notification bell dropdown with mock data |
 
 ### Decisions Made This Session
 | Decision | Rationale |
