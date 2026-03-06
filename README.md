@@ -10,6 +10,8 @@
 
 **A Midnight-based dApp that automates legal discovery with jurisdiction-aware compliance,<br>zero-knowledge proofs, and privacy-first architecture.**
 
+This project is built on the Midnight Network.
+
 [![Built on Midnight](https://img.shields.io/badge/Built_on-Midnight_Network-6C3FC5?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PGNpcmNsZSBjeD0iMTIiIGN5PSIxMiIgcj0iMTAiIGZpbGw9IiNmZmYiIG9wYWNpdHk9IjAuMiIvPjwvc3ZnPg==)](https://midnight.network)
 [![License](https://img.shields.io/badge/License-Proprietary-1a1a2e?style=for-the-badge)](./LICENSE)
 [![Target](https://img.shields.io/badge/Hackathon-Midnight_Vegas_2026-D4AF37?style=for-the-badge)]()
