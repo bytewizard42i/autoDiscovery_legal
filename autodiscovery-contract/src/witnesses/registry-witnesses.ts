@@ -1,53 +1,33 @@
 // ============================================================================
 // JURISDICTION-REGISTRY WITNESS IMPLEMENTATIONS
-// Off-chain computation for the jurisdiction registry contract.
+// ============================================================================
+//
+// The jurisdiction-registry contract has NO witnesses.
+// Generated: Witnesses<PS> = {} (empty)
+//
+// All operations (registerNewJurisdiction, updateJurisdictionRulePack,
+// verifyRulePackHashMatchesExpected) are pure circuit logic with no
+// off-chain witness inputs needed. Hashes are passed directly as
+// circuit parameters rather than computed in witnesses.
+//
+// This file only exports the private state type and an empty witness map
+// for consistency with the other contract witness modules.
 // ============================================================================
 
-import { type WitnessContext } from "@midnight-ntwrk/compact-runtime";
-
-// --- Types ---
+// --- Private State Type ---
+// Even with no witnesses, we track local state for the frontend's benefit.
 
 export type RegistryPrivateState = {
-  // Admin address for access control verification
-  adminAddress: string;
-  // Local cache of registered jurisdiction codes
-  registeredCodes: string[];
+  // Local cache of registered jurisdiction codes (for quick UI lookups)
+  registeredJurisdictionCodes: string[];
 };
 
 // --- Private State Factory ---
 
-export const createRegistryPrivateState = (adminAddress: string): RegistryPrivateState => ({
-  adminAddress,
-  registeredCodes: [],
+export const createRegistryPrivateState = (): RegistryPrivateState => ({
+  registeredJurisdictionCodes: [],
 });
 
-// --- Witness Implementations ---
+// --- Witness Map (empty — contract has no witnesses) ---
 
-/**
- * Returns the caller's wallet address for admin access control.
- */
-export const getCaller = (context: WitnessContext): string => {
-  // TODO: Extract caller address from the transaction context
-  throw new Error("getCaller witness not yet implemented — needs Midnight SDK integration");
-};
-
-/**
- * Computes a hash of the rule pack data for on-chain anchoring.
- * The hash proves which exact rules were in effect without storing them on-chain.
- */
-export const computeRuleHash = (
-  _context: WitnessContext,
-  jurisdictionCode: Uint8Array,
-  ruleData: bigint
-): Uint8Array => {
-  // TODO: Implement hash(jurisdictionCode || ruleData)
-  // This hash anchors the off-chain JSON rule pack to the on-chain registry
-  throw new Error("computeRuleHash witness not yet implemented — needs hash primitive");
-};
-
-// --- Witness Map ---
-
-export const registryWitnesses = {
-  getCaller,
-  computeRuleHash,
-};
+export const registryWitnesses = {};

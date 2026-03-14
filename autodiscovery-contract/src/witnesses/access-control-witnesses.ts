@@ -1,0 +1,150 @@
+// ============================================================================
+// ACCESS-CONTROL WITNESS IMPLEMENTATIONS
+// ============================================================================
+//
+// Off-chain computation for the access control contract.
+// Handles document sharing proof hashes and timestamps.
+//
+// IMPORTANT: Function names and signatures MUST match the generated types
+// in managed/access-control/contract/index.d.ts exactly:
+//
+//   Witnesses<PS> = {
+//     getCurrentTimestamp(ctx): [PS, bigint]
+//     computeSharingEventProofHash(ctx, documentHash: Uint8Array,
+//       recipientPublicKeyHash: Uint8Array, sharingTimestamp: bigint): [PS, Uint8Array]
+//   }
+// ============================================================================
+
+import { type WitnessContext } from "@midnight-ntwrk/compact-runtime";
+import type { Ledger } from "../managed/access-control/contract/index.js";
+
+// --- Private State Type ---
+
+export type AccessControlPrivateState = {
+  // Local cache of sharing events (proof hash hex → recipient key hash hex)
+  sharingEventLog: Record<string, string>;
+};
+
+// --- Private State Factory ---
+
+export const createAccessControlPrivateState = (): AccessControlPrivateState => ({
+  sharingEventLog: {},
+});
+
+// --- Hash Utility ---
+
+/** Convert a Uint8Array to a hex string */
+function bytesToHex(bytes: Uint8Array): string {
+  return Array.from(bytes).map((b) => b.toString(16).padStart(2, '0')).join('');
+}
+
+/**
+ * Deterministic hash from mixed inputs (Uint8Array + bigint) → 32-byte output.
+ */
+function deterministicHashMixed(
+  ...inputs: (Uint8Array | bigint)[]
+): Uint8Array {
+  // Convert all inputs to bytes and concatenate
+  const parts: Uint8Array[] = inputs.map((input) => {
+    if (input instanceof Uint8Array) return input;
+    const hex = input.toString(16).padStart(64, '0');
+    const bytes = new Uint8Array(32);
+    for (let i = 0; i < 32; i++) {
+      bytes[i] = parseInt(hex.slice(i * 2, i * 2 + 2), 16);
+    }
+    return bytes;
+  });
+
+  const totalLength = parts.reduce((sum, p) => sum + p.length, 0);
+  const combined = new Uint8Array(totalLength);
+  let offset = 0;
+  for (const part of parts) {
+    combined.set(part, offset);
+    offset += part.length;
+  }
+
+  // FNV-1a-inspired mixing
+  const result = new Uint8Array(32);
+  let hashHigh = 0xcbf29ce484222325n;
+  let hashLow = 0x100000001b3n;
+  const prime = 0x01000000000000000000013bn;
+  const mask64 = (1n << 64n) - 1n;
+
+  for (let i = 0; i < combined.length; i++) {
+    hashHigh ^= BigInt(combined[i]);
+    hashHigh = (hashHigh * prime) & mask64;
+    hashLow ^= BigInt(combined[i]) ^ BigInt(i);
+    hashLow = (hashLow * prime) & mask64;
+  }
+
+  for (let i = 0; i < 8; i++) {
+    result[i] = Number((hashHigh >> BigInt(i * 8)) & 0xffn);
+    result[i + 8] = Number((hashLow >> BigInt(i * 8)) & 0xffn);
+    result[i + 16] = Number(((hashHigh ^ hashLow) >> BigInt(i * 8)) & 0xffn);
+    result[i + 24] = Number(((hashHigh + hashLow) >> BigInt(i * 8)) & 0xffn);
+  }
+
+  return result;
+}
+
+// --- Witness Implementations ---
+
+/**
+ * getCurrentTimestamp
+ *
+ * Returns the current Unix timestamp (seconds since epoch).
+ * Used for document sharing event timestamps.
+ *
+ * @returns [unchangedPrivateState, currentTimestamp]
+ */
+export const getCurrentTimestamp = (
+  context: WitnessContext<Ledger, AccessControlPrivateState>,
+): [AccessControlPrivateState, bigint] => {
+  const timestamp = BigInt(Math.floor(Date.now() / 1000));
+  return [context.privateState, timestamp];
+};
+
+/**
+ * computeSharingEventProofHash
+ *
+ * Computes a proof hash for a document sharing event. This hash anchors
+ * the fact that a specific document was shared with a specific party at
+ * a specific time, without revealing the document contents or party identity.
+ *
+ * @param context - WitnessContext with ledger and private state
+ * @param documentHash_0 - Hash of the shared document (Bytes<32>)
+ * @param recipientPublicKeyHash_0 - Hash of the recipient's public key (Bytes<32>)
+ * @param sharingTimestamp_0 - When the sharing occurred (Field / bigint)
+ * @returns [updatedPrivateState, sharingProofHash as Bytes<32>]
+ */
+export const computeSharingEventProofHash = (
+  context: WitnessContext<Ledger, AccessControlPrivateState>,
+  documentHash_0: Uint8Array,
+  recipientPublicKeyHash_0: Uint8Array,
+  sharingTimestamp_0: bigint,
+): [AccessControlPrivateState, Uint8Array] => {
+  const proofHash = deterministicHashMixed(
+    documentHash_0,
+    recipientPublicKeyHash_0,
+    sharingTimestamp_0,
+  );
+
+  // Log the sharing event in private state
+  const updatedState: AccessControlPrivateState = {
+    ...context.privateState,
+    sharingEventLog: {
+      ...context.privateState.sharingEventLog,
+      [bytesToHex(proofHash)]: bytesToHex(recipientPublicKeyHash_0),
+    },
+  };
+
+  return [updatedState, proofHash];
+};
+
+// --- Witness Map (for contract binding) ---
+// Names MUST match generated Witnesses<PS> type exactly.
+
+export const accessControlWitnesses = {
+  getCurrentTimestamp,
+  computeSharingEventProofHash,
+};
