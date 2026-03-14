@@ -1,8 +1,9 @@
 # RealDeal Punch List — AutoDiscovery.legal
 
 **Created**: Feb 21, 2026  
-**Status**: Backend skeleton in place, all providers are stubs  
-**Frontend**: Cloned from demoLand — UI is identical, providers throw "not connected" until wired
+**Updated**: Mar 8, 2026  
+**Status**: RealCaseProvider wired (Phase 1: local storage + indexer reads). Other providers still stubs.  
+**Frontend**: Cloned from demoLand — UI is identical. discovery-core provider now functional for reads.
 
 ---
 
@@ -46,7 +47,7 @@ Each provider file in `src/providers/realdeal/` needs to be connected to the cor
 ### 2.1 Blockchain providers (require contract SDK)
 | Provider | File | Contract | Status |
 |----------|------|----------|--------|
-| `RealCaseProvider` | `real-case.ts` | `discovery-core` | 🔴 Stub (throws) |
+| `RealCaseProvider` | `real-case.ts` | `discovery-core` | � Phase 1 wired (reads) |
 | `RealDocumentProvider` | `real-document.ts` | `document-registry` | 🔴 Stub (throws) |
 | `RealComplianceProvider` | `real-compliance.ts` | `compliance-proof` | 🔴 Stub (throws) |
 | `RealAccessControlProvider` | `real-access-control.ts` | `access-control` | 🔴 Stub (throws) |
@@ -203,11 +204,13 @@ cd frontend-realdeal && npm run dev      # → localhost:5174
 
 ## Priority Order for MVP
 
-1. Compile `access-control` and `expert-witness` contracts
-2. Deploy all 6 contracts to preprod
-3. Wire `RealCaseProvider` + `RealDocumentProvider` (core workflow)
-4. Wire `RealComplianceProvider` (ZK attestations — the money feature)
-5. Wallet integration (`RealAuthProvider`)
-6. Wire remaining providers
-7. AI service (can be deferred to post-MVP)
-8. Email safety (can be deferred to post-MVP)
+1. ~~Compile `access-control` and `expert-witness` contracts~~ ✅ All 6 compiled (0.29.0)
+2. ~~Deploy all 6 contracts to preprod~~ ✅ Deployed v2 (Feb 26 2026)
+3. ~~Wire `RealCaseProvider`~~ ✅ Phase 1 (local storage + indexer reads, Mar 8 2026)
+   - Phase 2: Connect wallet for on-chain writes (createNewCase, addStep, completeStep)
+4. Wire `RealDocumentProvider` (core workflow — next up)
+5. Wire `RealComplianceProvider` (ZK attestations — the money feature)
+6. Wallet integration (`RealAuthProvider`)
+7. Wire remaining providers
+8. AI service (can be deferred to post-MVP)
+9. Email safety (can be deferred to post-MVP)

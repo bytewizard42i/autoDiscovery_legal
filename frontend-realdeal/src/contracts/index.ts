@@ -6,16 +6,19 @@
  * connector that wraps the generated TypeScript API.
  *
  * Contract → Provider Mapping:
- * ┌─────────────────────────┬──────────────────────────┬───────────┐
- * │ Contract (.compact)     │ Provider Interface       │ Compiled? │
- * ├─────────────────────────┼──────────────────────────┼───────────┤
- * │ discovery-core          │ ICaseProvider            │ ✅ Yes    │
- * │ document-registry       │ IDocumentProvider        │ ✅ Yes    │
- * │ compliance-proof        │ IComplianceProvider      │ ✅ Yes    │
- * │ jurisdiction-registry   │ IJurisdictionProvider    │ ✅ Yes    │
- * │ access-control          │ IAccessControlProvider   │ ❌ No     │
- * │ expert-witness          │ IExpertWitnessProvider   │ ❌ No     │
- * └─────────────────────────┴──────────────────────────┴───────────┘
+ * ┌─────────────────────────┬──────────────────────────┬────────────┐
+ * │ Contract (.compact)     │ Provider Interface       │ Status     │
+ * ├─────────────────────────┼──────────────────────────┼────────────┤
+ * │ discovery-core          │ ICaseProvider            │ ✅ Wired   │
+ * │ document-registry       │ IDocumentProvider        │ 🔴 Stub    │
+ * │ compliance-proof        │ IComplianceProvider      │ 🔴 Stub    │
+ * │ jurisdiction-registry   │ IJurisdictionProvider    │ 🔴 Stub    │
+ * │ access-control          │ IAccessControlProvider   │ 🔴 Stub    │
+ * │ expert-witness          │ IExpertWitnessProvider   │ 🔴 Stub    │
+ * └─────────────────────────┴──────────────────────────┴────────────┘
+ *
+ * All 6 contracts are compiled (0.29.0) and deployed to Preprod (v2).
+ * discovery-core is the first to be wired with a real provider.
  *
  * Off-chain services (no contract):
  *   - IAuthProvider        → Midnight wallet + DID
@@ -26,13 +29,13 @@
  * Network: Preprod (VITE_MIDNIGHT_NETWORK)
  * Proof Server: 7.0.0 on port 6300
  * Compiler: 0.29.0 / language >= 0.20
+ *
+ * ARCHITECTURE NOTE:
+ *   Reads (public ledger) use the indexer GraphQL API — works in browser, no wallet.
+ *   Writes (circuit calls) require wallet + proof server — Phase 2.
+ *   Rich metadata (case titles, parties, etc.) lives in localStorage — the
+ *   contract only stores hashes and flags.
  */
-
-// TODO: Import generated contract APIs when ready
-// import { DiscoveryCoreContract } from '@autodiscovery/contract/managed/discovery-core';
-// import { DocumentRegistryContract } from '@autodiscovery/contract/managed/document-registry';
-// import { ComplianceProofContract } from '@autodiscovery/contract/managed/compliance-proof';
-// import { JurisdictionRegistryContract } from '@autodiscovery/contract/managed/jurisdiction-registry';
 
 export interface ContractConfig {
   networkId: string;
@@ -50,7 +53,7 @@ export interface ContractConfig {
 
 /**
  * Reads contract configuration from environment variables.
- * All addresses are empty until contracts are deployed to preprod.
+ * All 6 contract addresses are populated from the v2 deployment (Feb 26 2026).
  */
 export function getContractConfig(): ContractConfig {
   return {
@@ -66,4 +69,28 @@ export function getContractConfig(): ContractConfig {
       expertWitness: import.meta.env.VITE_CONTRACT_EXPERT_WITNESS || undefined,
     },
   };
+}
+
+/**
+ * Checks whether a contract address is configured.
+ * Returns true if the address exists and is non-empty.
+ */
+export function isContractConfigured(contractName: keyof ContractConfig['contractAddresses']): boolean {
+  const config = getContractConfig();
+  const address = config.contractAddresses[contractName];
+  return !!address && address.length > 0;
+}
+
+/**
+ * Returns a summary of which contracts are configured.
+ * Useful for health checks and status displays.
+ */
+export function getContractConfigSummary(): Record<string, boolean> {
+  const config = getContractConfig();
+  return Object.fromEntries(
+    Object.entries(config.contractAddresses).map(([name, address]) => [
+      name,
+      !!address && address.length > 0,
+    ]),
+  );
 }
