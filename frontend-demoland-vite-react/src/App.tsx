@@ -4,6 +4,7 @@ import { ProvidersProvider } from "./providers/context";
 import { VitalsProvider, VitalsNavigationLogger } from "./vitals";
 import { ADLayout } from "./layouts/ad-layout";
 import { LoginPage } from "./pages/login";
+import { SignupPage } from "./pages/signup";
 import { Dashboard } from "./pages/dashboard";
 import { CaseView } from "./pages/case-view";
 import { CaseContacts } from "./pages/case-contacts";
@@ -31,6 +32,7 @@ function App() {
             <VitalsNavigationLogger />
             <Routes>
               <Route path="/login" element={<LoginPage />} />
+              <Route path="/signup" element={<SignupPage />} />
               <Route element={<AuthGuard><ADLayout /></AuthGuard>}>
                 <Route path="/" element={<Dashboard />} />
                 <Route path="/cases" element={<Dashboard />} />

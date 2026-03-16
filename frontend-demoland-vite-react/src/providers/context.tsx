@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useCallback, type ReactNode } from 'react';
-import type { Providers, ADMode, AuthSession } from './types';
+import type { Providers, ADMode, AuthSession, SignUpData } from './types';
 import { createDemoProviders } from './demoland';
 
 // --- Provider Context ---
@@ -18,6 +18,7 @@ interface AuthContextValue {
   session: AuthSession | null;
   isAuthenticated: boolean;
   login: (method: AuthSession['authMethod'], credentials?: { email?: string; password?: string }) => Promise<void>;
+  signup: (data: SignUpData) => Promise<void>;
   logout: () => Promise<void>;
 }
 
@@ -65,6 +66,14 @@ export function ProvidersProvider({ children }: ProvidersProviderProps) {
     [providers],
   );
 
+  const signup = useCallback(
+    async (data: SignUpData) => {
+      const result = await providers.auth.signup(data);
+      setSession(result);
+    },
+    [providers],
+  );
+
   const logout = useCallback(async () => {
     await providers.auth.logout();
     setSession(null);
@@ -74,6 +83,7 @@ export function ProvidersProvider({ children }: ProvidersProviderProps) {
     session,
     isAuthenticated: session !== null,
     login,
+    signup,
     logout,
   };
 

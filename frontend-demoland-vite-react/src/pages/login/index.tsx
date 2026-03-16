@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Scale, Mail, KeyRound, HardDrive, Loader2, Shield, Lock, Fingerprint } from 'lucide-react';
+import { Scale, Mail, KeyRound, HardDrive, Loader2, Shield, Lock, Fingerprint, Globe, Smartphone } from 'lucide-react';
 import { useAuth, useMode } from '@/providers/context';
 import { useVitalsLogger, useVitalsInteraction } from '@/vitals';
 import type { AuthMethod } from '@/providers/types';
@@ -25,8 +25,13 @@ export function LoginPage() {
 
     const methodLabels: Record<AuthMethod, string> = {
       email: 'email and password',
+      'pgp-key': 'PGP hardware key (NitroKey/YubiKey OpenPGP)',
       yubikey: 'YubiKey hardware key (FIDO2/WebAuthn)',
+      'did-wallet': 'DID wallet (self-sovereign identity)',
       trezor: 'Trezor 5 hardware wallet (Ed25519)',
+      biometric: 'biometric authentication (FIDO2 WebAuthn)',
+      'chrome-oauth': 'Google / Chrome OAuth',
+      'brave-oauth': 'Brave Browser identity',
     };
 
     vitals.action(`You clicked "Sign In" using ${methodLabels[method]}.`);
@@ -34,16 +39,17 @@ export function LoginPage() {
       'Authenticating your identity. In realDeal mode, this would derive a cryptographic key from your credentials and connect to the Midnight blockchain.',
     );
 
-    switch (method) {
-      case 'yubikey':
-        setStatus('Touch your YubiKey...');
-        break;
-      case 'trezor':
-        setStatus('Connecting to Trezor... Confirm on device');
-        break;
-      default:
-        setStatus('Authenticating...');
-    }
+    const statusMessages: Record<string, string> = {
+      email: 'Authenticating...',
+      'pgp-key': 'Scanning for PGP hardware key...',
+      yubikey: 'Touch your YubiKey...',
+      'did-wallet': 'Connecting to DID wallet...',
+      trezor: 'Connecting to Trezor... Confirm on device',
+      biometric: 'Waiting for biometric scan...',
+      'chrome-oauth': 'Redirecting to Google...',
+      'brave-oauth': 'Connecting to Brave...',
+    };
+    setStatus(statusMessages[method] || 'Authenticating...');
 
     try {
       await login(method, { email, password });
@@ -68,26 +74,14 @@ export function LoginPage() {
   };
 
   const authMethods: { key: AuthMethod; label: string; icon: typeof Mail; desc: string; badge?: string }[] = [
-    {
-      key: 'email',
-      label: 'Email & Password',
-      icon: Mail,
-      desc: 'Traditional login with Argon2id-derived private key',
-    },
-    {
-      key: 'yubikey',
-      label: 'YubiKey',
-      icon: KeyRound,
-      desc: 'FIDO2/WebAuthn hardware security key — ECDSA P-256',
-      badge: 'FIDO2',
-    },
-    {
-      key: 'trezor',
-      label: 'Trezor 5',
-      icon: HardDrive,
-      desc: 'Hardware wallet — native Ed25519 signing for Midnight',
-      badge: 'Ed25519',
-    },
+    { key: 'email',        label: 'Email & Password',  icon: Mail,        desc: 'Traditional login with Argon2id-derived private key' },
+    { key: 'pgp-key',      label: 'PGP / NitroKey',    icon: KeyRound,    desc: 'OpenPGP smart card — hardware-bound private key',       badge: 'Most Secure' },
+    { key: 'yubikey',       label: 'YubiKey',           icon: KeyRound,    desc: 'FIDO2/WebAuthn hardware security key — ECDSA P-256',    badge: 'FIDO2' },
+    { key: 'did-wallet',    label: 'DID Wallet',        icon: Shield,      desc: 'Decentralized Identifier — self-sovereign identity',    badge: 'Self-Sovereign' },
+    { key: 'trezor',        label: 'Trezor 5',          icon: HardDrive,   desc: 'Hardware wallet — native Ed25519 signing for Midnight', badge: 'Ed25519' },
+    { key: 'biometric',     label: 'Biometric',         icon: Fingerprint, desc: 'Fingerprint or facial recognition via WebAuthn',        badge: 'FIDO2' },
+    { key: 'chrome-oauth',  label: 'Google / Chrome',   icon: Globe,       desc: 'Use your Google account via Chrome sign-in' },
+    { key: 'brave-oauth',   label: 'Brave Browser',     icon: Smartphone,  desc: 'Use your Brave browser identity + BAT wallet' },
   ];
 
   return (
@@ -144,7 +138,7 @@ export function LoginPage() {
               <label className="text-xs font-semibold text-blue-200/70 mb-3 block uppercase tracking-wider">
                 Authentication Method
               </label>
-              <div className="grid grid-cols-3 gap-3">
+              <div className="grid grid-cols-4 gap-2">
                 {authMethods.map((m) => (
                   <button
                     key={m.key}
@@ -284,7 +278,11 @@ export function LoginPage() {
               <span className="w-1 h-1 rounded-full bg-blue-400/20" />
               <span>Privacy-First</span>
             </div>
-            <p className="text-[10px] text-blue-300/20">
+            <p className="text-[10px] text-blue-300/30">
+              Don't have an account?{' '}
+              <a href="/signup" className="text-ad-gold hover:text-ad-gold/80 font-medium">Create one</a>
+            </p>
+            <p className="text-[10px] text-blue-300/20 mt-1">
               v0.1.0-demo • AutoDiscovery Legal Intelligence
             </p>
           </div>

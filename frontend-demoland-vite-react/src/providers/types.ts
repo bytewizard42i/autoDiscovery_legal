@@ -9,11 +9,29 @@
 
 // --- Auth Types ---
 
-export type AuthMethod = 'email' | 'yubikey' | 'trezor';
+export type AuthMethod = 'email' | 'yubikey' | 'trezor' | 'pgp-key' | 'did-wallet' | 'biometric' | 'chrome-oauth' | 'brave-oauth';
 
 export interface Credentials {
   email?: string;
   password?: string;
+}
+
+export type SignUpMethod = AuthMethod;
+
+export interface SignUpData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  role: string;                  // legal role context (e.g. 'Associate Attorney')
+  firm: string;                  // law firm or organization
+  jurisdiction: string;          // primary jurisdiction
+  password: string;
+  signupMethod: SignUpMethod;
+  pgpFingerprint?: string;
+  didUri?: string;
+  oauthProvider?: string;
+  trezorPublicKey?: string;
+  biometricType?: string;
 }
 
 export interface AuthSession {
@@ -28,9 +46,12 @@ export interface AuthSession {
 
 export interface IAuthProvider {
   login(method: AuthMethod, credentials?: Credentials): Promise<AuthSession>;
+  signup(data: SignUpData): Promise<AuthSession>;
   logout(): Promise<void>;
   getSession(): AuthSession | null;
   getPublicKey(): string | null;
+  isAuthenticated(): boolean;
+  listSignedUpUsers(): SignUpData[];
 }
 
 // --- Case Types ---
