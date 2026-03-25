@@ -8,6 +8,12 @@
 
 ## Active Workstreams
 
+### 0. Milestones Documentation (Requested by Spy — March 25, 2026)
+
+| Milestone | Status | Notes |
+|-----------|--------|-------|
+| **Milestones documentation** | Complete | Spy requested via Discord (Nightforce Bravo channel, 10:39 AM): *"Hey can you add your Milestones?"* — Past, present, and future milestones docs created and pushed to both remotes. |
+
 ### 1. Hackathon Preparation (Midnight Vegas — Target: April 2026)
 
 | Milestone | Status | Notes |
