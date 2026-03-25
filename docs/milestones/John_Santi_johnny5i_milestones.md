@@ -1,7 +1,7 @@
 <div align="center">
 
-<!-- Drop your photo at Media/john_santi.jpg and it will render here -->
-<img src="../Media/john_santi.jpg" alt="John Santi" width="200" style="border-radius: 50%;" />
+<!-- Save your photo as Media/john_santi.jpg in the repo root -->
+<img src="../../Media/john_santi.jpg" alt="John Santi" width="200" style="border-radius: 50%;" />
 
 # John Santi
 
