@@ -26,7 +26,7 @@ jobs:
         run: npm install
 
       - name: Install Compact compiler
-        run: npm install -g @midnight-ntwrk/compact
+        run: npm install -g @midnight-ntwrk/compact@1
 
       - name: Run test:compile
         working-directory: autodiscovery-contract
