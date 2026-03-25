@@ -39,6 +39,8 @@ jspm_packages/
 
 # dotenv environment variables file
 .env
+# Local dev overrides (copy from .env.local.template – never commit secrets)
+.env.local
 
 # MacOS
 .DS_Store

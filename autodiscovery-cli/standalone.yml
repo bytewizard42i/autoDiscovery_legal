@@ -1,7 +1,7 @@
 services:
   proof-server:
-    container_name: 'counter-proof-server'
-    image: "midnightnetwork/proof-server:7.0.0"
+    container_name: 'autodiscovery-proof-server'
+    image: "${PROOF_SERVER_IMAGE:-midnightnetwork/proof-server:7.0.0}"
     command: ["midnight-proof-server", "--network", "undeployed"]
     ports:
       - "6300:6300"
@@ -14,8 +14,8 @@ services:
       retries: 20
       start_period: 10s
   indexer:
-    container_name: 'counter-indexer'
-    image: 'midnightntwrk/indexer-standalone:3.1.0'
+    container_name: 'autodiscovery-indexer'
+    image: "${INDEXER_IMAGE:-midnightntwrk/indexer-standalone:3.1.0}"
     ports:
       - '8088:8088'
     environment:
@@ -36,8 +36,8 @@ services:
       node:
         condition: service_started
   node:
-    image: 'midnightntwrk/midnight-node:0.20.1'
-    container_name: 'counter-node'
+    image: "${NODE_IMAGE:-midnightntwrk/midnight-node:0.20.1}"
+    container_name: 'autodiscovery-node'
     ports:
       - "9944:9944"
     healthcheck:

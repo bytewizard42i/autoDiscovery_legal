@@ -14,7 +14,13 @@
     "build-production": "cd autodiscovery-contract && npm run build && cd ../frontend-demoland-vite-react && npm run build",
     "setup-standalone": "cd autodiscovery-cli && npm run setup-undeployed",
     "dev:frontend": "cd frontend-demoland-vite-react && npm run dev",
-    "lint": "turbo run lint"
+    "lint": "turbo run lint",
+    "dev:local:up": "cd autodiscovery-cli && docker compose --env-file ../scripts/docker-versions.env -f standalone.yml up -d",
+    "dev:local:down": "cd autodiscovery-cli && docker compose --env-file ../scripts/docker-versions.env -f standalone.yml down -v",
+    "dev:local:wait": "bash scripts/wait-for-stack.sh",
+    "dev:local": "npm run dev:local:up && npm run dev:local:wait",
+    "test:local": "npm run dev:local && cd autodiscovery-cli && npm run test-undeployed",
+    "test:local:teardown": "npm run test:local; npm run dev:local:down"
   },
   "engines": {
     "node": ">=18"
