@@ -1,47 +1,60 @@
-# AutoDiscovery.legal — Future Milestones
+<div align="center">
 
-**Last Updated**: March 25, 2026
+# AutoDiscovery.legal
 
-> Where we're going. No hard dates — we move forward when the work is **proven**, not when the calendar says so. Every new state is earned by the one before it.
+### Future Milestones
+
+**Where we're going. No hard dates — we move forward when the work is proven, not when the calendar says so.**
+
+*Every new state is earned by the one before it.*
+
+</div>
 
 ---
 
 ## Guiding Principles
 
-1. **Prove before you proceed.** No new state opens until the current batch is validated, integrated, tested, and stable.
-2. **1–2 states at a time.** Depth over breadth. Each compliance packet is deeply researched, attorney-reviewed, and battle-tested before the next one starts.
-3. **Build the guide as you go.** Every hurdle, workaround, gotcha, and lesson learned gets captured in the **Master Compliance Best Practices Guide** — a living document that makes each subsequent state easier than the last.
-4. **Data additions, not code changes.** The architecture is modular. New states are rule pack data files plugged into an unchanged engine.
+| # | Principle |
+|:-:|-----------|
+| 1 | **Prove before you proceed.** No new state opens until the current batch is validated, integrated, tested, and stable. |
+| 2 | **1–2 states at a time.** Depth over breadth. Each compliance packet is deeply researched, attorney-reviewed, and battle-tested before the next one starts. |
+| 3 | **Build the guide as you go.** Every hurdle, workaround, gotcha, and lesson learned gets captured in the **Master Compliance Best Practices Guide** — a living document that makes each subsequent state easier than the last. |
+| 4 | **Data additions, not code changes.** The architecture is modular. New states are rule pack data files plugged into an unchanged engine. |
 
 ---
 
 ## The Master Compliance Best Practices Guide
 
-> **This is not a milestone — it is an artifact that grows alongside every milestone.**
+> *This is not a milestone — it is an artifact that grows alongside every milestone.*
 
-Starting with Idaho and updated with every state thereafter, this guide captures the institutional knowledge that makes compliance packet production faster and more reliable over time.
+Starting with Idaho and updated with every state thereafter, the guide captures institutional knowledge that makes compliance packet production faster and more reliable over time.
 
-### What goes in the guide
+<details>
+<summary><strong>What goes in the guide</strong> (click to expand)</summary>
 
 | Section | Purpose |
 |---------|---------|
-| **Rule Pack Encoding Patterns** | What worked, what didn't. Naming conventions, schema patterns, edge cases in rule structure. |
-| **Court Structure Mapping** | How to research and encode judicial districts, county overlays, local rules. Template for new states. |
-| **Deadline Engine Gotchas** | Business day calculation quirks, holiday calendar integration issues, scheduling order override pitfalls. |
-| **UPL Analysis Template** | Repeatable framework for analyzing unauthorized practice of law risk in each state. Statutes to check, safe harbor arguments, attorney memo template. |
-| **Attorney Validation Workflow** | How to find, engage, and work with a local attorney to validate a state's rule pack. What to send them, what to ask, how to document sign-off. |
-| **Case Type Specialization Notes** | Lessons from building med-mal, personal injury, contract, employment sub-packets. Which states have statutory quirks. |
-| **Testing Playbook** | Sample cases to run through the deadline engine for each new state. Known-good expected outputs. Regression test patterns. |
-| **Common State-to-State Differences** | A growing matrix of where states diverge from FRCP: interrogatory limits, response windows, deposition caps, privilege log requirements, sanctions regimes. |
-| **Integration Checklist** | Step-by-step checklist for integrating a new compliance packet: encode → load → test → deploy → verify → monitor. |
-| **Failure Log** | Every mistake, every misunderstood rule, every validation rejection — documented so we never repeat it. |
+| Rule Pack Encoding Patterns | What worked, what didn't. Naming conventions, schema patterns, edge cases in rule structure. |
+| Court Structure Mapping | How to research and encode judicial districts, county overlays, local rules. Template for new states. |
+| Deadline Engine Gotchas | Business day calculation quirks, holiday calendar integration, scheduling order override pitfalls. |
+| UPL Analysis Template | Repeatable framework for unauthorized practice of law risk per state. Statutes to check, safe harbor arguments, attorney memo template. |
+| Attorney Validation Workflow | How to find, engage, and work with a local attorney. What to send, what to ask, how to document sign-off. |
+| Case Type Specialization Notes | Lessons from med-mal, personal injury, contract, employment sub-packets. State statutory quirks. |
+| Testing Playbook | Sample cases per state. Known-good expected outputs. Regression test patterns. |
+| State-to-State Differences | Growing matrix: interrogatory limits, response windows, deposition caps, privilege log requirements, sanctions regimes. |
+| Integration Checklist | Encode → Load → Test → Deploy → Verify → Monitor. |
+| Failure Log | Every mistake, every misunderstood rule, every validation rejection — so we never repeat it. |
 
-### How the guide evolves
+</details>
 
-- **Idaho**: The guide is born. Everything is new. Heavy documentation of first-time decisions.
-- **States 2–3**: Guide gets its first real test. Patterns emerge. Template sections solidify.
-- **States 4–6**: Guide becomes the primary onboarding tool. New states follow the guide, and deviations get folded back in.
-- **States 7+**: Guide is mature. New state packets are produced primarily by following the guide, with occasional additions for truly novel edge cases.
+**How the guide matures:**
+
+| Stage | What happens |
+|-------|-------------|
+| Idaho | The guide is born. Everything is new. Heavy documentation of first-time decisions. |
+| States 2–3 | First real test. Patterns emerge. Template sections solidify. |
+| States 4–6 | Guide becomes the primary onboarding tool. New states follow it; deviations get folded back in. |
+| States 7+ | Guide is mature. New packets are produced primarily by following it. |
 
 ---
 
@@ -49,188 +62,182 @@ Starting with Idaho and updated with every state thereafter, this guide captures
 
 | Milestone | Details |
 |-----------|---------|
-| **Demo Day presentation** | Midnight Vegas hackathon. Scripted 5-min demo: case creation → jurisdiction detection → rule loading → step generation → deadline tracking → ZK attestation. |
-| **demoLand demo polished** | Smith v. Acme Corp click-path fully scripted, backup video recorded, 3 dry runs completed. |
-| **realDeal "proof it's real" segment** | Brief live wallet connect + contract status check. Recorded backup ready. |
-| **Contracts deployed to preprod** | All 6 contracts deployed, addresses recorded, minimal end-to-end calls verified. |
-| **Build Club program completion** | All participation requirements fulfilled. Presentation delivered at Demo Day. |
+| Demo Day presentation | Midnight Vegas hackathon. 5-min scripted demo: case creation → jurisdiction detection → rule loading → step generation → deadline tracking → ZK attestation. |
+| demoLand demo polished | *Smith v. Acme Corp* click-path scripted, backup video recorded, 3 dry runs completed. |
+| realDeal "proof it's real" | Brief live wallet connect + contract status check. Recorded backup ready. |
+| Contracts deployed to preprod | All 6 contracts deployed, addresses recorded, minimal end-to-end calls verified. |
+| Build Club completion | All participation requirements fulfilled. Presentation delivered. |
 
 ---
 
-## Phase 2 — Idaho Anchor State
+## Phase 2 — Idaho: The Anchor State
 
-> Idaho is where we prove everything. The anchor. The template. Nothing else opens until Idaho is rock-solid.
+> *Idaho is where we prove everything. The anchor. The template. Nothing else opens until Idaho is rock-solid.*
 
 ### Compliance & Legal Gates
 
 | Milestone | Details |
 |-----------|---------|
-| **Spy validation pass** | Spy verifies every Idaho IRCP rule, deadline, exemption, and med-mal statutory requirement against her 20+ years of litigation experience. **Hard gate.** |
-| **UPL legal memo** | Written memo from Idaho-licensed attorney confirming AutoDiscovery operates within safe harbor. |
-| **ISB Ethics Opinion inquiry** | Informal inquiry to Idaho State Bar confirming no objection. |
-| **Terms of Service** | ToS language affirming AutoDiscovery is a tool, not legal counsel. In-app disclaimer added. |
-| **Idaho IRCP Rule Pack v1.0** | Spy-validated, production-ready rule pack for Idaho Rules of Civil Procedure. |
+| Spy validation pass | Every IRCP rule, deadline, exemption, and med-mal requirement verified against 20+ years of Idaho litigation experience. **Hard gate.** |
+| UPL legal memo | Written memo from Idaho-licensed attorney confirming safe harbor. |
+| ISB Ethics Opinion inquiry | Informal inquiry to Idaho State Bar confirming no objection. |
+| Terms of Service | ToS affirming AutoDiscovery is a tool, not legal counsel. In-app disclaimer. |
+| Idaho IRCP Rule Pack v1.0 | Spy-validated, production-ready, covering all IRCP rules. |
 
 ### Idaho Master Compliance Packet
 
 | Milestone | Details |
 |-----------|---------|
-| **Idaho Master Compliance Packet** | Proprietary, deeply researched compliance packet covering all IRCP rules, 7 judicial districts, local rules, med-mal statutes, deadline computation, and sanctions. **This becomes the template for all future state packets.** |
-| **4th District (Ada County / Boise) local rules** | Primary target market — highest case volume in Idaho. County-specific rule overlays. |
-| **3rd District (Canyon County) local rules** | Secondary market — 2nd largest county in Idaho. |
-| **6th District (Bannock County / Pocatello) local rules** | Tertiary market — ISU area. |
-| **Idaho holiday calendar** | State-specific holidays for business day computation in deadline engine. |
-| **Idaho med-mal compliance sub-packet** | Pre-litigation screening panel tracking, expert affidavit of merit, SOC documentation, IME workflows, HIPAA authorization tracking, medical records request deadlines. |
+| Master Compliance Packet | All IRCP rules, 7 judicial districts, local rules, med-mal statutes, deadline computation, sanctions. **Template for all future state packets.** |
+| 4th District (Ada County / Boise) | Primary market — highest case volume. County-specific overlays. |
+| 3rd District (Canyon County) | Secondary market — 2nd largest county. |
+| 6th District (Bannock / Pocatello) | Tertiary market — ISU area. |
+| Idaho holiday calendar | State-specific business day computation data. |
+| Med-mal sub-packet | Pre-lit screening, expert affidavit of merit, SOC, IME, HIPAA auth, medical records deadlines. |
 
 ### Technical Completion
 
 | Milestone | Details |
 |-----------|---------|
-| **Deadline computation engine** | `services/deadline-engine.ts` — converts relative deadlines from rule packs into absolute dates with business day calculations. |
-| **Rule loader service** | `services/rule-loader.ts` — loads rule pack JSON, validates schema, merges county/judge overrides. |
-| **realDeal providers wired** | All 12 providers connected to compiled Compact contracts + Lace wallet. |
-| **End-to-end workflow test** | Create case → add steps → complete steps → generate attestation → verify proof — working on Midnight preprod. |
-| **Deploy to production hosting** | Vercel/Netlify deployment. Target domains: `demo.autodiscovery.legal` (demoLand), `app.autodiscovery.legal` (realDeal). |
+| Deadline computation engine | `services/deadline-engine.ts` — relative → absolute dates with business day math. |
+| Rule loader service | `services/rule-loader.ts` — loads JSON, validates schema, merges county/judge overrides. |
+| realDeal providers wired | All 12 connected to compiled Compact contracts + Lace wallet. |
+| End-to-end workflow test | Case create → steps → complete → attestation → verify proof — on Midnight preprod. |
+| Production deployment | Target: `demo.autodiscovery.legal` (demoLand), `app.autodiscovery.legal` (realDeal). |
 
 ### Idaho Market Entry
 
 | Milestone | Details |
 |-----------|---------|
-| **Idaho State Bar outreach** | Engage ISB Technology Committee. Present at bar association events. |
-| **Pilot firm partnerships** | Target: 4th District (Boise) firms doing med-mal, personal injury, complex civil. |
-| **Master Compliance Best Practices Guide v1.0** | First version of the guide written from everything learned building the Idaho packet. |
+| Idaho State Bar outreach | Engage ISB Technology Committee. Present at bar events. |
+| Pilot firm partnerships | 4th District (Boise) — med-mal, personal injury, complex civil. |
+| Best Practices Guide v1.0 | First version written from everything learned building Idaho. |
 
-### Idaho Advance Gate
+### Advance Gate
 
-> **Do not proceed to the next state until ALL of the following are true:**
+> **Do not proceed until ALL are true:**
 
-- Idaho compliance packet is Spy-validated and attorney-reviewed
-- Deadline engine produces correct results for Idaho test cases
-- At least one pilot firm is actively using the system
-- No critical bugs in Idaho-specific workflows
-- Best Practices Guide v1.0 is written and covers the full Idaho process
+- [ ] Idaho packet is Spy-validated and attorney-reviewed
+- [ ] Deadline engine correct for Idaho test cases
+- [ ] At least one pilot firm actively using the system
+- [ ] No critical bugs in Idaho workflows
+- [ ] Best Practices Guide v1.0 written
 
 ---
 
 ## Phase 3 — First Expansion: 1–2 Adjacent States
 
-> Pick 1–2 of Idaho's immediate neighbors. Prove the template works for a second state. Update the guide.
+> *Prove the template works beyond Idaho. Update the guide.*
 
-### Candidate States (choose 1–2 at a time based on readiness)
+### Candidate States
 
-| State | Rationale |
-|-------|-----------|
-| **Utah (URCP)** | Adjacent to Idaho. URCP closely mirrors FRCP. Well-documented rules. Good second state — similar enough to validate the template, different enough to test it. |
-| **Washington (CR)** | Pacific NW corridor. Washington Civil Rules (CR) with distinct discovery procedures. Tests the template against a more divergent rule set. |
-| **Montana (MRCP)** | Adjacent. Montana Rules of Civil Procedure. Similar to FRCP. Small bar — fast validation cycle. |
-| **Wyoming (WRCP)** | Adjacent. Small bar (~2,200 members) but straightforward rules — fast validation. |
-| **Oregon (ORCP)** | Pacific NW corridor. Oregon Rules of Civil Procedure. |
-| **Nevada (NRCP)** | Adjacent. Growing legal market (Las Vegas). |
+| State | Why |
+|-------|-----|
+| **Utah** (URCP) | Adjacent. Mirrors FRCP closely. Good template validation — similar enough to confirm, different enough to test. |
+| **Washington** (CR) | Pacific NW corridor. Distinct discovery procedures. Tests against a more divergent rule set. |
+| **Montana** (MRCP) | Adjacent. Similar to FRCP. Small bar = fast validation. |
+| **Wyoming** (WRCP) | Adjacent. ~2,200 bar members. Straightforward rules. |
+| **Oregon** (ORCP) | Pacific NW corridor. |
+| **Nevada** (NRCP) | Adjacent. Growing market (Las Vegas). |
 
-### Per-State Workflow (applies to every state from here forward)
+### Per-State Workflow
 
-1. **Research** — Gather state civil procedure rules, local court rules, court structure, holidays, relevant case law
-2. **Encode** — Convert rules into structured JSON rule pack following the template established by Idaho
-3. **Validate** — Local attorney in that state reviews every rule, deadline, exemption
-4. **Test** — Run through deadline engine with sample cases; compare against known-good outputs
-5. **Integrate** — Load into jurisdiction registry, test in demoLand, then realDeal
-6. **Prove** — Run a pilot or internal test cycle; confirm accuracy
-7. **Update the guide** — Document everything new: gotchas, differences from Idaho, attorney validation notes, any engine changes needed
-8. **Ship** — Publish the compliance packet; open the state to users
+*This workflow applies to every state from here forward:*
+
+```
+ 1  Research      Gather rules, court structure, holidays, case law
+ 2  Encode        Convert to structured JSON following Idaho template
+ 3  Validate      Local attorney reviews every rule, deadline, exemption
+ 4  Test          Run sample cases through deadline engine
+ 5  Integrate     Load into jurisdiction registry → demoLand → realDeal
+ 6  Prove         Pilot or internal test cycle — confirm accuracy
+ 7  Update guide  Document gotchas, differences, attorney notes, engine changes
+ 8  Ship          Publish compliance packet — open state to users
+```
 
 ### Advance Gate
 
-- New state's compliance packet is attorney-validated
-- Deadline engine handles the new state correctly (no regressions on Idaho)
-- Best Practices Guide updated with lessons from this batch
-- No critical bugs introduced
+- [ ] Compliance packet attorney-validated
+- [ ] Deadline engine correct (no regressions)
+- [ ] Best Practices Guide updated
+- [ ] No critical bugs introduced
 
 ---
 
-## Phase 4 — Wider Regional Expansion: 1–2 States at a Time
+## Phase 4 — Wider Regional Expansion
 
-> Continue the spiral outward. Each batch is 1–2 states. Each batch follows the same workflow. Each batch updates the guide.
+> *Continue the spiral. 1–2 states per batch. Same workflow. Same gate. Guide grows.*
 
-### Federal Baseline (build when needed for removal cases)
+### Federal Baseline
 
 | Milestone | Details |
 |-----------|---------|
-| **FRCP Master Compliance Packet** | Federal Rules of Civil Procedure — the nationwide comparison baseline. Required when cases are removed from state to federal court. |
-| **Jurisdiction switch workflow** | Automatic rule pack switching when a case moves between state and federal jurisdiction. |
-| **Jurisdiction comparison UI** | Side-by-side view comparing rules across 2+ jurisdictions (interrogatory limits, response days, deposition caps). |
+| FRCP Master Packet | Federal Rules of Civil Procedure — nationwide baseline for removal cases. |
+| Jurisdiction switch workflow | Automatic rule pack switching when cases move state ↔ federal. |
+| Jurisdiction comparison UI | Side-by-side view: interrogatory limits, response days, deposition caps across 2+ jurisdictions. |
 
-### Candidate States for Subsequent Batches
+### Expansion Priority
 
-States are prioritized by a combination of **adjacency to existing coverage**, **market size**, and **rule complexity**:
-
-| Priority Tier | States | Rationale |
-|---------------|--------|-----------|
-| **Near-adjacent** | Colorado, Arizona, New Mexico | Second ring of the spiral. Extends western coverage. |
-| **Major markets** | California (CCP), New York (CPLR), Texas, Florida, Illinois | High case volume, high value. Complex rules — but by this point the guide and pipeline are mature. |
-| **Mid-Atlantic & Southeast** | Ohio, Pennsylvania, Michigan, Georgia, Virginia, North Carolina, New Jersey, Massachusetts | Fill the eastern half of the map. Template-based production. |
-| **Remaining states** | ~25 remaining states + DC + territories | Batch production following the mature guide. Smaller bars mean faster validation. |
+| Tier | States | Rationale |
+|------|--------|-----------|
+| **Near-adjacent** | CO, AZ, NM | Second ring. Extends western coverage. |
+| **Major markets** | CA (CCP), NY (CPLR), TX, FL, IL | High volume, high value. Complex rules — but guide is mature by now. |
+| **Mid-Atlantic & Southeast** | OH, PA, MI, GA, VA, NC, NJ, MA | Fill the eastern half. Template-based production. |
+| **Remaining** | ~25 states + DC + territories | Batch production following the mature guide. |
 
 ### The Cadence
 
 ```
-┌─────────────────────────────────────────────────────┐
-│                                                     │
-│   Pick 1–2 states                                   │
-│       ↓                                             │
-│   Research & encode compliance packet                │
-│       ↓                                             │
-│   Attorney validation                                │
-│       ↓                                             │
-│   Test against deadline engine                       │
-│       ↓                                             │
-│   Integrate into platform (demoLand → realDeal)      │
-│       ↓                                             │
-│   Pilot / prove accuracy                             │
-│       ↓                                             │
-│   Update Master Compliance Best Practices Guide      │
-│       ↓                                             │
-│   Ship → open state to users                         │
-│       ↓                                             │
-│   Retrospective: what was hard? what was easy?       │
-│       ↓                                             │
-│   Loop back to top                                   │
-│                                                     │
-└─────────────────────────────────────────────────────┘
+  ┌──────────────────────────────────────────┐
+  │                                          │
+  │   Pick 1–2 states                        │
+  │       ↓                                  │
+  │   Research & encode                      │
+  │       ↓                                  │
+  │   Attorney validation                    │
+  │       ↓                                  │
+  │   Test against deadline engine           │
+  │       ↓                                  │
+  │   Integrate (demoLand → realDeal)        │
+  │       ↓                                  │
+  │   Pilot / prove accuracy                 │
+  │       ↓                                  │
+  │   Update Best Practices Guide            │
+  │       ↓                                  │
+  │   Ship → open state to users             │
+  │       ↓                                  │
+  │   Retrospective                          │
+  │       ↓                                  │
+  │   ← Loop                                │
+  │                                          │
+  └──────────────────────────────────────────┘
 ```
-
-### Per-Batch Advance Gate (same every time)
-
-- Compliance packet attorney-validated
-- Deadline engine correct, no regressions
-- Best Practices Guide updated
-- No critical bugs
-- Previous states still stable
 
 ---
 
 ## Phase 5 — Product Maturity & Revenue
 
-> These features are built in parallel with state expansion, not gated by it. They ship when ready.
+> *Built in parallel with expansion — ships when ready, not gated by state count.*
 
-### Core Product Features
+### Core Features
 
-| Milestone | Details |
-|-----------|---------|
-| **E-Discovery pipeline** | ESI (Electronically Stored Information) handling with full metadata extraction. |
-| **YubiKey access control** | All 3 modes: document-level, action-level gating, role elevation. Hardware key auth for sensitive documents. |
-| **Full email safety workflow** | Tandem approval with N-of-M configurable approvers. Complete attachment scanning. |
-| **Expert witness module** | Med-mal expert qualification attestation, W-9/I-9 workflows, HIPAA compliance, SOC documentation. |
-| **AI metadata pipeline** | Real AI-assisted document parsing, entity resolution, metadata extraction for the 24 universal document categories. |
-| **Compliance report export** | Court-ready PDFs with verification QR codes, attestation hash lookup, no blockchain jargon. |
+| Feature | Details |
+|---------|---------|
+| E-Discovery pipeline | ESI handling with full metadata extraction. |
+| YubiKey access control | Document-level, action-level, role elevation. Hardware key auth. |
+| Full email safety | Tandem approval (N-of-M approvers). Complete attachment scanning. |
+| Expert witness module | Qualification attestation, W-9/I-9, HIPAA, SOC documentation. |
+| AI metadata pipeline | Document parsing, entity resolution, extraction for 24 universal categories. |
+| Compliance report export | Court-ready PDFs with verification QR codes. No blockchain jargon. |
 
-### Revenue & Insurance
+### Revenue Streams
 
-| Milestone | Details |
-|-----------|---------|
-| **Subscription launch** | Tiered pricing: Solo, Small Firm, Mid-Size, Enterprise. |
-| **Error insurance product** | Legal malpractice insurance integration backed by ZK proof compliance records. |
-| **Insurance underwriting API** | Insurers verify compliance attestations for E&O policy pricing — provable risk reduction. |
-| **Court integration APIs** | Direct submission pathways for ZK compliance attestations to court filing systems. |
+| Stream | Details |
+|--------|---------|
+| Subscription launch | Tiered: Solo, Small Firm, Mid-Size, Enterprise. |
+| Error insurance product | Malpractice insurance integration backed by ZK compliance records. |
+| Insurance underwriting API | Insurers verify attestations for E&O pricing — provable risk reduction. |
+| Court integration APIs | Direct ZK attestation submission to court filing systems. |
 
 ---
 
@@ -240,111 +247,116 @@ States are prioritized by a combination of **adjacency to existing coverage**, *
 
 | Milestone | Details |
 |-----------|---------|
-| **Rule Pack Marketplace** | Third-party jurisdiction contributions — law firms and legal tech companies publish and maintain their own rule packs. Revenue share model. |
-| **AutoDiscovery Protocol standard** | Published as an open specification for the legal industry — the way discovery compliance should work everywhere. |
-| **Court system partnerships** | Direct API integrations with court filing systems for automated compliance submission. |
+| Rule Pack Marketplace | Third-party jurisdiction contributions. Revenue share model. |
+| AutoDiscovery Protocol | Published open specification for legal discovery compliance. |
+| Court system partnerships | Direct API integrations with filing systems. |
 
 ### International Expansion
 
-| Milestone | Details |
-|-----------|---------|
-| **Canada** | Provincial civil procedure rules — similar common law tradition. First international test. |
-| **United Kingdom** | Civil Procedure Rules (CPR). Disclosure obligations differ from US discovery. |
-| **European Union** | Member state civil procedure + GDPR data protection overlay. |
-| **Australia / New Zealand** | Common law jurisdictions with established discovery procedures. |
+| Jurisdiction | Notes |
+|-------------|-------|
+| **Canada** | Provincial civil procedure. Similar common law tradition. First international test. |
+| **United Kingdom** | CPR. Disclosure obligations differ from US discovery. |
+| **European Union** | Member state procedure + GDPR overlay. |
+| **Australia / New Zealand** | Common law. Established discovery procedures. |
 
 ### MidnightVitals Standalone
 
-| Milestone | Details |
-|-----------|---------|
-| **npm package extraction** | `@midnight-vitals/core` — free open-source diagnostic module for any Midnight DApp. |
-| **Pro Dashboard (SaaS)** | Multi-contract monitoring, alerts, analytics. |
-| **Enterprise Monitoring** | 24/7 monitoring, SLA, Datadog/Grafana/PagerDuty integration. |
+| Tier | Details |
+|------|---------|
+| Open Source | `@midnight-vitals/core` — free diagnostic module for any Midnight DApp. |
+| Pro (SaaS) | Multi-contract monitoring, alerts, analytics. |
+| Enterprise | 24/7 monitoring, SLA, Datadog/Grafana/PagerDuty integration. |
 
 ### DIDz Ecosystem Integration
 
-| Milestone | Details |
-|-----------|---------|
-| **SelectConnect integration** | Privacy-first contact sharing between opposing counsel — progressive reveal without exposing client data. |
-| **GeoZ oracle maturity** | Full privacy-preserving geolocation oracle for automatic jurisdiction detection as standalone Midnight infrastructure. |
-| **KYCz integration** | Attorney identity verification — bar membership attestation without revealing personal data. |
-| **DIDz identity layer** | Decentralized identity for all case participants — attorneys, experts, judges, parties. |
+| Product | Integration |
+|---------|-------------|
+| **SelectConnect** | Privacy-first contact sharing between opposing counsel — progressive reveal. |
+| **GeoZ** | Privacy-preserving geolocation oracle for automatic jurisdiction detection. |
+| **KYCz** | Attorney bar membership attestation without revealing personal data. |
+| **DIDz** | Decentralized identity for all case participants. |
 
 ---
 
-## The Spiral: Visual Expansion Map
+## The Spiral
 
 ```
-                         NATIONWIDE
-                    ┌─────────────────────────┐
-                    │  Remaining ~25 states    │
-                    │  + DC + territories      │
-                    │                          │
-                RING 4                         │
-            ┌──────────────────────┐           │
-            │  NY · TX · FL · IL   │           │
-            │  + other majors      │           │
-            │                      │           │
-          RING 3                   │           │
-      ┌─────────────────────┐      │           │
-      │  CA · CO · AZ · NM  │      │           │
-      │  + FRCP baseline     │      │           │
-      │                     │      │           │
-    RING 2                   │      │           │
-  ┌──────────────────────┐   │      │           │
-  │  1-2 adjacent states │   │      │           │
-  │  at a time           │   │      │           │
-  │                      │   │      │           │
-  │  RING 1: ANCHOR      │   │      │           │
-  │  ┌────────────────┐  │   │      │           │
-  │  │                │  │   │      │           │
-  │  │     IDAHO      │  │   │      │           │
-  │  │                │  │   │      │           │
-  │  └────────────────┘  │   │      │           │
-  └──────────────────────┘   │      │           │
-      └─────────────────────┘      │           │
-            └──────────────────────┘           │
-                    └─────────────────────────┘
-                              │
-                         INTERNATIONAL
-                    (Canada · UK · EU · AU/NZ)
+                        NATIONWIDE
+                   ┌─────────────────────────┐
+                   │  Remaining ~25 states    │
+                   │  + DC + territories      │
+                   │                          │
+               RING 4                         │
+           ┌──────────────────────┐           │
+           │  NY · TX · FL · IL   │           │
+           │  + other majors      │           │
+           │                      │           │
+         RING 3                   │           │
+     ┌─────────────────────┐      │           │
+     │  CA · CO · AZ · NM  │      │           │
+     │  + FRCP baseline     │      │           │
+     │                     │      │           │
+   RING 2                   │      │           │
+ ┌──────────────────────┐   │      │           │
+ │  1–2 adjacent states │   │      │           │
+ │  at a time           │   │      │           │
+ │                      │   │      │           │
+ │  RING 1: ANCHOR      │   │      │           │
+ │  ┌────────────────┐  │   │      │           │
+ │  │                │  │   │      │           │
+ │  │     IDAHO      │  │   │      │           │
+ │  │                │  │   │      │           │
+ │  └────────────────┘  │   │      │           │
+ └──────────────────────┘   │      │           │
+     └─────────────────────┘      │           │
+           └──────────────────────┘           │
+                   └─────────────────────────┘
+                             │
+                        INTERNATIONAL
+                   (Canada · UK · EU · AU/NZ)
 
-  Each ring = 1-2 states at a time, proven before advancing.
-  The guide grows with every ring.
+ Each ring = 1–2 states at a time, proven before advancing.
+ The guide grows with every ring.
 ```
 
 ---
 
 ## Compliance Packet Revenue Model
 
-Each proprietary regional compliance packet represents significant research, legal validation, and ongoing maintenance. These packets are a **core revenue driver** and a **competitive moat**:
+> *Each packet is significant research, legal validation, and ongoing maintenance — a core revenue driver and competitive moat.*
 
 | Component | Description |
 |-----------|-------------|
-| **State civil procedure rules** | Encoded as structured, machine-readable rule packs |
-| **Local court rules** | County/district-level overlays on top of state rules |
-| **Holiday calendars** | State-specific business day computation data |
-| **Case type specializations** | Med-mal, personal injury, contract, employment — each with unique rules |
-| **Deadline computation profiles** | Tested deadline scenarios with known-good outputs |
-| **Sanctions research** | State-specific sanction case law and risk factors |
-| **UPL analysis per state** | Legal memo confirming safe harbor in each jurisdiction |
-| **Attorney validation attestation** | Signed-off by a licensed attorney in each state |
+| State civil procedure rules | Structured, machine-readable rule packs |
+| Local court rules | County/district-level overlays |
+| Holiday calendars | State-specific business day computation |
+| Case type specializations | Med-mal, PI, contract, employment — unique rules per type |
+| Deadline computation profiles | Tested scenarios with known-good outputs |
+| Sanctions research | State-specific case law and risk factors |
+| UPL analysis per state | Safe harbor legal memo per jurisdiction |
+| Attorney validation attestation | Signed off by a licensed attorney in each state |
 
-**Pricing consideration**: Premium states (CA, NY, TX) command higher pricing due to complexity. Smaller states can be bundled.
+*Premium states (CA, NY, TX) command higher pricing. Smaller states can be bundled.*
 
 ---
 
-## Key Decision Points Ahead
+## Key Decisions Ahead
 
 | Decision | Trigger | Options |
 |----------|---------|---------|
-| **Demo Day strategy** | Before hackathon | demoLand only vs. demoLand + realDeal segment |
-| **Domain acquisition** | When ready to go live | `autodiscovery.legal` — confirm availability and register |
-| **First hire** | When revenue supports it | Paralegal/legal researcher to accelerate compliance packet production |
-| **Funding strategy** | Post-hackathon | Bootstrap vs. Midnight Foundation grant vs. seed round |
-| **Open-source vs. proprietary** | Before first paying customer | Core protocol open-source, compliance packets proprietary? Or fully proprietary? |
-| **Per-state vs. subscription pricing** | Before second state launches | Charge per jurisdiction access or flat subscription with all states? |
+| Demo Day strategy | Before hackathon | demoLand only vs. demoLand + realDeal |
+| Domain acquisition | Go-live readiness | `autodiscovery.legal` — confirm and register |
+| First hire | Revenue supports it | Paralegal/researcher to accelerate packet production |
+| Funding strategy | Post-hackathon | Bootstrap vs. Midnight Foundation grant vs. seed round |
+| Open-source vs. proprietary | Before first customer | Core protocol open, packets proprietary? Or fully proprietary? |
+| Pricing model | Before 2nd state | Per-jurisdiction access vs. flat subscription? |
 
 ---
 
-*AutoDiscovery.legal — Future Milestones — John, Spy & Penny (March 2026)*
+<div align="center">
+
+*AutoDiscovery.legal — Future Milestones*
+*John, Spy & Penny — March 2026*
+
+</div>

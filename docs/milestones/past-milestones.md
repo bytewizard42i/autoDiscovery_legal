@@ -1,155 +1,206 @@
-# AutoDiscovery.legal — Past Milestones
+<div align="center">
 
-**Last Updated**: March 25, 2026
+# AutoDiscovery.legal
 
-> A record of what has been accomplished since the project's inception. Every milestone listed here is **done**.
+### Past Milestones
 
----
+**Everything we've built — from first commit to today.**
 
-## Phase 0 — Project Genesis (January 2026)
+`January 11, 2026 — March 25, 2026`
 
-| Date | Milestone | Details |
-|------|-----------|---------|
-| **Jan 11, 2026** | **Initial commit** `[John]` | Repository created at `SpyCrypto/AutoDiscovery`. First commit: "AutoDiscovery - GeoOracle Auto Compliance for Legal Discovery." |
-| **Jan 11, 2026** | **Team formation** `[Both]` | Spy ([@SpyCrypto](https://github.com/SpyCrypto)) onboarded as domain expert and co-founder. Spy's full bio, team dossier, and role (20+ yr Idaho complex litigation paralegal) documented. |
-| **Jan 11, 2026** | **MeshJS/Edda starter template** `[John]` | Scaffolded initial project skeleton using Midnight starter template. `PROJECT_OVERVIEW.md` created. |
-| **Jan 11, 2026** | **AutoDiscovery logo** `[John]` | First brand asset added to `media/` folder. |
-| **Jan 11, 2026** | **John's fork established** `[John]` | Second remote (`john` → `bytewizard42i/autoDiscovery_legal`) set up for dual-push workflow. |
+</div>
 
 ---
 
-## Phase 1 — Research, Ideation & Build Club (February 2026, Weeks 1–2)
+### Attribution Key
 
-| Date | Milestone | Details |
-|------|-----------|---------|
-| **Feb 5, 2026** | **Build Club Week 1 homework** `[John]` | Customer Analysis Matrix completed — evidence tags, WTP analysis, 15 sourced references, glossary. |
-| **Feb 5, 2026** | **6-jurisdiction deep dive** `[John]` | Idaho, Utah, Washington, California, NYC, Ohio — UIDDA interstate rules, 20 automation metrics, 10 innovation ideas. |
-| **Feb 6, 2026** | **Idaho "Hall of Shame" case research** `[John]` | Verified real sanction cases: Gem State Roofing, Raymond v ISP, Sanders v UI, Erickson v Erickson. Kohberger 68TB discovery chaos documented. |
-| **Feb 6, 2026** | **Project overview with legal/tech imagery** `[Spy]` | Visual overview added by Spy. |
-| **Feb 7, 2026** | **Rebranded to AutoDiscovery.legal** `[John]` | Title rebrand from generic "AutoDiscovery" to "AutoDiscovery.legal" across all docs and PDF exports. |
-| **Feb 10, 2026** | **Idaho-first strategy decided** `[John]` | Archived Ohio research to `docs/reference/`. Restructured docs to make Idaho the anchor jurisdiction. |
-| **Feb 10, 2026** | **Build plan + Grok review** `[John]` | `BUILD_PLAN.md` created. Cross-LLM architecture review conducted with Grok for validation. |
-| **Feb 10, 2026** | **Spy collaboration workflow** `[Spy]` | Spy response files, accuracy checklists, and malpractice insights documented. |
-| **Feb 11, 2026** | **6-entity TypeScript data model** `[John]` | Phase 0.3 complete — strongly-typed interfaces for Case, DiscoveryStep, JurisdictionRulePack, Document, Party, ComplianceAttestation (`autodiscovery-contract/src/types/`). |
-| **Feb 11, 2026** | **Smart contract scaffold** `[John]` | All `.compact` files created with witness file stubs in `autodiscovery-contract/src/contracts/`. |
-| **Feb 11, 2026** | **Idaho IRCP rule pack** `[John]` | First jurisdiction data file created — Idaho Rules of Civil Procedure encoded as structured JSON. |
-| **Feb 11, 2026** | **Pitch fodder v2** `[John]` | Deep dive merge — shock & awe stats ($8.5M sanctions, 38K NYC dismissals, $30B/yr cost), one-pager, 1000-word synopsis. |
-| **Feb 11, 2026** | **Adoption strategy + interaction log** `[John]` | Go-to-market strategy and decision history tracking begun. |
+| Tag | Meaning |
+|:---:|---------|
+| `[J]` | **John** — Architecture, contracts, frontend, CI/CD, technical research |
+| `[S]` | **Spy** — Legal domain expertise, business strategy, pitch materials, rule mapping |
+| `[J+S]` | **Both** — Joint effort |
+| `[C/S]` | **Copilot/Spy** — GitHub Copilot authored the code; Spy reviewed and merged the PR |
 
 ---
 
-## Phase 2 — Pitch Deck & Brand Building (February 2026, Weeks 2–3)
+## Phase 0 — Project Genesis
 
-| Date | Milestone | Details |
-|------|-----------|---------|
-| **Feb 15, 2026** | **Idaho statute of limitations details** `[Spy]` | Spy validated and updated SOL documentation. |
-| **Feb 16, 2026** | **8 demoLand UI features** `[John]` | Sunday night upgrades — significant frontend feature push. |
-| **Feb 16, 2026** | **README glow-up** `[John]` | Logo, badges, architecture diagram, feature highlights, doc index, team cards, email safety showcase. |
-| **Feb 16, 2026** | **Banner infographic** `[John]` | "The Cost of Discovery Failure" infographic added to README. |
-| **Feb 16, 2026** | **GeoZ architecture decoupled** `[John]` | Jurisdiction determined by filing court, not geolocation oracle. GeoZ spun out as separate project (GeoZ.us / GeoZ.app). |
-| **Feb 16, 2026** | **Jurisdiction ordering finalized** `[Both]` | ID → UT → WA → CA → NYC → OH. |
-| **Feb 17, 2026** | **Build Club Week 3 pitch deck** `[John]` | 13-slide HTML deck created + 3-minute video script with recording checklist. |
-| **Feb 17, 2026** | **Elephant brand mascot** `[John]` | Elephant-themed slides (elephant-sanctions, pink elephant, smarty elephant, ADL elephant) integrated into pitch. |
-| **Feb 18, 2026** | **VC portfolio insights** `[John]` | Fundraising strategy derived from OpenVC article, applied to ADL positioning. |
-| **Feb 18, 2026** | **Spy's deck tweaks** `[Spy]` | Vision line break, handle removal, ZK Proof card dropped, 3-column pricing, PDF regenerated. |
-| **Feb 19, 2026** | **PDF regeneration pipeline** `[John]` | Puppeteer-based PDF generation script (`docs/generate-pdf.mjs`) established for reproducible deck exports. |
+**January 11, 2026** — The day it all started.
+
+| Milestone | Who | Details |
+|-----------|:---:|---------|
+| Initial commit | `[J]` | Repository created at `SpyCrypto/AutoDiscovery`. First commit: *"AutoDiscovery — GeoOracle Auto Compliance for Legal Discovery."* |
+| Team formation | `[J+S]` | Spy onboarded as domain expert and co-founder. 20+ year Idaho complex litigation paralegal. Bio, dossier, and role documented. |
+| Starter template scaffold | `[J]` | Midnight MeshJS/Edda starter template. `PROJECT_OVERVIEW.md` created. |
+| AutoDiscovery logo | `[J]` | First brand asset added to `media/`. |
+| Dual-remote workflow | `[J]` | John's fork (`bytewizard42i/autoDiscovery_legal`) established as second push target. |
 
 ---
 
-## Phase 3 — White Paper, Contracts & Frontend (February 2026, Weeks 3–4)
+## Phase 1 — Research & Build Club
 
-| Date | Milestone | Details |
-|------|-----------|---------|
-| **Feb 20, 2026** | **White Paper draft** `[Spy]` | Full autoDiscovery.legal White Paper published in `docs/product/`. |
-| **Feb 21, 2026** | **4 core contracts compile** `[John]` | `discovery-core`, `jurisdiction-registry`, `compliance-proof`, `document-registry` all compile with Compact 0.29.0 (pragma `>= 0.20`). Syntax fixed for real Compact language. |
-| **Feb 21, 2026** | **All 6 contracts compile** `[John]` | `access-control` and `expert-witness` contracts compiled. **Full 6-contract suite compiling.** |
-| **Feb 21, 2026** | **Full demoLand UI built** `[John]` | Dashboard, Case View, Login, Search, Compliance, Settings — all pages with mock providers. |
-| **Feb 21, 2026** | **Physically separated realDeal frontend** `[John]` | `frontend-realdeal/` created as separate Vite+React app with Lace wallet integration plumbing. |
-| **Feb 21, 2026** | **"What It Means to Deploy" doc** `[John]` | Beginner-friendly explainer for Midnight deployment process. |
-| **Feb 22, 2026** | **MidnightVitals v0.1.0** `[John]` | Real-time diagnostic console created — monitors wallet, proof server, contracts, network. |
-| **Feb 22, 2026** | **MidnightVitals rapid iteration** `[John]` | v0.1.0 → v0.3.8 in one day: granular CLI logging, scroll hints, card layout settings, slim horizontal monitor bar, floating panel mode, interaction tracking hook. |
-| **Feb 22, 2026** | **MidnightVitals integrated into ADL** `[John]` | Kill-switch design documented — vitals panel embedded in AutoDiscovery frontend. |
-| **Feb 22, 2026** | **Edge Slide pitch strategy** `[Spy]` | Competitive edge positioning slides created by Spy. |
-| **Feb 23, 2026** | **Pitch deck v3** `[Both]` | 13-slide deck with Edge slide (Spy), pricing overhaul, visual refinements. Multiple script iterations. |
+**February 5–11, 2026** — Deep research, data modeling, first contracts.
 
----
-
-## Phase 4 — Business Docs, Investor Materials & demoLand/realDeal Architecture (Late February 2026)
-
-| Date | Milestone | Details |
-|------|-----------|---------|
-| **Feb 25, 2026** | **Investor & VC Roadmap** `[John]` | Full investor roadmap with market sizing, financial projections, and exit strategy. |
-| **Feb 25, 2026** | **Docs reorganization** `[John]` | Docs restructured into logical subfolders: `pitch/`, `architecture/`, `product/`, `team/`, `business/`. |
-| **Feb 25, 2026** | **Starter template cleanup** `[John]` | Removed starter template PNGs, purged 16 Zone.Identifier artifacts. |
-| **Feb 25, 2026** | **Frontend renamed** `[John]` | `frontend-vite-react` → `frontend-demoland-vite-react` to clarify the demoLand/realDeal split. |
-| **Feb 25, 2026** | **Document-registry ZK keys** `[John]` | Placeholder ZK keys added for `verifyTwinBondIntegrity`. |
-| **Feb 25, 2026** | **ADL Next Steps roadmap** `[John]` | Beginner-friendly next steps roadmap added (`docs/ADL_NEXT_STEPS.md`). |
-| **Feb 26, 2026** | **4 contract fixes** `[John]` | Constructor fixes, `disclose()` corrections, ledger refactoring, recompile. |
-| **Feb 28, 2026** | **State Rollout Strategy** `[Spy]` | Comprehensive state-by-state launch strategy: Idaho anchor → UT → WA → NV → WY → MT → CA → NY → remaining US. |
-| **Feb 28, 2026** | **Pricing Analysis** `[Spy]` | Detailed ROI calculations per firm size, competitive pricing comparison, value-based pricing models. |
-| **Feb 28, 2026** | **Law Firm Market Research** `[Spy]` | Verified benchmarks for pricing, marketing, and go-to-market strategy. |
-| **Feb 28, 2026** | **Idaho Phase 1 deep expansion** `[Spy]` | Deep IRCP rule mapping, 7-district court structure, UPL analysis, med-mal statutes, local rules, data privacy. |
-| **Feb 28, 2026** | **Multi-state expansion docs** `[Spy]` | Phases 2–7 expanded: deep rule mapping and court structure for UT, WA, CA, NY, OH, TX, FL, IL + 40-state batch model + FRCP. |
+| Milestone | Who | Details |
+|-----------|:---:|---------|
+| Build Club Week 1 homework | `[J]` | Customer Analysis Matrix — evidence tags, willingness-to-pay analysis, 15 sourced references, glossary. |
+| 6-jurisdiction deep dive | `[J]` | Idaho, Utah, Washington, California, NYC, Ohio — UIDDA interstate rules, 20 automation metrics, 10 innovation ideas. |
+| Idaho "Hall of Shame" | `[J]` | Real sanction cases verified: Gem State Roofing, Raymond v ISP, Sanders v UI, Erickson v Erickson. Kohberger 68TB discovery chaos documented. |
+| Visual project overview | `[S]` | Legal/tech imagery and project overview created by Spy. |
+| Rebranded to AutoDiscovery.legal | `[J]` | Title rebrand across all docs and PDF exports. |
+| Idaho-first strategy | `[J]` | Ohio research archived. Docs restructured around Idaho as anchor jurisdiction. |
+| Build plan + Grok review | `[J]` | `BUILD_PLAN.md` created. Cross-LLM architecture review with Grok for validation. |
+| Spy collaboration workflow | `[S]` | Response files, accuracy checklists, malpractice insights documented. |
+| 6-entity TypeScript data model | `[J]` | Strongly-typed interfaces: Case, DiscoveryStep, JurisdictionRulePack, Document, Party, ComplianceAttestation. |
+| Smart contract scaffold | `[J]` | All 6 `.compact` files + witness stubs created in `autodiscovery-contract/src/contracts/`. |
+| Idaho IRCP rule pack | `[J]` | First jurisdiction data file — Idaho Rules of Civil Procedure encoded as structured JSON. |
+| Pitch fodder v2 | `[J]` | Shock & awe stats ($8.5M sanctions, 38K NYC dismissals, $30B/yr cost), one-pager, 1000-word synopsis. |
+| Adoption strategy | `[J]` | Go-to-market strategy and decision history tracking begun. |
 
 ---
 
-## Phase 5 — Provider Pattern, CI/CD & Contract Hardening (March 2026)
+## Phase 2 — Pitch Deck & Brand Building
 
-| Date | Milestone | Details |
-|------|-----------|---------|
-| **Mar 2026** | **demoLand/realDeal provider pattern** `[John]` | Full provider architecture implemented: 12 provider interfaces (IAuthProvider, ICaseProvider, IDocumentProvider, IComplianceProvider, IAIProvider, IContactsProvider, IJurisdictionProvider, IAccessControlProvider, IExpertWitnessProvider, IEmailSafetyProvider, ISearchProvider). |
-| **Mar 2026** | **demoLand mock providers** `[John]` | Complete mock implementations with realistic demo data — "Smith v. Acme Corp" Idaho med-mal case, case contacts, jurisdictions. |
-| **Mar 2026** | **realDeal provider stubs** `[John]` | All realDeal providers scaffolded with Midnight contract integration points — `real-auth.ts`, `real-case.ts`, `real-document.ts`, `real-compliance.ts`, `real-contacts.ts`, `real-jurisdiction.ts`, `real-access-control.ts`, `real-expert-witness.ts`, `real-email-safety.ts`, `real-ai.ts`. |
-| **Mar 2026** | **Chain reader for discovery-core** `[John]` | `discovery-core-reader.ts` implemented in realDeal providers for on-chain state reading. |
-| **Mar 2026** | **Storage layer** `[John]` | `adl-storage.ts` and `case-storage.ts` created for realDeal persistence. |
-| **Mar 2026** | **Email Safety Protocol UI** `[John]` | 4-tier threat levels (SAFE/CAUTION/DANGER/CRITICAL), recipient auto-detection, attachment metadata scanning — fully built in demoLand. |
-| **Mar 2026** | **Case Contact Management UI** `[John]` | Team-based contacts, star precedence ratings, connected-contact highlighting, drag reorder. |
-| **Mar 24, 2026** | **Search scoping** `[Copilot/Spy]` | Document search results scoped to authenticated user's accessible cases (`allowedCaseIds` filter). |
-| **Mar 24, 2026** | **Jurisdiction panel refactor** `[Copilot/Spy]` | Jurisdiction rules panel moved from inline sidebar to dedicated `/reference` page. |
-| **Mar 24, 2026** | **Deployment docs in README** `[Copilot/Spy]` | Proof server instructions, wallet funding, env vars, realDeal switching, references. |
-| **Mar 24, 2026** | **Business docs reorganized** `[Copilot/Spy]` | Non-code markdown moved from root to `docs/business/` with README index. |
-| **Mar 24, 2026** | **MidnightVitals gated** `[Copilot/Spy]` | Diagnostic panel hidden behind developer flag (URL param + keyboard shortcut) for clean demos. |
-| **Mar 24, 2026** | **Tooltip fixes** `[Copilot/Spy]` | Access control panel tooltip triggers fixed. |
-| **Mar 24, 2026** | **Integration findings documented** `[Copilot/Spy]` | `INTEGRATION-FINDINGS.md` — comprehensive findings from wiring realDeal layer to Midnight. |
-| **Mar 24, 2026** | **Hash migration** `[Copilot/Spy]` | FNV-1a hash functions migrated to Midnight's native `persistentHash` for production readiness. |
-| **Mar 24, 2026** | **Reproducible local dev** `[Copilot/Spy]` | `midnight-local-dev` Docker stack integration, `scripts/wait-for-stack.sh`, standalone and preview YAMLs. |
-| **Mar 25, 2026** | **GitHub Actions CI** `[Copilot/Spy]` | `test-compile.yml` workflow: Node 22, Compact compiler installation, artifact upload/download, debug steps. Multiple PRs merged (#41–#47). |
-| **Mar 25, 2026** | **MerkleTree API fix** `[Copilot/Spy]` | Corrected `proveParticipantHasRole` — replaced non-existent `.member(path, key)` with official `checkRoot(merkleTreePathRoot<N,T>(path))` pattern. Fixed `Maybe<T>` property access syntax. |
+**February 15–19, 2026** — Telling the story.
+
+| Milestone | Who | Details |
+|-----------|:---:|---------|
+| Idaho statute of limitations | `[S]` | Spy validated and updated SOL documentation. |
+| 8 demoLand UI features | `[J]` | Sunday night upgrade sprint — significant frontend feature push. |
+| README glow-up | `[J]` | Logo, badges, architecture diagram, feature highlights, doc index, team cards, email safety showcase. |
+| Banner infographic | `[J]` | "The Cost of Discovery Failure" infographic added to README. |
+| GeoZ architecture decoupled | `[J]` | Jurisdiction determined by filing court, not geolocation. GeoZ spun out as separate project. |
+| Jurisdiction ordering finalized | `[J+S]` | ID → UT → WA → CA → NYC → OH. |
+| Build Club Week 3 pitch deck | `[J]` | 13-slide HTML deck + 3-minute video script with recording checklist. |
+| Elephant brand mascot | `[J]` | Elephant-themed slides integrated into pitch (sanctions, pink, smarty, ADL). |
+| VC portfolio insights | `[J]` | Fundraising strategy derived from OpenVC article, applied to ADL positioning. |
+| Spy's deck tweaks | `[S]` | Vision line break, handle removal, ZK Proof card dropped, 3-column pricing, PDF regenerated. |
+| PDF generation pipeline | `[J]` | Puppeteer-based PDF script (`docs/generate-pdf.mjs`) for reproducible deck exports. |
 
 ---
 
-## Phase 6 — Documentation & Business Artifacts (Cumulative)
+## Phase 3 — White Paper, Contracts & Frontend
+
+**February 20–23, 2026** — The big build week.
+
+| Milestone | Who | Details |
+|-----------|:---:|---------|
+| White Paper draft | `[S]` | Full autoDiscovery.legal White Paper published in `docs/product/`. |
+| 4 core contracts compile | `[J]` | `discovery-core`, `jurisdiction-registry`, `compliance-proof`, `document-registry` — Compact 0.29.0, pragma `>= 0.20`. |
+| **All 6 contracts compile** | `[J]` | `access-control` and `expert-witness` added. **Full suite compiling.** |
+| Full demoLand UI | `[J]` | Dashboard, Case View, Login, Search, Compliance, Settings — all pages with mock providers. |
+| Separated realDeal frontend | `[J]` | `frontend-realdeal/` — separate Vite+React app with Lace wallet integration plumbing. |
+| "What It Means to Deploy" | `[J]` | Beginner-friendly explainer for the Midnight deployment process. |
+| MidnightVitals v0.1.0 | `[J]` | Real-time diagnostic console — monitors wallet, proof server, contracts, network. |
+| MidnightVitals rapid iteration | `[J]` | v0.1.0 → v0.3.8 in one day: CLI logging, scroll hints, card layout, slim bar, float panel, interaction hooks. |
+| MidnightVitals integrated | `[J]` | Kill-switch design documented. Vitals panel embedded in AutoDiscovery frontend. |
+| Edge Slide pitch strategy | `[S]` | Competitive edge positioning slides created by Spy. |
+| Pitch deck v3 | `[J+S]` | 13-slide deck — Edge slide (Spy), pricing overhaul (John), visual refinements. |
+
+---
+
+## Phase 4 — Business Strategy & Architecture
+
+**February 25–28, 2026** — Business foundation.
+
+| Milestone | Who | Details |
+|-----------|:---:|---------|
+| Investor & VC Roadmap | `[J]` | Full investor roadmap — market sizing, financial projections, exit strategy. |
+| Docs reorganization | `[J]` | Restructured into `pitch/`, `architecture/`, `product/`, `team/`, `business/`. |
+| Starter template cleanup | `[J]` | Removed template PNGs, purged 16 Zone.Identifier artifacts. |
+| Frontend renamed | `[J]` | `frontend-vite-react` → `frontend-demoland-vite-react` (demoLand/realDeal clarity). |
+| Document-registry ZK keys | `[J]` | Placeholder ZK keys for `verifyTwinBondIntegrity`. |
+| ADL Next Steps roadmap | `[J]` | Beginner-friendly next steps in `docs/ADL_NEXT_STEPS.md`. |
+| 4 contract fixes | `[J]` | Constructor fixes, `disclose()` corrections, ledger refactoring, recompile. |
+| State Rollout Strategy | `[S]` | State-by-state launch plan: Idaho → UT → WA → NV → WY → MT → CA → NY → remaining US. |
+| Pricing Analysis | `[S]` | ROI calculations per firm size, competitive comparison, value-based models. |
+| Law Firm Market Research | `[S]` | Verified benchmarks for pricing, marketing, and go-to-market strategy. |
+| Idaho Phase 1 deep expansion | `[S]` | Deep IRCP rule mapping, 7-district court structure, UPL analysis, med-mal statutes, local rules, data privacy. |
+| Multi-state expansion docs | `[S]` | Phases 2–7: UT, WA, CA, NY, OH, TX, FL, IL + 40-state batch model + FRCP. |
+
+---
+
+## Phase 5 — Provider Pattern, CI/CD & Hardening
+
+**March 2026** — Production-grade architecture.
+
+### Core Architecture `[J]`
 
 | Milestone | Details |
 |-----------|---------|
-| **20+ documentation files** `[Both]` | Architecture, product specs, pitch materials, team docs, discovery automation deep dives, reference research. |
-| **13-slide pitch deck** `[Both]` | HTML + PDF with Puppeteer generation pipeline (John), Edge slide + deck tweaks (Spy). |
-| **3-minute video script** `[Both]` | Scripted demo walkthrough with recording checklist. |
-| **AutoDiscovery Legal Bluebook article** `[Spy]` | Legal implications framework in `Media/AutoDiscovery_Legal_Bluebook.md`. |
-| **MidnightVitals sub-product** `[John]` | Full business plan, architecture doc, design spec, feature roadmap, integration guide, README — positioned as standalone npm package and future SaaS. |
-| **Build Club participation** `[Both]` | Week 1 Customer Analysis Matrix (John), Week 3 pitch deck (Both), Week 5 notes (Spy), launch checklist (Spy). |
-| **Comprehensive brand assets** `[Both]` | 22 media files — logos, elephants, courtroom imagery, neon map, judge illustrations, infographics. |
-| **SelectConnect integration spec** `[John]` | `SELECTCONNECT_INTEGRATION.md` — privacy-first contact sharing integration plan. |
-| **Oracle & API integration plan** `[John]` | External service integration architecture documented. |
+| demoLand/realDeal provider pattern | 12 provider interfaces — Auth, Case, Document, Compliance, AI, Contacts, Jurisdiction, AccessControl, ExpertWitness, EmailSafety, Search. |
+| demoLand mock providers | Complete mock implementations — "Smith v. Acme Corp" Idaho med-mal case, contacts, jurisdictions. |
+| realDeal provider stubs | All 12 providers scaffolded with Midnight contract integration points. |
+| Chain reader | `discovery-core-reader.ts` for on-chain state reading. |
+| Storage layer | `adl-storage.ts` and `case-storage.ts` for realDeal persistence. |
+| Email Safety Protocol UI | 4-tier threat levels (SAFE / CAUTION / DANGER / CRITICAL), recipient auto-detection, attachment scanning. |
+| Case Contact Management UI | Team contacts, star precedence ratings, connected-contact highlighting, drag reorder. |
+
+### Copilot Agent Sprint `[C/S]`
+
+Spy directed and merged 20+ Copilot PRs (#21–#48) in a two-day sprint:
+
+| Milestone | Details |
+|-----------|---------|
+| Search scoping | Document search results filtered to authenticated user's accessible cases. |
+| Jurisdiction panel refactor | Rules panel moved from inline sidebar to dedicated `/reference` page. |
+| Deployment docs in README | Proof server, wallet funding, env vars, realDeal switching instructions. |
+| Business docs reorganized | Non-code markdown consolidated into `docs/business/` with README index. |
+| MidnightVitals gated | Diagnostic panel hidden behind developer flag for clean demos. |
+| Tooltip fixes | Access control panel tooltip triggers corrected. |
+| Integration findings | `INTEGRATION-FINDINGS.md` — comprehensive realDeal wiring findings. |
+| Hash migration | FNV-1a → Midnight's native `persistentHash`. |
+| Reproducible local dev | `midnight-local-dev` Docker stack, `wait-for-stack.sh`, standalone/preview YAMLs. |
+| GitHub Actions CI | `test-compile.yml` — Node 22, Compact compiler install, artifact upload/download. |
+| MerkleTree API fix | `proveParticipantHasRole` corrected to use `checkRoot(merkleTreePathRoot<N,T>(path))`. |
 
 ---
 
-## Summary Statistics (as of March 25, 2026)
+## Phase 6 — Documentation & Business Artifacts
 
-| Metric | Count |
-|--------|-------|
-| **Total commits** | 285 |
-| **Compact smart contracts** | 6 (all compiling) |
-| **Exported ZK circuits** | 20+ across all contracts |
-| **Frontend apps** | 2 (demoLand + realDeal) |
-| **Provider interfaces** | 12 |
-| **Mock providers** | 12 (full demoLand coverage) |
-| **Documentation files** | 40+ |
-| **Media/brand assets** | 22 |
-| **UI pages** | 11 (dashboard, case view, login, search, compliance, settings, contacts, counter, wallet, home, reference) |
-| **Contributors** | 3 — John (155 commits), Spy (68 commits, 35 original + 33 PR merges), Copilot agent (62 commits, merged by Spy) |
-| **Days since first commit** | 73 |
+**Cumulative** — The paper trail that backs the code.
+
+| Artifact | Who | Details |
+|----------|:---:|---------|
+| 20+ documentation files | `[J+S]` | Architecture, product specs, pitch materials, team docs, deep dives, reference research. |
+| 13-slide pitch deck | `[J+S]` | HTML + PDF pipeline (John). Edge slide + deck polish (Spy). |
+| 3-minute video script | `[J+S]` | Scripted demo walkthrough with recording checklist. |
+| Bluebook legal article | `[S]` | Legal implications framework in `Media/AutoDiscovery_Legal_Bluebook.md`. |
+| MidnightVitals sub-product | `[J]` | Business plan, architecture, design spec, feature roadmap, integration guide, README. |
+| Build Club participation | `[J+S]` | Week 1 matrix (John), Week 3 deck (Both), Week 5 notes (Spy), launch checklist (Spy). |
+| 22 brand assets | `[J+S]` | Logos, elephants, courtroom imagery, neon map, judge illustrations, infographics. |
+| SelectConnect integration | `[J]` | Privacy-first contact sharing integration plan. |
+| Oracle & API integration | `[J]` | External service integration architecture. |
 
 ---
 
-*AutoDiscovery.legal — Past Milestones — John, Spy & Penny (March 2026)*
+## By the Numbers
+
+<div align="center">
+
+| | |
+|---|---|
+| **285** total commits | **73** days since first commit |
+| **6** Compact smart contracts (all compiling) | **20+** exported ZK circuits |
+| **2** frontend apps (demoLand + realDeal) | **12** provider interfaces |
+| **11** UI pages | **40+** documentation files |
+| **22** media/brand assets | **3** contributors |
+
+</div>
+
+### Contributor Breakdown
+
+| Contributor | Commits | Focus |
+|-------------|:-------:|-------|
+| **John** | 155 | Architecture, smart contracts, both frontends, CI/CD, MidnightVitals, technical docs, research |
+| **Spy** | 68 | White Paper, legal deep dives, state rollout strategy, pricing, Bluebook article, pitch materials, PR reviews (35 original + 33 merges) |
+| **Copilot** | 62 | Automated fixes and features, directed and merged by Spy |
+
+---
+
+<div align="center">
+
+*AutoDiscovery.legal — Past Milestones*
+*John, Spy & Penny — March 2026*
+
+</div>
