@@ -181,14 +181,14 @@ export function Dashboard() {
 
       {/* Secondary Stats Row */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
-        <div onMouseEnter={track.hover('Info Card: ZK Proofs')} className="flex items-center gap-3 bg-card border border-border rounded-xl px-4 py-3">
+        <div onMouseEnter={track.hover('Info Card: Compliance Records')} className="flex items-center gap-3 bg-card border border-border rounded-xl px-4 py-3">
           <Lock className="w-4 h-4 text-emerald-500" />
           <div>
             <p className="text-sm font-bold">{allAttestations.length} Proofs</p>
             <p className="text-[10px] text-muted-foreground"
-              title="Zero-knowledge proofs that verify compliance without revealing sensitive data"
+              title="Tamper-proof records that verify compliance without revealing sensitive data"
             >
-              ZK attestations generated
+              Compliance records generated
             </p>
           </div>
         </div>

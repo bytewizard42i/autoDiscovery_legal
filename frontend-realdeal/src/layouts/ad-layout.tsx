@@ -21,7 +21,7 @@ const navItems = [
 const demoNotifications = [
   { id: 'n1', type: 'deadline' as const, title: 'RFA Response Due in 5 Days', body: 'Henderson v. St. Alphonsus — IRCP 36 deadline approaching', time: '2 hours ago', read: false },
   { id: 'n2', type: 'obfuscation' as const, title: 'Haystack Alert — Production Set 1', body: 'Obfuscation score 0.62 detected on DEF production', time: '4 hours ago', read: false },
-  { id: 'n3', type: 'compliance' as const, title: 'ZK Attestation Verified', body: 'Document hash attestation confirmed on-chain', time: '1 day ago', read: true },
+  { id: 'n3', type: 'compliance' as const, title: 'Compliance Record Verified', body: 'Document hash attestation confirmed on-chain', time: '1 day ago', read: true },
   { id: 'n4', type: 'deadline' as const, title: 'Interrogatories Overdue', body: 'Henderson v. St. Alphonsus — IRCP 33 past deadline', time: '2 days ago', read: true },
 ];
 

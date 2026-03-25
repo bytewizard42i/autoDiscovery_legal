@@ -23,7 +23,7 @@ function describeRoute(pathname: string): string {
     '/login': 'the Login page.',
     '/cases': 'the Cases list — all your active discovery matters.',
     '/search': 'the Search page — full-text and metadata search across all documents.',
-    '/compliance': 'the Compliance Reports page — ZK attestation history and audit trail.',
+    '/compliance': 'the Compliance Reports page — compliance record history and audit trail.',
     '/settings': 'the Settings page — account preferences and configuration.',
   };
 

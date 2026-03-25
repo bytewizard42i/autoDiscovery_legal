@@ -201,14 +201,14 @@ export function CompliancePage() {
       {/* Attestation History */}
       <div>
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg font-bold">Proof History</h2>
+          <h2 className="text-lg font-bold">Compliance History</h2>
           <div className="flex items-center gap-1 text-[10px] text-muted-foreground">
             <Lock className="w-3 h-3" />
             <span
               className="cursor-help border-b border-dotted border-muted-foreground"
-              title="Zero-knowledge proofs allow verification of compliance without revealing sensitive case details. Each proof is anchored on the Midnight blockchain."
+              title="Each compliance record is cryptographically sealed and can be independently verified without revealing sensitive case details."
             >
-              Zero-Knowledge Verified
+              Independently Verified
             </span>
           </div>
         </div>
@@ -242,7 +242,7 @@ export function CompliancePage() {
                 <div className="flex items-center gap-3 mt-1.5 text-xs text-muted-foreground">
                   <span
                     className="font-mono cursor-help"
-                    title="Cryptographic proof hash — can be independently verified against the blockchain"
+                    title="Verification ID — can be independently verified against the compliance ledger"
                   >
                     {att.proofHash}
                   </span>
@@ -251,7 +251,7 @@ export function CompliancePage() {
               </div>
               <button
                 className="flex items-center gap-1 px-2.5 py-1.5 text-xs rounded-lg border border-border hover:bg-muted transition-colors shrink-0"
-                title="View proof details on blockchain"
+                title="View record details"
               >
                 <Eye className="w-3 h-3" /> View
               </button>

@@ -157,7 +157,7 @@ export const ACTIVITY_MESSAGES = {
     `in the discovery-core contract.`,
 
   caseCreateProofBuilding: () =>
-    `Building a zero-knowledge proof on your machine. ` +
+    `Building a compliance record on your machine. ` +
     `This is the step where your private case details stay local — ` +
     `only the proof that you did it correctly gets sent to the network. ` +
     `This usually takes 15-30 seconds. Hang tight.`,
@@ -180,8 +180,7 @@ export const ACTIVITY_MESSAGES = {
 
   // Compliance operations
   complianceCheckStarted: () =>
-    `Generating a compliance attestation. This creates a zero-knowledge proof ` +
-    `that discovery obligations were met, without revealing the underlying case details.`,
+    `Generating a compliance record that verifies discovery obligations were met without revealing the underlying case details.`,
 
   complianceCheckSuccess: () =>
     `Compliance attestation generated and recorded on-chain. ` +
@@ -189,12 +188,12 @@ export const ACTIVITY_MESSAGES = {
 
   // General
   proofBuilding: (circuitName: string) =>
-    `Building a zero-knowledge proof for the "${circuitName}" operation. ` +
+    `Building a compliance record for the "${circuitName}" operation. ` +
     `Your private data stays on your machine — only the proof is sent to the network. ` +
     `This usually takes 15-30 seconds.`,
 
   proofComplete: (durationSeconds: number) =>
-    `Proof built successfully. Took ${durationSeconds} seconds. ` +
+    `Record built successfully. Took ${durationSeconds} seconds. ` +
     `Now sending it to the Midnight preprod network for confirmation.`,
 
   transactionConfirmed: () =>

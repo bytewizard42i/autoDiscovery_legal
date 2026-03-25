@@ -165,9 +165,9 @@ export function Dashboard() {
           <div>
             <p className="text-sm font-bold">{allAttestations.length} Proofs</p>
             <p className="text-[10px] text-muted-foreground"
-              title="Zero-knowledge proofs that verify compliance without revealing sensitive data"
+              title="Tamper-proof records that verify compliance without revealing sensitive data"
             >
-              ZK attestations generated
+              Compliance records generated
             </p>
           </div>
         </div>

@@ -122,10 +122,6 @@ export function LoginPage() {
             </p>
             <div className="flex items-center justify-center gap-4 mt-3">
               <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-blue-300/50 font-medium">
-                <Lock className="w-3 h-3" /> Zero-Knowledge
-              </span>
-              <span className="w-1 h-1 rounded-full bg-blue-400/30" />
-              <span className="inline-flex items-center gap-1.5 text-[10px] uppercase tracking-wider text-blue-300/50 font-medium">
                 <Fingerprint className="w-3 h-3" /> Midnight Chain
               </span>
             </div>
@@ -274,7 +270,7 @@ export function LoginPage() {
             <div className="flex items-center justify-center gap-3 text-[10px] uppercase tracking-wider text-blue-300/30 font-medium">
               <span>Midnight Blockchain</span>
               <span className="w-1 h-1 rounded-full bg-blue-400/20" />
-              <span>Zero-Knowledge Proofs</span>
+              <span>Tamper-Proof Records</span>
               <span className="w-1 h-1 rounded-full bg-blue-400/20" />
               <span>Privacy-First</span>
             </div>

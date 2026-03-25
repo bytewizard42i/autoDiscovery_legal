@@ -157,7 +157,7 @@ export function SettingsPage() {
           {([
             { label: 'Deadline Alerts', desc: 'Notify when discovery deadlines are approaching or overdue', value: notifyDeadlines, set: setNotifyDeadlines },
             { label: 'Obfuscation Alerts', desc: 'Notify when AI detects potential data dump obfuscation in productions', value: notifyObfuscation, set: setNotifyObfuscation },
-            { label: 'Proof Confirmations', desc: 'Notify when zero-knowledge attestations are verified on-chain', value: notifyAttestations, set: setNotifyAttestations },
+            { label: 'Proof Confirmations', desc: 'Notify when compliance records are verified', value: notifyAttestations, set: setNotifyAttestations },
             { label: 'Document Sharing', desc: 'Notify when documents are shared with or by other parties', value: notifySharing, set: setNotifySharing },
           ]).map((item) => (
             <div key={item.label} className="flex items-center justify-between py-2">
@@ -188,7 +188,7 @@ export function SettingsPage() {
         <div className="flex items-center justify-center gap-3 text-[10px] text-muted-foreground/50">
           <span>Midnight Blockchain</span>
           <span className="w-1 h-1 rounded-full bg-muted-foreground/20" />
-          <span>Zero-Knowledge Proofs</span>
+          <span>Tamper-Proof Records</span>
           <span className="w-1 h-1 rounded-full bg-muted-foreground/20" />
           <span>Privacy-First</span>
         </div>

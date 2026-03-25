@@ -544,7 +544,7 @@ export function SignupPage() {
             <div className="flex items-center justify-center gap-3 text-[10px] uppercase tracking-wider text-blue-300/30 font-medium">
               <span>Midnight Blockchain</span>
               <span className="w-1 h-1 rounded-full bg-blue-400/20" />
-              <span>Zero-Knowledge Proofs</span>
+              <span>Tamper-Proof Records</span>
               <span className="w-1 h-1 rounded-full bg-blue-400/20" />
               <span>Privacy-First</span>
             </div>

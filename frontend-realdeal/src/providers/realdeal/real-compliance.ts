@@ -62,7 +62,7 @@ export class RealComplianceProvider implements IComplianceProvider {
     });
 
     console.info(
-      `[RealComplianceProvider] Attestation created locally (${proofHash}). Connect wallet to anchor ZK proof on-chain.`,
+      `[RealComplianceProvider] Attestation created locally (${proofHash}). Connect wallet to anchor compliance record on-chain.`,
     );
     return attestation;
   }
