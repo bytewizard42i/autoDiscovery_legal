@@ -1,4 +1,4 @@
-# AutoDiscovery.legal — Pitch Deck
+# DiscoveryManagement — Pitch Deck
 
 > **13-Slide Pitch — Midnight Build Club, Week 3**
 > Presenters: John Santi & Spy
@@ -10,7 +10,7 @@
 
 <div align="center">
 
-![What is the most terrifying word for a lawyer?](../media/ADL%20elephant%203.png)
+![What is the most terrifying word for a lawyer?](../media/DM%20elephant%203.png)
 
 </div>
 
@@ -72,22 +72,22 @@ A law firm failed to produce emails. The court sanctioned them **$8,568,633** an
 
 Sarah manages **12 active cases** across **3 attorneys**. She tracks deadlines in spreadsheets and Outlook reminders. When she's sick, nobody knows what's due. Last month, a set-number error almost cost the firm a spoliation motion. She juggles Idaho state rules, federal rules, and three other states — each with different deadlines, limits, and traps. There's no way to *prove* they complied. It's their word against opposing counsel.
 
-**Tomorrow: AutoDiscovery**
+**Tomorrow: DiscoveryManagement**
 
-Sarah opens AutoDiscovery. Her 12 cases auto-loaded the correct jurisdiction rules. Deadlines are computed automatically — weekends, holidays, service method extensions all handled. When her coworker is out, the system knows every obligation and alerts the team. Each completed step generates a cryptographic proof — timestamped, immutable, verifiable by courts. When opposing counsel claims non-compliance, Sarah exports a court-ready compliance report in one click.
+Sarah opens DiscoveryManagement. Her 12 cases auto-loaded the correct jurisdiction rules. Deadlines are computed automatically — weekends, holidays, service method extensions all handled. When her coworker is out, the system knows every obligation and alerts the team. Each completed step generates a cryptographic proof — timestamped, immutable, verifiable by courts. When opposing counsel claims non-compliance, Sarah exports a court-ready compliance report in one click.
 
-> *"If your discovery tracking system is a spreadsheet, AutoDiscovery is the upgrade you can't afford to skip."*
+> *"If your discovery tracking system is a spreadsheet, DiscoveryManagement is the upgrade you can't afford to skip."*
 > — Based on 15+ years of real-world litigation experience
 
 ---
 
 ## Slide 6: The Solution
 
-### AutoDiscovery.legal
+### DiscoveryManagement
 
 Jurisdiction-aware discovery automation with cryptographic compliance proofs.
 
-> *"AutoDiscovery doesn't just help you manage discovery — it **mathematically proves** you did it right."*
+> *"DiscoveryManagement doesn't just help you manage discovery — it **mathematically proves** you did it right."*
 
 - **Jurisdiction-Aware Rule Packs** — Hard-coded IRCP, FRCP, and state variants. No more guessing which rules apply. The system knows.
 - **Automated Deadline Engine** — Computes every deadline per state-specific time computation rules. Weekends, holidays, service extensions — handled.
@@ -122,7 +122,7 @@ Jurisdiction-aware discovery automation with cryptographic compliance proofs.
 
 ### Why Midnight Network Changes Everything
 
-| Traditional Legal Tech | AutoDiscovery on Midnight |
+| Traditional Legal Tech | DiscoveryManagement on Midnight |
 |----------------------|--------------------------|
 | Case data stored on vendor servers | **Private local state** — sensitive data never leaves your system |
 | Must reveal documents to prove compliance | **Zero-knowledge proofs** — prove compliance without revealing content |
@@ -162,7 +162,7 @@ Jurisdiction-aware discovery automation with cryptographic compliance proofs.
 | Clio, PracticePanther | No discovery-specific features, no rule packs |
 | Spreadsheets | Error-prone, no automation, no proof |
 
-**AutoDiscovery is the ONLY tool combining:** jurisdiction-aware automation + cryptographic compliance proofs + privacy-preserving architecture + court-verifiable audit trail.
+**DiscoveryManagement is the ONLY tool combining:** jurisdiction-aware automation + cryptographic compliance proofs + privacy-preserving architecture + court-verifiable audit trail.
 
 ---
 
@@ -191,7 +191,7 @@ Jurisdiction-aware discovery automation with cryptographic compliance proofs.
 
 Average sanction: **$704,094** · Risk per case: **~10%** · 50 cases/yr × 10% × $704K = **$3.5M exposure**
 
-> **AutoDiscovery costs a fraction of one sanction.**
+> **DiscoveryManagement costs a fraction of one sanction.**
 
 ---
 
@@ -239,12 +239,14 @@ Full FRCP integration, expert witness management, AI-assisted e-discovery, court
 - Published researcher for Idaho government agencies
 - Product vision, rule pack validation, user story design
 
-> *"I've seen attorneys lose cases because they missed one disclosure deadline. That's what AutoDiscovery prevents."*
+> *"I've seen attorneys lose cases because they missed one disclosure deadline. That's what DiscoveryManagement prevents."*
 
 **John Santi (@bytewizard42i)** — Technical Lead & Co-Founder
+- Midnight NightForce Bravo | Midnight Academy Triple Certified
+- Cardano Certified Blockchain Associate | Emurgo Certified Blockchain Business Consultant
 - Blockchain architect — Compact/Midnight smart contracts
 - Full-stack engineer — React, TypeScript, ZK systems
-- Midnight ecosystem ambassador and active builder
+- Midnight Ambassador | Midnight Aliit (inactive)
 - Technical architecture, contract development, infrastructure
 
 > *"Privacy isn't optional in legal tech — it's foundational. Midnight makes it possible."*
@@ -257,7 +259,7 @@ Full FRCP integration, expert witness management, AI-assisted e-discovery, court
 
 ### Courts Guard Precedent Fiercely. We're Setting a New One.
 
-Once courts accept ZK proofs as factual record, that precedent binds all future proceedings. AutoDiscovery isn't just legal tech — it's the bridge that brings blockchain into the most conservative, high-stakes industry in the world.
+Once courts accept ZK proofs as factual record, that precedent binds all future proceedings. DiscoveryManagement isn't just legal tech — it's the bridge that brings blockchain into the most conservative, high-stakes industry in the world.
 
 ### What We Need
 - Pilot law firms for beta testing
@@ -273,6 +275,6 @@ Once courts accept ZK proofs as factual record, that precedent binds all future 
 
 ---
 
-**autodiscovery.legal** | **@bytewizard42i** | Midnight Vegas Hackathon — April 2026
+**DiscoveryManagement** | **@bytewizard42i** | Midnight Vegas Hackathon — April 2026
 
-*"Discovery is a battlefield. AutoDiscovery is your armor."*
+*"Discovery is a battlefield. DiscoveryManagement is your armor."*
